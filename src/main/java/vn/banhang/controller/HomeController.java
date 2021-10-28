@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class HomeController  extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rq = req.getRequestDispatcher("/templates/templates/frontend/home.jsp");
+		RequestDispatcher rq = req.getRequestDispatcher("/views/home.jsp");
 		rq.forward(req, resp);
 	}
 }

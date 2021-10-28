@@ -21,7 +21,7 @@
 <body>
 
 <!-- header -->
-<%@ include file="/common/web/header.jsp" %>
+
 <!-- end header -->
 
 <!-- content -->
@@ -32,7 +32,7 @@
 
 
 <!-- footer -->
-<%@ include file="/common/web/footer.jsp" %>
+
 <!-- end footer -->
 
 <!-- JS -->
