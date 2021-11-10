@@ -1,9 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/templates/assets" var="url"></c:url>
-    
 
+<!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.1
+Version: 3.6
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta charset="utf-8"/>
+<title>Metronic | eCommerce - Order View</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+<link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+<link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css"/>
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN THEME STYLES -->
+<link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+<link href="../../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link href="../../assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+<link id="style_color" href="../../assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css"/>
+<link href="../../assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+<!-- END THEME STYLES -->
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<!-- END HEAD -->
 <!-- BEGIN BODY -->
 <!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
 <!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
@@ -14,7 +64,6 @@
 <!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
 <!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
-
 <body class="page-header-fixed page-quick-sidebar-over-content ">
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
@@ -23,7 +72,7 @@
 		<!-- BEGIN LOGO -->
 		<div class="page-logo">
 			<a href="index.html">
-			<img src="${url}/admin/layout/img/logo.png" alt="logo" class="logo-default"/>
+			<img src="../../assets/admin/layout/img/logo.png" alt="logo" class="logo-default"/>
 			</a>
 			<div class="menu-toggler sidebar-toggler hide">
 				<!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
@@ -165,7 +214,7 @@
 								<li>
 									<a href="inbox.html?a=view">
 									<span class="photo">
-									<img src="${url}/admin/layout3/img/avatar2.jpg" class="img-circle" alt="">
+									<img src="../../assets/admin/layout3/img/avatar2.jpg" class="img-circle" alt="">
 									</span>
 									<span class="subject">
 									<span class="from">
@@ -179,7 +228,7 @@
 								<li>
 									<a href="inbox.html?a=view">
 									<span class="photo">
-									<img src="${url}/admin/layout3/img/avatar3.jpg" class="img-circle" alt="">
+									<img src="../../assets/admin/layout3/img/avatar3.jpg" class="img-circle" alt="">
 									</span>
 									<span class="subject">
 									<span class="from">
@@ -193,7 +242,7 @@
 								<li>
 									<a href="inbox.html?a=view">
 									<span class="photo">
-									<img src="${url}/admin/layout3/img/avatar1.jpg" class="img-circle" alt="">
+									<img src="../../assets/admin/layout3/img/avatar1.jpg" class="img-circle" alt="">
 									</span>
 									<span class="subject">
 									<span class="from">
@@ -207,7 +256,7 @@
 								<li>
 									<a href="inbox.html?a=view">
 									<span class="photo">
-									<img src="${url}/admin/layout3/img/avatar2.jpg" class="img-circle" alt="">
+									<img src="../../assets/admin/layout3/img/avatar2.jpg" class="img-circle" alt="">
 									</span>
 									<span class="subject">
 									<span class="from">
@@ -221,7 +270,7 @@
 								<li>
 									<a href="inbox.html?a=view">
 									<span class="photo">
-									<img src="${url}/admin/layout3/img/avatar3.jpg" class="img-circle" alt="">
+									<img src="../../assets/admin/layout3/img/avatar3.jpg" class="img-circle" alt="">
 									</span>
 									<span class="subject">
 									<span class="from">
@@ -338,7 +387,7 @@
 				<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
 				<li class="dropdown dropdown-user">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-					<img alt="" class="img-circle" src="${url}/admin/layout/img/avatar3_small.jpg"/>
+					<img alt="" class="img-circle" src="../../assets/admin/layout/img/avatar3_small.jpg"/>
 					<span class="username username-hide-on-mobile">
 					Nick </span>
 					<i class="fa fa-angle-down"></i>
@@ -466,7 +515,7 @@
 					<span class="arrow open"></span>
 					</a>
 					<ul class="sub-menu">
-						<li class="active">
+						<li>
 							<a href="ecommerce_index.html">
 							<i class="icon-home"></i>
 							Dashboard</a>
@@ -476,7 +525,7 @@
 							<i class="icon-basket"></i>
 							Orders</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="ecommerce_orders_view.html">
 							<i class="icon-tag"></i>
 							Order View</a>
@@ -1261,7 +1310,7 @@
 			<!-- END STYLE CUSTOMIZER -->
 			<!-- BEGIN PAGE HEADER-->
 			<h3 class="page-title">
-			Dashboard <small>dashboard & statistics</small>
+			Order View <small>view order details</small>
 			</h3>
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
@@ -1275,7 +1324,7 @@
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<a href="#">Dashboard</a>
+						<a href="#">Order View</a>
 					</li>
 				</ul>
 				<div class="page-toolbar">
@@ -1305,753 +1354,707 @@
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN PAGE CONTENT-->
 			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
-					<div class="dashboard-stat blue-madison">
-						<div class="visual">
-							<i class="fa fa-briefcase fa-icon-medium"></i>
-						</div>
-						<div class="details">
-							<div class="number">
-								 $168,492.54
-							</div>
-							<div class="desc">
-								 Lifetime Sales
-							</div>
-						</div>
-						<a class="more" href="#">
-						View more <i class="m-icon-swapright m-icon-white"></i>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-					<div class="dashboard-stat red-intense">
-						<div class="visual">
-							<i class="fa fa-shopping-cart"></i>
-						</div>
-						<div class="details">
-							<div class="number">
-								 1,127,390
-							</div>
-							<div class="desc">
-								 Total Orders
-							</div>
-						</div>
-						<a class="more" href="#">
-						View more <i class="m-icon-swapright m-icon-white"></i>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-					<div class="dashboard-stat green-haze">
-						<div class="visual">
-							<i class="fa fa-group fa-icon-medium"></i>
-						</div>
-						<div class="details">
-							<div class="number">
-								 $670.54
-							</div>
-							<div class="desc">
-								 Average Orders
-							</div>
-						</div>
-						<a class="more" href="#">
-						View more <i class="m-icon-swapright m-icon-white"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-12">
 					<!-- Begin: life time stats -->
-					<div class="portlet box blue-steel">
+					<div class="portlet">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-thumb-tack"></i>Overview
+								<i class="fa fa-shopping-cart"></i>Order #12313232 <span class="hidden-480">
+								| Dec 27, 2013 7:16:25 </span>
 							</div>
-							<div class="tools">
-								<a href="javascript:;" class="collapse">
+							<div class="actions">
+								<a href="#" class="btn default yellow-stripe">
+								<i class="fa fa-angle-left"></i>
+								<span class="hidden-480">
+								Back </span>
 								</a>
-								<a href="#portlet-config" data-toggle="modal" class="config">
-								</a>
-								<a href="javascript:;" class="reload">
-								</a>
-								<a href="javascript:;" class="remove">
-								</a>
+								<div class="btn-group">
+									<a class="btn default yellow-stripe dropdown-toggle" href="#" data-toggle="dropdown">
+									<i class="fa fa-cog"></i>
+									<span class="hidden-480">
+									Tools </span>
+									<i class="fa fa-angle-down"></i>
+									</a>
+									<ul class="dropdown-menu pull-right">
+										<li>
+											<a href="#">
+											Export to Excel </a>
+										</li>
+										<li>
+											<a href="#">
+											Export to CSV </a>
+										</li>
+										<li>
+											<a href="#">
+											Export to XML </a>
+										</li>
+										<li class="divider">
+										</li>
+										<li>
+											<a href="#">
+											Print Invoice </a>
+										</li>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="portlet-body">
-							<div class="tabbable-line">
-								<ul class="nav nav-tabs">
+							<div class="tabbable">
+								<ul class="nav nav-tabs nav-tabs-lg">
 									<li class="active">
-										<a href="#overview_1" data-toggle="tab">
-										Top Selling </a>
+										<a href="#tab_1" data-toggle="tab">
+										Details </a>
 									</li>
 									<li>
-										<a href="#overview_2" data-toggle="tab">
-										Most Viewed </a>
-									</li>
-									<li>
-										<a href="#overview_3" data-toggle="tab">
-										New Customers </a>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										Orders <i class="fa fa-angle-down"></i>
+										<a href="#tab_2" data-toggle="tab">
+										Invoices <span class="badge badge-success">
+										4 </span>
 										</a>
-										<ul class="dropdown-menu" role="menu">
-											<li>
-												<a href="#overview_4" tabindex="-1" data-toggle="tab">
-												Latest 10 Orders </a>
-											</li>
-											<li>
-												<a href="#overview_4" tabindex="-1" data-toggle="tab">
-												Pending Orders </a>
-											</li>
-											<li>
-												<a href="#overview_4" tabindex="-1" data-toggle="tab">
-												Completed Orders </a>
-											</li>
-											<li>
-												<a href="#overview_4" tabindex="-1" data-toggle="tab">
-												Rejected Orders </a>
-											</li>
-										</ul>
+									</li>
+									<li>
+										<a href="#tab_3" data-toggle="tab">
+										Credit Memos </a>
+									</li>
+									<li>
+										<a href="#tab_4" data-toggle="tab">
+										Shipments <span class="badge badge-danger">
+										2 </span>
+										</a>
+									</li>
+									<li>
+										<a href="#tab_5" data-toggle="tab">
+										History </a>
 									</li>
 								</ul>
 								<div class="tab-content">
-									<div class="tab-pane active" id="overview_1">
-										<div class="table-responsive">
-											<table class="table table-striped table-hover table-bordered">
-											<thead>
-											<tr>
-												<th>
-													 Product Name
-												</th>
-												<th>
-													 Price
-												</th>
-												<th>
-													 Sold
-												</th>
-												<th>
-												</th>
-											</tr>
-											</thead>
-											<tbody>
-											<tr>
-												<td>
-													<a href="#">
-													Apple iPhone 4s - 16GB - Black </a>
-												</td>
-												<td>
-													 $625.50
-												</td>
-												<td>
-													 809
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Samsung Galaxy S III SGH-I747 - 16GB </a>
-												</td>
-												<td>
-													 $915.50
-												</td>
-												<td>
-													 6709
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Motorola Droid 4 XT894 - 16GB - Black </a>
-												</td>
-												<td>
-													 $878.50
-												</td>
-												<td>
-													 784
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Regatta Luca 3 in 1 Jacket </a>
-												</td>
-												<td>
-													 $25.50
-												</td>
-												<td>
-													 1245
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Samsung Galaxy Note 3 </a>
-												</td>
-												<td>
-													 $925.50
-												</td>
-												<td>
-													 21245
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Inoval Digital Pen </a>
-												</td>
-												<td>
-													 $125.50
-												</td>
-												<td>
-													 1245
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Metronic - Responsive Admin + Frontend Theme </a>
-												</td>
-												<td>
-													 $20.00
-												</td>
-												<td>
-													 11190
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											</tbody>
-											</table>
+									<div class="tab-pane active" id="tab_1">
+										<div class="row">
+											<div class="col-md-6 col-sm-12">
+												<div class="portlet yellow-crusta box">
+													<div class="portlet-title">
+														<div class="caption">
+															<i class="fa fa-cogs"></i>Order Details
+														</div>
+														<div class="actions">
+															<a href="#" class="btn btn-default btn-sm">
+															<i class="fa fa-pencil"></i> Edit </a>
+														</div>
+													</div>
+													<div class="portlet-body">
+														<div class="row static-info">
+															<div class="col-md-5 name">
+																 Order #:
+															</div>
+															<div class="col-md-7 value">
+																 12313232 <span class="label label-info label-sm">
+																Email confirmation was sent </span>
+															</div>
+														</div>
+														<div class="row static-info">
+															<div class="col-md-5 name">
+																 Order Date & Time:
+															</div>
+															<div class="col-md-7 value">
+																 Dec 27, 2013 7:16:25 PM
+															</div>
+														</div>
+														<div class="row static-info">
+															<div class="col-md-5 name">
+																 Order Status:
+															</div>
+															<div class="col-md-7 value">
+																<span class="label label-success">
+																Closed </span>
+															</div>
+														</div>
+														<div class="row static-info">
+															<div class="col-md-5 name">
+																 Grand Total:
+															</div>
+															<div class="col-md-7 value">
+																 $175.25
+															</div>
+														</div>
+														<div class="row static-info">
+															<div class="col-md-5 name">
+																 Payment Information:
+															</div>
+															<div class="col-md-7 value">
+																 Credit Card
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-12">
+												<div class="portlet blue-hoki box">
+													<div class="portlet-title">
+														<div class="caption">
+															<i class="fa fa-cogs"></i>Customer Information
+														</div>
+														<div class="actions">
+															<a href="#" class="btn btn-default btn-sm">
+															<i class="fa fa-pencil"></i> Edit </a>
+														</div>
+													</div>
+													<div class="portlet-body">
+														<div class="row static-info">
+															<div class="col-md-5 name">
+																 Customer Name:
+															</div>
+															<div class="col-md-7 value">
+																 Jhon Doe
+															</div>
+														</div>
+														<div class="row static-info">
+															<div class="col-md-5 name">
+																 Email:
+															</div>
+															<div class="col-md-7 value">
+																 jhon@doe.com
+															</div>
+														</div>
+														<div class="row static-info">
+															<div class="col-md-5 name">
+																 State:
+															</div>
+															<div class="col-md-7 value">
+																 New York
+															</div>
+														</div>
+														<div class="row static-info">
+															<div class="col-md-5 name">
+																 Phone Number:
+															</div>
+															<div class="col-md-7 value">
+																 12234389
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6 col-sm-12">
+												<div class="portlet green-meadow box">
+													<div class="portlet-title">
+														<div class="caption">
+															<i class="fa fa-cogs"></i>Billing Address
+														</div>
+														<div class="actions">
+															<a href="#" class="btn btn-default btn-sm">
+															<i class="fa fa-pencil"></i> Edit </a>
+														</div>
+													</div>
+													<div class="portlet-body">
+														<div class="row static-info">
+															<div class="col-md-12 value">
+																 Jhon Done<br>
+																 #24 Park Avenue Str<br>
+																 New York<br>
+																 Connecticut, 23456 New York<br>
+																 United States<br>
+																 T: 123123232<br>
+																 F: 231231232<br>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-12">
+												<div class="portlet red-sunglo box">
+													<div class="portlet-title">
+														<div class="caption">
+															<i class="fa fa-cogs"></i>Shipping Address
+														</div>
+														<div class="actions">
+															<a href="#" class="btn btn-default btn-sm">
+															<i class="fa fa-pencil"></i> Edit </a>
+														</div>
+													</div>
+													<div class="portlet-body">
+														<div class="row static-info">
+															<div class="col-md-12 value">
+																 Jhon Done<br>
+																 #24 Park Avenue Str<br>
+																 New York<br>
+																 Connecticut, 23456 New York<br>
+																 United States<br>
+																 T: 123123232<br>
+																 F: 231231232<br>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12 col-sm-12">
+												<div class="portlet grey-cascade box">
+													<div class="portlet-title">
+														<div class="caption">
+															<i class="fa fa-cogs"></i>Shopping Cart
+														</div>
+														<div class="actions">
+															<a href="#" class="btn btn-default btn-sm">
+															<i class="fa fa-pencil"></i> Edit </a>
+														</div>
+													</div>
+													<div class="portlet-body">
+														<div class="table-responsive">
+															<table class="table table-hover table-bordered table-striped">
+															<thead>
+															<tr>
+																<th>
+																	 Product
+																</th>
+																<th>
+																	 Item Status
+																</th>
+																<th>
+																	 Original Price
+																</th>
+																<th>
+																	 Price
+																</th>
+																<th>
+																	 Quantity
+																</th>
+																<th>
+																	 Tax Amount
+																</th>
+																<th>
+																	 Tax Percent
+																</th>
+																<th>
+																	 Discount Amount
+																</th>
+																<th>
+																	 Total
+																</th>
+															</tr>
+															</thead>
+															<tbody>
+															<tr>
+																<td>
+																	<a href="#">
+																	Product 1 </a>
+																</td>
+																<td>
+																	<span class="label label-sm label-success">
+																	Available
+																</td>
+																<td>
+																	 345.50$
+																</td>
+																<td>
+																	 345.50$
+																</td>
+																<td>
+																	 2
+																</td>
+																<td>
+																	 2.00$
+																</td>
+																<td>
+																	 4%
+																</td>
+																<td>
+																	 0.00$
+																</td>
+																<td>
+																	 691.00$
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<a href="#">
+																	Product 1 </a>
+																</td>
+																<td>
+																	<span class="label label-sm label-success">
+																	Available
+																</td>
+																<td>
+																	 345.50$
+																</td>
+																<td>
+																	 345.50$
+																</td>
+																<td>
+																	 2
+																</td>
+																<td>
+																	 2.00$
+																</td>
+																<td>
+																	 4%
+																</td>
+																<td>
+																	 0.00$
+																</td>
+																<td>
+																	 691.00$
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<a href="#">
+																	Product 1 </a>
+																</td>
+																<td>
+																	<span class="label label-sm label-success">
+																	Available
+																</td>
+																<td>
+																	 345.50$
+																</td>
+																<td>
+																	 345.50$
+																</td>
+																<td>
+																	 2
+																</td>
+																<td>
+																	 2.00$
+																</td>
+																<td>
+																	 4%
+																</td>
+																<td>
+																	 0.00$
+																</td>
+																<td>
+																	 691.00$
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<a href="#">
+																	Product 1 </a>
+																</td>
+																<td>
+																	<span class="label label-sm label-success">
+																	Available
+																</td>
+																<td>
+																	 345.50$
+																</td>
+																<td>
+																	 345.50$
+																</td>
+																<td>
+																	 2
+																</td>
+																<td>
+																	 2.00$
+																</td>
+																<td>
+																	 4%
+																</td>
+																<td>
+																	 0.00$
+																</td>
+																<td>
+																	 691.00$
+																</td>
+															</tr>
+															</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+											</div>
+											<div class="col-md-6">
+												<div class="well">
+													<div class="row static-info align-reverse">
+														<div class="col-md-8 name">
+															 Sub Total:
+														</div>
+														<div class="col-md-3 value">
+															 $1,124.50
+														</div>
+													</div>
+													<div class="row static-info align-reverse">
+														<div class="col-md-8 name">
+															 Shipping:
+														</div>
+														<div class="col-md-3 value">
+															 $40.50
+														</div>
+													</div>
+													<div class="row static-info align-reverse">
+														<div class="col-md-8 name">
+															 Grand Total:
+														</div>
+														<div class="col-md-3 value">
+															 $1,260.00
+														</div>
+													</div>
+													<div class="row static-info align-reverse">
+														<div class="col-md-8 name">
+															 Total Paid:
+														</div>
+														<div class="col-md-3 value">
+															 $1,260.00
+														</div>
+													</div>
+													<div class="row static-info align-reverse">
+														<div class="col-md-8 name">
+															 Total Refunded:
+														</div>
+														<div class="col-md-3 value">
+															 $0.00
+														</div>
+													</div>
+													<div class="row static-info align-reverse">
+														<div class="col-md-8 name">
+															 Total Due:
+														</div>
+														<div class="col-md-3 value">
+															 $1,124.50
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
-									<div class="tab-pane" id="overview_2">
-										<div class="table-responsive">
-											<table class="table table-striped table-hover table-bordered">
+									<div class="tab-pane" id="tab_2">
+										<div class="table-container">
+											<div class="table-actions-wrapper">
+												<span>
+												</span>
+												<select class="table-group-action-input form-control input-inline input-small input-sm">
+													<option value="">Select...</option>
+													<option value="pending">Pending</option>
+													<option value="paid">Paid</option>
+													<option value="canceled">Canceled</option>
+												</select>
+												<button class="btn btn-sm yellow table-group-action-submit"><i class="fa fa-check"></i> Submit</button>
+											</div>
+											<table class="table table-striped table-bordered table-hover" id="datatable_invoices">
 											<thead>
-											<tr>
-												<th>
-													 Product Name
+											<tr role="row" class="heading">
+												<th width="5%">
+													<input type="checkbox" class="group-checkable">
 												</th>
-												<th>
-													 Price
+												<th width="5%">
+													 Invoice&nbsp;#
 												</th>
-												<th>
-													 Views
+												<th width="15%">
+													 Bill To
 												</th>
-												<th>
+												<th width="15%">
+													 Invoice&nbsp;Date
 												</th>
-											</tr>
-											</thead>
-											<tbody>
-											<tr>
-												<td>
-													<a href="#">
-													Metronic - Responsive Admin + Frontend Theme </a>
-												</td>
-												<td>
-													 $20.00
-												</td>
-												<td>
-													 11190
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Regatta Luca 3 in 1 Jacket </a>
-												</td>
-												<td>
-													 $25.50
-												</td>
-												<td>
-													 1245
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Apple iPhone 4s - 16GB - Black </a>
-												</td>
-												<td>
-													 $625.50
-												</td>
-												<td>
-													 809
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Samsung Galaxy S III SGH-I747 - 16GB </a>
-												</td>
-												<td>
-													 $915.50
-												</td>
-												<td>
-													 6709
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Motorola Droid 4 XT894 - 16GB - Black </a>
-												</td>
-												<td>
-													 $878.50
-												</td>
-												<td>
-													 784
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Samsung Galaxy Note 3 </a>
-												</td>
-												<td>
-													 $925.50
-												</td>
-												<td>
-													 21245
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Inoval Digital Pen </a>
-												</td>
-												<td>
-													 $125.50
-												</td>
-												<td>
-													 1245
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="tab-pane" id="overview_3">
-										<div class="table-responsive">
-											<table class="table table-striped table-hover table-bordered">
-											<thead>
-											<tr>
-												<th>
-													 Customer Name
-												</th>
-												<th>
-													 Total Orders
-												</th>
-												<th>
-													 Total Amount
-												</th>
-												<th>
-												</th>
-											</tr>
-											</thead>
-											<tbody>
-											<tr>
-												<td>
-													<a href="#">
-													David Wilson </a>
-												</td>
-												<td>
-													 3
-												</td>
-												<td>
-													 $625.50
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Amanda Nilson </a>
-												</td>
-												<td>
-													 4
-												</td>
-												<td>
-													 $12625.50
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Jhon Doe </a>
-												</td>
-												<td>
-													 2
-												</td>
-												<td>
-													 $125.00
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Bill Chang </a>
-												</td>
-												<td>
-													 45
-												</td>
-												<td>
-													 $12,125.70
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Paul Strong </a>
-												</td>
-												<td>
-													 1
-												</td>
-												<td>
-													 $890.85
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Jane Hilson </a>
-												</td>
-												<td>
-													 5
-												</td>
-												<td>
-													 $239.85
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Patrick Walker </a>
-												</td>
-												<td>
-													 2
-												</td>
-												<td>
-													 $1239.85
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="tab-pane" id="overview_4">
-										<div class="table-responsive">
-											<table class="table table-striped table-hover table-bordered">
-											<thead>
-											<tr>
-												<th>
-													 Customer Name
-												</th>
-												<th>
-													 Date
-												</th>
-												<th>
+												<th width="10%">
 													 Amount
 												</th>
-												<th>
+												<th width="10%">
 													 Status
 												</th>
-												<th>
+												<th width="10%">
+													 Actions
 												</th>
+											</tr>
+											<tr role="row" class="filter">
+												<td>
+												</td>
+												<td>
+													<input type="text" class="form-control form-filter input-sm" name="order_invoice_no">
+												</td>
+												<td>
+													<input type="text" class="form-control form-filter input-sm" name="order_invoice_bill_to">
+												</td>
+												<td>
+													<div class="input-group date date-picker margin-bottom-5" data-date-format="dd/mm/yyyy">
+														<input type="text" class="form-control form-filter input-sm" readonly name="order_invoice_date_from" placeholder="From">
+														<span class="input-group-btn">
+														<button class="btn btn-sm default" type="button"><i class="fa fa-calendar"></i></button>
+														</span>
+													</div>
+													<div class="input-group date date-picker" data-date-format="dd/mm/yyyy">
+														<input type="text" class="form-control form-filter input-sm" readonly name="order_invoice_date_to" placeholder="To">
+														<span class="input-group-btn">
+														<button class="btn btn-sm default" type="button"><i class="fa fa-calendar"></i></button>
+														</span>
+													</div>
+												</td>
+												<td>
+													<div class="margin-bottom-5">
+														<input type="text" class="form-control form-filter input-sm" name="order_invoice_amount_from" placeholder="From"/>
+													</div>
+													<input type="text" class="form-control form-filter input-sm" name="order_invoice_amount_to" placeholder="To"/>
+												</td>
+												<td>
+													<select name="order_invoice_status" class="form-control form-filter input-sm">
+														<option value="">Select...</option>
+														<option value="pending">Pending</option>
+														<option value="paid">Paid</option>
+														<option value="canceled">Canceled</option>
+													</select>
+												</td>
+												<td>
+													<div class="margin-bottom-5">
+														<button class="btn btn-sm yellow filter-submit margin-bottom"><i class="fa fa-search"></i> Search</button>
+													</div>
+													<button class="btn btn-sm red filter-cancel"><i class="fa fa-times"></i> Reset</button>
+												</td>
 											</tr>
 											</thead>
 											<tbody>
-											<tr>
-												<td>
-													<a href="#">
-													David Wilson </a>
-												</td>
-												<td>
-													 3 Jan, 2013
-												</td>
-												<td>
-													 $625.50
-												</td>
-												<td>
-													<span class="label label-sm label-warning">
-													Pending </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Amanda Nilson </a>
-												</td>
-												<td>
-													 13 Feb, 2013
-												</td>
-												<td>
-													 $12625.50
-												</td>
-												<td>
-													<span class="label label-sm label-warning">
-													Pending </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Jhon Doe </a>
-												</td>
-												<td>
-													 20 Mar, 2013
-												</td>
-												<td>
-													 $125.00
-												</td>
-												<td>
-													<span class="label label-sm label-success">
-													Success </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Bill Chang </a>
-												</td>
-												<td>
-													 29 May, 2013
-												</td>
-												<td>
-													 $12,125.70
-												</td>
-												<td>
-													<span class="label label-sm label-info">
-													In Process </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Paul Strong </a>
-												</td>
-												<td>
-													 1 Jun, 2013
-												</td>
-												<td>
-													 $890.85
-												</td>
-												<td>
-													<span class="label label-sm label-success">
-													Success </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Jane Hilson </a>
-												</td>
-												<td>
-													 5 Aug, 2013
-												</td>
-												<td>
-													 $239.85
-												</td>
-												<td>
-													<span class="label label-sm label-danger">
-													Canceled </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Patrick Walker </a>
-												</td>
-												<td>
-													 6 Aug, 2013
-												</td>
-												<td>
-													 $1239.85
-												</td>
-												<td>
-													<span class="label label-sm label-success">
-													Success </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
 											</tbody>
 											</table>
 										</div>
 									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End: life time stats -->
-				</div>
-				<div class="col-md-6">
-					<!-- Begin: life time stats -->
-					<div class="portlet box red-sunglo">
-						<div class="portlet-title">
-							<div class="caption">
-								<i class="fa fa-bar-chart-o"></i>Revenue
-							</div>
-							<div class="tools">
-								<a href="#portlet-config" data-toggle="modal" class="config">
-								</a>
-								<a href="javascript:;" class="reload">
-								</a>
-							</div>
-							<ul class="nav nav-tabs" style="margin-right: 10px">
-								<li>
-									<a href="#portlet_tab2" data-toggle="tab" id="statistics_amounts_tab">
-									Amounts </a>
-								</li>
-								<li class="active">
-									<a href="#portlet_tab1" data-toggle="tab">
-									Orders </a>
-								</li>
-							</ul>
-						</div>
-						<div class="portlet-body">
-							<div class="tab-content">
-								<div class="tab-pane active" id="portlet_tab1">
-									<div id="statistics_1" class="chart">
+									<div class="tab-pane" id="tab_3">
+										<div class="table-container">
+											<table class="table table-striped table-bordered table-hover" id="datatable_credit_memos">
+											<thead>
+											<tr role="row" class="heading">
+												<th width="5%">
+													 Credit&nbsp;Memo&nbsp;#
+												</th>
+												<th width="15%">
+													 Bill To
+												</th>
+												<th width="15%">
+													 Created&nbsp;Date
+												</th>
+												<th width="10%">
+													 Status
+												</th>
+												<th width="10%">
+													 Actions
+												</th>
+											</tr>
+											</thead>
+											<tbody>
+											</tbody>
+											</table>
+										</div>
 									</div>
-								</div>
-								<div class="tab-pane" id="portlet_tab2">
-									<div id="statistics_2" class="chart">
+									<div class="tab-pane" id="tab_4">
+										<div class="table-container">
+											<table class="table table-striped table-bordered table-hover" id="datatable_shipment">
+											<thead>
+											<tr role="row" class="heading">
+												<th width="5%">
+													 Shipment&nbsp;#
+												</th>
+												<th width="15%">
+													 Ship&nbsp;To
+												</th>
+												<th width="15%">
+													 Shipped&nbsp;Date
+												</th>
+												<th width="10%">
+													 Quantity
+												</th>
+												<th width="10%">
+													 Actions
+												</th>
+											</tr>
+											<tr role="row" class="filter">
+												<td>
+													<input type="text" class="form-control form-filter input-sm" name="order_shipment_no">
+												</td>
+												<td>
+													<input type="text" class="form-control form-filter input-sm" name="order_shipment_ship_to">
+												</td>
+												<td>
+													<div class="input-group date date-picker margin-bottom-5" data-date-format="dd/mm/yyyy">
+														<input type="text" class="form-control form-filter input-sm" readonly name="order_shipment_date_from" placeholder="From">
+														<span class="input-group-btn">
+														<button class="btn btn-sm default" type="button"><i class="fa fa-calendar"></i></button>
+														</span>
+													</div>
+													<div class="input-group date date-picker" data-date-format="dd/mm/yyyy">
+														<input type="text" class="form-control form-filter input-sm" readonly name="order_shipment_date_to" placeholder="To">
+														<span class="input-group-btn">
+														<button class="btn btn-sm default" type="button"><i class="fa fa-calendar"></i></button>
+														</span>
+													</div>
+												</td>
+												<td>
+													<div class="margin-bottom-5">
+														<input type="text" class="form-control form-filter input-sm" name="order_shipment_quantity_from" placeholder="From"/>
+													</div>
+													<input type="text" class="form-control form-filter input-sm" name="order_shipment_quantity_to" placeholder="To"/>
+												</td>
+												<td>
+													<div class="margin-bottom-5">
+														<button class="btn btn-sm yellow filter-submit margin-bottom"><i class="fa fa-search"></i> Search</button>
+													</div>
+													<button class="btn btn-sm red filter-cancel"><i class="fa fa-times"></i> Reset</button>
+												</td>
+											</tr>
+											</thead>
+											<tbody>
+											</tbody>
+											</table>
+										</div>
 									</div>
-								</div>
-							</div>
-							<div class="well no-margin no-border">
-								<div class="row">
-									<div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-										<span class="label label-success">
-										Revenue: </span>
-										<h3>$1,234,112.20</h3>
-									</div>
-									<div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-										<span class="label label-info">
-										Tax: </span>
-										<h3>$134,90.10</h3>
-									</div>
-									<div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-										<span class="label label-danger">
-										Shipment: </span>
-										<h3>$1,134,90.10</h3>
-									</div>
-									<div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-										<span class="label label-warning">
-										Orders: </span>
-										<h3>235090</h3>
+									<div class="tab-pane" id="tab_5">
+										<div class="table-container">
+											<table class="table table-striped table-bordered table-hover" id="datatable_history">
+											<thead>
+											<tr role="row" class="heading">
+												<th width="25%">
+													 Datetime
+												</th>
+												<th width="55%">
+													 Description
+												</th>
+												<th width="10%">
+													 Notification
+												</th>
+												<th width="10%">
+													 Actions
+												</th>
+											</tr>
+											<tr role="row" class="filter">
+												<td>
+													<div class="input-group date datetime-picker margin-bottom-5" data-date-format="dd/mm/yyyy hh:ii">
+														<input type="text" class="form-control form-filter input-sm" readonly name="order_history_date_from" placeholder="From">
+														<span class="input-group-btn">
+														<button class="btn btn-sm default date-set" type="button"><i class="fa fa-calendar"></i></button>
+														</span>
+													</div>
+													<div class="input-group date datetime-picker" data-date-format="dd/mm/yyyy hh:ii">
+														<input type="text" class="form-control form-filter input-sm" readonly name="order_history_date_to" placeholder="To">
+														<span class="input-group-btn">
+														<button class="btn btn-sm default date-set" type="button"><i class="fa fa-calendar"></i></button>
+														</span>
+													</div>
+												</td>
+												<td>
+													<input type="text" class="form-control form-filter input-sm" name="order_history_desc" placeholder="To"/>
+												</td>
+												<td>
+													<select name="order_history_notification" class="form-control form-filter input-sm">
+														<option value="">Select...</option>
+														<option value="pending">Pending</option>
+														<option value="notified">Notified</option>
+														<option value="failed">Failed</option>
+													</select>
+												</td>
+												<td>
+													<div class="margin-bottom-5">
+														<button class="btn btn-sm yellow filter-submit margin-bottom"><i class="fa fa-search"></i> Search</button>
+													</div>
+													<button class="btn btn-sm red filter-cancel"><i class="fa fa-times"></i> Reset</button>
+												</td>
+											</tr>
+											</thead>
+											<tbody>
+											</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -2115,7 +2118,7 @@
 									<div class="media-status">
 										<span class="badge badge-success">8</span>
 									</div>
-									<img class="media-object" src="${url}/admin/layout/img/avatar3.jpg" alt="...">
+									<img class="media-object" src="../../assets/admin/layout/img/avatar3.jpg" alt="...">
 									<div class="media-body">
 										<h4 class="media-heading">Bob Nilson</h4>
 										<div class="media-heading-sub">
@@ -2124,7 +2127,7 @@
 									</div>
 								</li>
 								<li class="media">
-									<img class="media-object" src="${url}/admin/layout/img/avatar1.jpg" alt="...">
+									<img class="media-object" src="../../assets/admin/layout/img/avatar1.jpg" alt="...">
 									<div class="media-body">
 										<h4 class="media-heading">Nick Larson</h4>
 										<div class="media-heading-sub">
@@ -2136,7 +2139,7 @@
 									<div class="media-status">
 										<span class="badge badge-danger">3</span>
 									</div>
-									<img class="media-object" src="${url}/admin/layout/img/avatar4.jpg" alt="...">
+									<img class="media-object" src="../../assets/admin/layout/img/avatar4.jpg" alt="...">
 									<div class="media-body">
 										<h4 class="media-heading">Deon Hubert</h4>
 										<div class="media-heading-sub">
@@ -2145,7 +2148,7 @@
 									</div>
 								</li>
 								<li class="media">
-									<img class="media-object" src="${url}/admin/layout/img/avatar2.jpg" alt="...">
+									<img class="media-object" src="../../assets/admin/layout/img/avatar2.jpg" alt="...">
 									<div class="media-body">
 										<h4 class="media-heading">Ella Wong</h4>
 										<div class="media-heading-sub">
@@ -2160,7 +2163,7 @@
 									<div class="media-status">
 										<span class="badge badge-warning">2</span>
 									</div>
-									<img class="media-object" src="${url}/admin/layout/img/avatar6.jpg" alt="...">
+									<img class="media-object" src="../../assets/admin/layout/img/avatar6.jpg" alt="...">
 									<div class="media-body">
 										<h4 class="media-heading">Lara Kunis</h4>
 										<div class="media-heading-sub">
@@ -2175,7 +2178,7 @@
 									<div class="media-status">
 										<span class="label label-sm label-success">new</span>
 									</div>
-									<img class="media-object" src="${url}/admin/layout/img/avatar7.jpg" alt="...">
+									<img class="media-object" src="../../assets/admin/layout/img/avatar7.jpg" alt="...">
 									<div class="media-body">
 										<h4 class="media-heading">Ernie Kyllonen</h4>
 										<div class="media-heading-sub">
@@ -2185,7 +2188,7 @@
 									</div>
 								</li>
 								<li class="media">
-									<img class="media-object" src="${url}/admin/layout/img/avatar8.jpg" alt="...">
+									<img class="media-object" src="../../assets/admin/layout/img/avatar8.jpg" alt="...">
 									<div class="media-body">
 										<h4 class="media-heading">Lisa Stone</h4>
 										<div class="media-heading-sub">
@@ -2200,7 +2203,7 @@
 									<div class="media-status">
 										<span class="badge badge-success">7</span>
 									</div>
-									<img class="media-object" src="${url}/admin/layout/img/avatar9.jpg" alt="...">
+									<img class="media-object" src="../../assets/admin/layout/img/avatar9.jpg" alt="...">
 									<div class="media-body">
 										<h4 class="media-heading">Deon Portalatin</h4>
 										<div class="media-heading-sub">
@@ -2209,7 +2212,7 @@
 									</div>
 								</li>
 								<li class="media">
-									<img class="media-object" src="${url}/admin/layout/img/avatar10.jpg" alt="...">
+									<img class="media-object" src="../../assets/admin/layout/img/avatar10.jpg" alt="...">
 									<div class="media-body">
 										<h4 class="media-heading">Irina Savikova</h4>
 										<div class="media-heading-sub">
@@ -2221,7 +2224,7 @@
 									<div class="media-status">
 										<span class="badge badge-danger">4</span>
 									</div>
-									<img class="media-object" src="${url}/admin/layout/img/avatar11.jpg" alt="...">
+									<img class="media-object" src="../../assets/admin/layout/img/avatar11.jpg" alt="...">
 									<div class="media-body">
 										<h4 class="media-heading">Maria Gomez</h4>
 										<div class="media-heading-sub">
@@ -2241,7 +2244,7 @@
 								</div>
 								<div class="page-quick-sidebar-chat-user-messages">
 									<div class="post out">
-										<img class="avatar" alt="" src="${url}/admin/layout/img/avatar3.jpg"/>
+										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/>
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Bob Nilson</a>
@@ -2251,7 +2254,7 @@
 										</div>
 									</div>
 									<div class="post in">
-										<img class="avatar" alt="" src="${url}/admin/layout/img/avatar2.jpg"/>
+										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/>
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Ella Wong</a>
@@ -2261,7 +2264,7 @@
 										</div>
 									</div>
 									<div class="post out">
-										<img class="avatar" alt="" src="${url}/admin/layout/img/avatar3.jpg"/>
+										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/>
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Bob Nilson</a>
@@ -2271,7 +2274,7 @@
 										</div>
 									</div>
 									<div class="post in">
-										<img class="avatar" alt="" src="${url}/admin/layout/img/avatar2.jpg"/>
+										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/>
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Ella Wong</a>
@@ -2281,7 +2284,7 @@
 										</div>
 									</div>
 									<div class="post out">
-										<img class="avatar" alt="" src="${url}/admin/layout/img/avatar3.jpg"/>
+										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/>
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Bob Nilson</a>
@@ -2291,7 +2294,7 @@
 										</div>
 									</div>
 									<div class="post in">
-										<img class="avatar" alt="" src="${url}/admin/layout/img/avatar2.jpg"/>
+										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/>
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Ella Wong</a>
@@ -2301,7 +2304,7 @@
 										</div>
 									</div>
 									<div class="post out">
-										<img class="avatar" alt="" src="${url}/admin/layout/img/avatar3.jpg"/>
+										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/>
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Bob Nilson</a>
@@ -2311,7 +2314,7 @@
 										</div>
 									</div>
 									<div class="post in">
-										<img class="avatar" alt="" src="${url}/admin/layout/img/avatar2.jpg"/>
+										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar2.jpg"/>
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Ella Wong</a>
@@ -2321,7 +2324,7 @@
 										</div>
 									</div>
 									<div class="post out">
-										<img class="avatar" alt="" src="${url}/admin/layout/img/avatar3.jpg"/>
+										<img class="avatar" alt="" src="../../assets/admin/layout/img/avatar3.jpg"/>
 										<div class="message">
 											<span class="arrow"></span>
 											<a href="#" class="name">Bob Nilson</a>
@@ -2730,32 +2733,35 @@
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <!-- BEGIN CORE PLUGINS -->
 <!--[if lt IE 9]>
-<script src="${url}/global/plugins/respond.min.js"></script>
-<script src="${url}/global/plugins/excanvas.min.js"></script> 
+<script src="../../assets/global/plugins/respond.min.js"></script>
+<script src="../../assets/global/plugins/excanvas.min.js"></script> 
 <![endif]-->
-<script src="${url}/global/plugins/jquery.min.js" type="text/javascript"></script>
-<script src="${url}/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
 <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-<script src="${url}/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
-<script src="${url}/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="${url}/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-<script src="${url}/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="${url}/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="${url}/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
-<script src="${url}/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-<script src="${url}/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="${url}/global/plugins/flot/jquery.flot.js" type="text/javascript"></script>
-<script src="${url}/global/plugins/flot/jquery.flot.resize.js" type="text/javascript"></script>
-<script src="${url}/global/plugins/flot/jquery.flot.categories.js" type="text/javascript"></script>
+<script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="../../assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="${url}/global/scripts/metronic.js" type="text/javascript"></script>
-<script src="${url}/admin/layout/scripts/layout.js" type="text/javascript"></script>
-<script src="${url}/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
-<script src="${url}/admin/layout/scripts/demo.js" type="text/javascript"></script>
-<script src="${url}/admin/pages/scripts/ecommerce-index.js"></script>
+<script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="../../assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+<script src="../../assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+<script src="../../assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
+<script src="../../assets/global/scripts/datatable.js"></script>
+<script src="../../assets/admin/pages/scripts/ecommerce-orders-view.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
         jQuery(document).ready(function() {    
@@ -2763,7 +2769,7 @@
 Layout.init(); // init current layout
 QuickSidebar.init(); // init quick sidebar
 Demo.init(); // init demo features
-           EcommerceIndex.init();
+           EcommerceOrdersView.init();
         });
     </script>
 <!-- END JAVASCRIPTS -->

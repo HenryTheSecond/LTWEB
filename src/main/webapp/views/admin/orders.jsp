@@ -1,9 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/templates/assets" var="url"></c:url>
     
-
+<!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.1
+Version: 3.6
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta charset="utf-8"/>
+<title>Metronic | eCommerce - Orders</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+<link href="${url}/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="${url}/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+<link href="${url}/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="${url}/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+<link href="${url}/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" href="${url}/global/plugins/select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="${url}/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="${url}/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN THEME STYLES -->
+<link href="${url}/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+<link href="${url}/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link href="${url}/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+<link id="style_color" href="${url}/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css"/>
+<link href="${url}/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+<!-- END THEME STYLES -->
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<!-- END HEAD -->
 <!-- BEGIN BODY -->
 <!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
 <!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
@@ -14,7 +63,6 @@
 <!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
 <!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
-
 <body class="page-header-fixed page-quick-sidebar-over-content ">
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
@@ -466,12 +514,12 @@
 					<span class="arrow open"></span>
 					</a>
 					<ul class="sub-menu">
-						<li class="active">
+						<li>
 							<a href="ecommerce_index.html">
 							<i class="icon-home"></i>
 							Dashboard</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="ecommerce_orders.html">
 							<i class="icon-basket"></i>
 							Orders</a>
@@ -1261,7 +1309,7 @@
 			<!-- END STYLE CUSTOMIZER -->
 			<!-- BEGIN PAGE HEADER-->
 			<h3 class="page-title">
-			Dashboard <small>dashboard & statistics</small>
+			Orders <small>orders listing</small>
 			</h3>
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
@@ -1275,7 +1323,7 @@
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<a href="#">Dashboard</a>
+						<a href="#">Orders</a>
 					</li>
 				</ul>
 				<div class="page-toolbar">
@@ -1305,755 +1353,157 @@
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN PAGE CONTENT-->
 			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
-					<div class="dashboard-stat blue-madison">
-						<div class="visual">
-							<i class="fa fa-briefcase fa-icon-medium"></i>
-						</div>
-						<div class="details">
-							<div class="number">
-								 $168,492.54
-							</div>
-							<div class="desc">
-								 Lifetime Sales
-							</div>
-						</div>
-						<a class="more" href="#">
-						View more <i class="m-icon-swapright m-icon-white"></i>
-						</a>
+				<div class="col-md-12">
+					<div class="note note-danger">
+						<p>
+							 NOTE: The below datatable is not connected to a real database so the filter and sorting is just simulated for demo purposes only.
+						</p>
 					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-					<div class="dashboard-stat red-intense">
-						<div class="visual">
-							<i class="fa fa-shopping-cart"></i>
-						</div>
-						<div class="details">
-							<div class="number">
-								 1,127,390
-							</div>
-							<div class="desc">
-								 Total Orders
-							</div>
-						</div>
-						<a class="more" href="#">
-						View more <i class="m-icon-swapright m-icon-white"></i>
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-					<div class="dashboard-stat green-haze">
-						<div class="visual">
-							<i class="fa fa-group fa-icon-medium"></i>
-						</div>
-						<div class="details">
-							<div class="number">
-								 $670.54
-							</div>
-							<div class="desc">
-								 Average Orders
-							</div>
-						</div>
-						<a class="more" href="#">
-						View more <i class="m-icon-swapright m-icon-white"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
 					<!-- Begin: life time stats -->
-					<div class="portlet box blue-steel">
+					<div class="portlet">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-thumb-tack"></i>Overview
+								<i class="fa fa-shopping-cart"></i>Order Listing
 							</div>
-							<div class="tools">
-								<a href="javascript:;" class="collapse">
+							<div class="actions">
+								<a href="#" class="btn default yellow-stripe">
+								<i class="fa fa-plus"></i>
+								<span class="hidden-480">
+								New Order </span>
 								</a>
-								<a href="#portlet-config" data-toggle="modal" class="config">
-								</a>
-								<a href="javascript:;" class="reload">
-								</a>
-								<a href="javascript:;" class="remove">
-								</a>
+								<div class="btn-group">
+									<a class="btn default yellow-stripe dropdown-toggle" href="#" data-toggle="dropdown">
+									<i class="fa fa-share"></i>
+									<span class="hidden-480">
+									Tools </span>
+									<i class="fa fa-angle-down"></i>
+									</a>
+									<ul class="dropdown-menu pull-right">
+										<li>
+											<a href="#">
+											Export to Excel </a>
+										</li>
+										<li>
+											<a href="#">
+											Export to CSV </a>
+										</li>
+										<li>
+											<a href="#">
+											Export to XML </a>
+										</li>
+										<li class="divider">
+										</li>
+										<li>
+											<a href="#">
+											Print Invoices </a>
+										</li>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="portlet-body">
-							<div class="tabbable-line">
-								<ul class="nav nav-tabs">
-									<li class="active">
-										<a href="#overview_1" data-toggle="tab">
-										Top Selling </a>
-									</li>
-									<li>
-										<a href="#overview_2" data-toggle="tab">
-										Most Viewed </a>
-									</li>
-									<li>
-										<a href="#overview_3" data-toggle="tab">
-										New Customers </a>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										Orders <i class="fa fa-angle-down"></i>
-										</a>
-										<ul class="dropdown-menu" role="menu">
-											<li>
-												<a href="#overview_4" tabindex="-1" data-toggle="tab">
-												Latest 10 Orders </a>
-											</li>
-											<li>
-												<a href="#overview_4" tabindex="-1" data-toggle="tab">
-												Pending Orders </a>
-											</li>
-											<li>
-												<a href="#overview_4" tabindex="-1" data-toggle="tab">
-												Completed Orders </a>
-											</li>
-											<li>
-												<a href="#overview_4" tabindex="-1" data-toggle="tab">
-												Rejected Orders </a>
-											</li>
-										</ul>
-									</li>
-								</ul>
-								<div class="tab-content">
-									<div class="tab-pane active" id="overview_1">
-										<div class="table-responsive">
-											<table class="table table-striped table-hover table-bordered">
-											<thead>
-											<tr>
-												<th>
-													 Product Name
-												</th>
-												<th>
-													 Price
-												</th>
-												<th>
-													 Sold
-												</th>
-												<th>
-												</th>
-											</tr>
-											</thead>
-											<tbody>
-											<tr>
-												<td>
-													<a href="#">
-													Apple iPhone 4s - 16GB - Black </a>
-												</td>
-												<td>
-													 $625.50
-												</td>
-												<td>
-													 809
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Samsung Galaxy S III SGH-I747 - 16GB </a>
-												</td>
-												<td>
-													 $915.50
-												</td>
-												<td>
-													 6709
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Motorola Droid 4 XT894 - 16GB - Black </a>
-												</td>
-												<td>
-													 $878.50
-												</td>
-												<td>
-													 784
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Regatta Luca 3 in 1 Jacket </a>
-												</td>
-												<td>
-													 $25.50
-												</td>
-												<td>
-													 1245
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Samsung Galaxy Note 3 </a>
-												</td>
-												<td>
-													 $925.50
-												</td>
-												<td>
-													 21245
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Inoval Digital Pen </a>
-												</td>
-												<td>
-													 $125.50
-												</td>
-												<td>
-													 1245
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Metronic - Responsive Admin + Frontend Theme </a>
-												</td>
-												<td>
-													 $20.00
-												</td>
-												<td>
-													 11190
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="tab-pane" id="overview_2">
-										<div class="table-responsive">
-											<table class="table table-striped table-hover table-bordered">
-											<thead>
-											<tr>
-												<th>
-													 Product Name
-												</th>
-												<th>
-													 Price
-												</th>
-												<th>
-													 Views
-												</th>
-												<th>
-												</th>
-											</tr>
-											</thead>
-											<tbody>
-											<tr>
-												<td>
-													<a href="#">
-													Metronic - Responsive Admin + Frontend Theme </a>
-												</td>
-												<td>
-													 $20.00
-												</td>
-												<td>
-													 11190
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Regatta Luca 3 in 1 Jacket </a>
-												</td>
-												<td>
-													 $25.50
-												</td>
-												<td>
-													 1245
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Apple iPhone 4s - 16GB - Black </a>
-												</td>
-												<td>
-													 $625.50
-												</td>
-												<td>
-													 809
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Samsung Galaxy S III SGH-I747 - 16GB </a>
-												</td>
-												<td>
-													 $915.50
-												</td>
-												<td>
-													 6709
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Motorola Droid 4 XT894 - 16GB - Black </a>
-												</td>
-												<td>
-													 $878.50
-												</td>
-												<td>
-													 784
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Samsung Galaxy Note 3 </a>
-												</td>
-												<td>
-													 $925.50
-												</td>
-												<td>
-													 21245
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Inoval Digital Pen </a>
-												</td>
-												<td>
-													 $125.50
-												</td>
-												<td>
-													 1245
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="tab-pane" id="overview_3">
-										<div class="table-responsive">
-											<table class="table table-striped table-hover table-bordered">
-											<thead>
-											<tr>
-												<th>
-													 Customer Name
-												</th>
-												<th>
-													 Total Orders
-												</th>
-												<th>
-													 Total Amount
-												</th>
-												<th>
-												</th>
-											</tr>
-											</thead>
-											<tbody>
-											<tr>
-												<td>
-													<a href="#">
-													David Wilson </a>
-												</td>
-												<td>
-													 3
-												</td>
-												<td>
-													 $625.50
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Amanda Nilson </a>
-												</td>
-												<td>
-													 4
-												</td>
-												<td>
-													 $12625.50
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Jhon Doe </a>
-												</td>
-												<td>
-													 2
-												</td>
-												<td>
-													 $125.00
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Bill Chang </a>
-												</td>
-												<td>
-													 45
-												</td>
-												<td>
-													 $12,125.70
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Paul Strong </a>
-												</td>
-												<td>
-													 1
-												</td>
-												<td>
-													 $890.85
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Jane Hilson </a>
-												</td>
-												<td>
-													 5
-												</td>
-												<td>
-													 $239.85
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Patrick Walker </a>
-												</td>
-												<td>
-													 2
-												</td>
-												<td>
-													 $1239.85
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											</tbody>
-											</table>
-										</div>
-									</div>
-									<div class="tab-pane" id="overview_4">
-										<div class="table-responsive">
-											<table class="table table-striped table-hover table-bordered">
-											<thead>
-											<tr>
-												<th>
-													 Customer Name
-												</th>
-												<th>
-													 Date
-												</th>
-												<th>
-													 Amount
-												</th>
-												<th>
-													 Status
-												</th>
-												<th>
-												</th>
-											</tr>
-											</thead>
-											<tbody>
-											<tr>
-												<td>
-													<a href="#">
-													David Wilson </a>
-												</td>
-												<td>
-													 3 Jan, 2013
-												</td>
-												<td>
-													 $625.50
-												</td>
-												<td>
-													<span class="label label-sm label-warning">
-													Pending </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Amanda Nilson </a>
-												</td>
-												<td>
-													 13 Feb, 2013
-												</td>
-												<td>
-													 $12625.50
-												</td>
-												<td>
-													<span class="label label-sm label-warning">
-													Pending </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Jhon Doe </a>
-												</td>
-												<td>
-													 20 Mar, 2013
-												</td>
-												<td>
-													 $125.00
-												</td>
-												<td>
-													<span class="label label-sm label-success">
-													Success </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Bill Chang </a>
-												</td>
-												<td>
-													 29 May, 2013
-												</td>
-												<td>
-													 $12,125.70
-												</td>
-												<td>
-													<span class="label label-sm label-info">
-													In Process </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Paul Strong </a>
-												</td>
-												<td>
-													 1 Jun, 2013
-												</td>
-												<td>
-													 $890.85
-												</td>
-												<td>
-													<span class="label label-sm label-success">
-													Success </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Jane Hilson </a>
-												</td>
-												<td>
-													 5 Aug, 2013
-												</td>
-												<td>
-													 $239.85
-												</td>
-												<td>
-													<span class="label label-sm label-danger">
-													Canceled </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<a href="#">
-													Patrick Walker </a>
-												</td>
-												<td>
-													 6 Aug, 2013
-												</td>
-												<td>
-													 $1239.85
-												</td>
-												<td>
-													<span class="label label-sm label-success">
-													Success </span>
-												</td>
-												<td>
-													<a href="#" class="btn default btn-xs green-stripe">
-													View </a>
-												</td>
-											</tr>
-											</tbody>
-											</table>
-										</div>
-									</div>
+							<div class="table-container">
+								<div class="table-actions-wrapper">
+									<span>
+									</span>
+									<select class="table-group-action-input form-control input-inline input-small input-sm">
+										<option value="">Select...</option>
+										<option value="Cancel">Cancel</option>
+										<option value="Cancel">Hold</option>
+										<option value="Cancel">On Hold</option>
+										<option value="Close">Close</option>
+									</select>
+									<button class="btn btn-sm yellow table-group-action-submit"><i class="fa fa-check"></i> Submit</button>
 								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End: life time stats -->
-				</div>
-				<div class="col-md-6">
-					<!-- Begin: life time stats -->
-					<div class="portlet box red-sunglo">
-						<div class="portlet-title">
-							<div class="caption">
-								<i class="fa fa-bar-chart-o"></i>Revenue
-							</div>
-							<div class="tools">
-								<a href="#portlet-config" data-toggle="modal" class="config">
-								</a>
-								<a href="javascript:;" class="reload">
-								</a>
-							</div>
-							<ul class="nav nav-tabs" style="margin-right: 10px">
-								<li>
-									<a href="#portlet_tab2" data-toggle="tab" id="statistics_amounts_tab">
-									Amounts </a>
-								</li>
-								<li class="active">
-									<a href="#portlet_tab1" data-toggle="tab">
-									Orders </a>
-								</li>
-							</ul>
-						</div>
-						<div class="portlet-body">
-							<div class="tab-content">
-								<div class="tab-pane active" id="portlet_tab1">
-									<div id="statistics_1" class="chart">
-									</div>
-								</div>
-								<div class="tab-pane" id="portlet_tab2">
-									<div id="statistics_2" class="chart">
-									</div>
-								</div>
-							</div>
-							<div class="well no-margin no-border">
-								<div class="row">
-									<div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-										<span class="label label-success">
-										Revenue: </span>
-										<h3>$1,234,112.20</h3>
-									</div>
-									<div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-										<span class="label label-info">
-										Tax: </span>
-										<h3>$134,90.10</h3>
-									</div>
-									<div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-										<span class="label label-danger">
-										Shipment: </span>
-										<h3>$1,134,90.10</h3>
-									</div>
-									<div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-										<span class="label label-warning">
-										Orders: </span>
-										<h3>235090</h3>
-									</div>
-								</div>
+								<table class="table table-striped table-bordered table-hover" id="datatable_orders">
+								<thead>
+								<tr role="row" class="heading">
+									<th width="2%">
+										<input type="checkbox" class="group-checkable">
+									</th>
+									<th width="5%">
+										 Order&nbsp;#
+									</th>
+									<th width="15%">
+										 Purchased&nbsp;On
+									</th>
+									<th width="15%">
+										 Customer
+									</th>
+									<th width="10%">
+										 Ship&nbsp;To
+									</th>
+									<th width="10%">
+										 Base&nbsp;Price
+									</th>
+									<th width="10%">
+										 Purchased&nbsp;Price
+									</th>
+									<th width="10%">
+										 Status
+									</th>
+									<th width="10%">
+										 Actions
+									</th>
+								</tr>
+								<tr role="row" class="filter">
+									<td>
+									</td>
+									<td>
+										<input type="text" class="form-control form-filter input-sm" name="order_id">
+									</td>
+									<td>
+										<div class="input-group date date-picker margin-bottom-5" data-date-format="dd/mm/yyyy">
+											<input type="text" class="form-control form-filter input-sm" readonly name="order_date_from" placeholder="From">
+											<span class="input-group-btn">
+											<button class="btn btn-sm default" type="button"><i class="fa fa-calendar"></i></button>
+											</span>
+										</div>
+										<div class="input-group date date-picker" data-date-format="dd/mm/yyyy">
+											<input type="text" class="form-control form-filter input-sm" readonly name="order_date_to" placeholder="To">
+											<span class="input-group-btn">
+											<button class="btn btn-sm default" type="button"><i class="fa fa-calendar"></i></button>
+											</span>
+										</div>
+									</td>
+									<td>
+										<input type="text" class="form-control form-filter input-sm" name="order_customer_name">
+									</td>
+									<td>
+										<input type="text" class="form-control form-filter input-sm" name="order_ship_to">
+									</td>
+									<td>
+										<div class="margin-bottom-5">
+											<input type="text" class="form-control form-filter input-sm" name="order_base_price_from" placeholder="From"/>
+										</div>
+										<input type="text" class="form-control form-filter input-sm" name="order_base_price_to" placeholder="To"/>
+									</td>
+									<td>
+										<div class="margin-bottom-5">
+											<input type="text" class="form-control form-filter input-sm margin-bottom-5 clearfix" name="order_purchase_price_from" placeholder="From"/>
+										</div>
+										<input type="text" class="form-control form-filter input-sm" name="order_purchase_price_to" placeholder="To"/>
+									</td>
+									<td>
+										<select name="order_status" class="form-control form-filter input-sm">
+											<option value="">Select...</option>
+											<option value="pending">Pending</option>
+											<option value="closed">Closed</option>
+											<option value="hold">On Hold</option>
+											<option value="fraud">Fraud</option>
+										</select>
+									</td>
+									<td>
+										<div class="margin-bottom-5">
+											<button class="btn btn-sm yellow filter-submit margin-bottom"><i class="fa fa-search"></i> Search</button>
+										</div>
+										<button class="btn btn-sm red filter-cancel"><i class="fa fa-times"></i> Reset</button>
+									</td>
+								</tr>
+								</thead>
+								<tbody>
+								</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
@@ -2746,16 +2196,18 @@
 <script src="${url}/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="${url}/global/plugins/flot/jquery.flot.js" type="text/javascript"></script>
-<script src="${url}/global/plugins/flot/jquery.flot.resize.js" type="text/javascript"></script>
-<script src="${url}/global/plugins/flot/jquery.flot.categories.js" type="text/javascript"></script>
+<script type="text/javascript" src="${url}/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="${url}/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="${url}/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="${url}/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="${url}/global/scripts/metronic.js" type="text/javascript"></script>
 <script src="${url}/admin/layout/scripts/layout.js" type="text/javascript"></script>
 <script src="${url}/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
 <script src="${url}/admin/layout/scripts/demo.js" type="text/javascript"></script>
-<script src="${url}/admin/pages/scripts/ecommerce-index.js"></script>
+<script src="${url}/global/scripts/datatable.js"></script>
+<script src="${url}/admin/pages/scripts/ecommerce-orders.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
         jQuery(document).ready(function() {    
@@ -2763,7 +2215,7 @@
 Layout.init(); // init current layout
 QuickSidebar.init(); // init quick sidebar
 Demo.init(); // init demo features
-           EcommerceIndex.init();
+           EcommerceOrders.init();
         });
     </script>
 <!-- END JAVASCRIPTS -->
