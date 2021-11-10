@@ -47,6 +47,9 @@ public class Product implements Serializable {
 	@OneToMany(mappedBy = "product")
 	private Set<Cart> carts;
 	
+	@OneToMany(mappedBy = "product")
+	private Set<Tag> tags;
+	
 	public int getId() {
 		return id;
 	}
@@ -115,14 +118,5 @@ public class Product implements Serializable {
 		this.carts = carts;
 	}
 	
-	public static void main(String[] args) {
-		try(Session session = HibernateUtil.getSessionFactory().openSession()){
-			session.getTransaction().begin();
-			
-			Product p = session.get(Product.class, 1);
-			System.out.println(p.carts.equals(null));
-			session.getTransaction().commit();
-		}
-	}
 	
 }

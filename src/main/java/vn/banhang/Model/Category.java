@@ -53,14 +53,5 @@ public class Category implements Serializable {
 		this.products = products;
 	}
 	
-	public static void main(String[] args) {
-		try(Session session = HibernateUtil.getSessionFactory().openSession()){
-			session.getTransaction().begin();
-			
-			Category c = session.get(Category.class, 1);
-			System.out.println(c.subCategories.size());
-			session.getTransaction().commit();
-		}
-	}
 	
 }
