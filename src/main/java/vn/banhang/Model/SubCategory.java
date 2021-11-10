@@ -1,6 +1,7 @@
 package vn.banhang.Model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +23,10 @@ public class SubCategory implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category category;
+	
+	@OneToMany(mappedBy = "subCategory")
+	private Set<Product> products;
+	
 	
 	public int getId() {
 		return id;
@@ -40,7 +46,11 @@ public class SubCategory implements Serializable {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	
-	
+	public Set<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
 	
 }

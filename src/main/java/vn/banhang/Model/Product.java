@@ -28,8 +28,8 @@ public class Product implements Serializable {
 	private double price;
 	
 	@ManyToOne
-	@JoinColumn(name = "category_id")
-	private Category category;
+	@JoinColumn(name = "sub_category_id")
+	private SubCategory subCategory;
 	
 	private int amount;
 	
@@ -74,11 +74,19 @@ public class Product implements Serializable {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public Category getCategory() {
-		return category;
+	
+
+	public SubCategory getSubCategory() {
+		return subCategory;
 	}
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setSubCategory(SubCategory subCategory) {
+		this.subCategory = subCategory;
+	}
+	public Set<Tag> getTags() {
+		return tags;
+	}
+	public void setTags(Set<Tag> tags) {
+		this.tags = tags;
 	}
 	public int getAmount() {
 		return amount;

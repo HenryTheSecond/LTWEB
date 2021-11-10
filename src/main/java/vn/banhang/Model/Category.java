@@ -25,8 +25,6 @@ public class Category implements Serializable {
 	@OneToMany(mappedBy = "category")
 	private Set<SubCategory> subCategories; 
 	
-	@OneToMany(mappedBy = "category")
-	private Set<Product> products;
 	
 	public int getId() {
 		return id;
@@ -46,12 +44,5 @@ public class Category implements Serializable {
 	public void setSubCategories(Set<SubCategory> subCategories) {
 		this.subCategories = subCategories;
 	}
-	public Set<Product> getProducts() {
-		return products;
-	}
-	public void setProducts(Set<Product> products) {
-		this.products = products;
-	}
-	
-	
+
 }
