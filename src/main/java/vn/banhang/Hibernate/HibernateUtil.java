@@ -10,6 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import com.opensymphony.module.sitemesh.html.Tag;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import vn.banhang.Model.Cart;
 import vn.banhang.Model.Category;
 import vn.banhang.Model.Product;
@@ -21,15 +22,24 @@ import vn.banhang.Model.User;
 public class HibernateUtil {
 	private final static SessionFactory FACTORY;
 	
+	
+	
 	static {
+		  // Populate configurations from the system environment variables and .env file
+	    Dotenv dotenv = Dotenv.configure().ignoreIfMissing().ignoreIfMalformed().load();
+	
+	    String url = dotenv.get("URL");
+	    String user = dotenv.get("USER"); 
+	    String pass = dotenv.get("PASS");
+	    
 		Configuration conf = new Configuration();
 		Properties pros = new Properties();
 		
 		pros.put(Environment.DIALECT, "org.hibernate.dialect.SQLServer2012Dialect");
 		pros.put(Environment.DRIVER, "com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		pros.put(Environment.URL, "jdbc:sqlserver://MAYTINH-VMMN6QE"+":1433"+";databaseName=LTWEB");
-		pros.put(Environment.USER, "sa");
-		pros.put(Environment.PASS, "sa");
+		pros.put(Environment.URL, url);
+		pros.put(Environment.USER, user);
+		pros.put(Environment.PASS, pass);
 		
 		conf.setProperties(pros);
 		conf.addAnnotatedClass(Category.class);
