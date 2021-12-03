@@ -102,7 +102,7 @@ public class User implements Serializable  {
 			session.getTransaction().begin();
 			
 			User u = session.get(User.class,1);
-			u.setGender("nam");
+			u.setGender("female");
 			session.save(u);
 			
 			session.getTransaction().commit();

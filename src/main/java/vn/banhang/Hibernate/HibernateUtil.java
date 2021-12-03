@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
-import com.opensymphony.module.sitemesh.html.Tag;
+
 
 import io.github.cdimascio.dotenv.Dotenv;
 import vn.banhang.Model.Cart;
@@ -17,6 +17,7 @@ import vn.banhang.Model.Product;
 import vn.banhang.Model.Review;
 import vn.banhang.Model.Shop;
 import vn.banhang.Model.SubCategory;
+import vn.banhang.Model.Tag;
 import vn.banhang.Model.User;
 
 public class HibernateUtil {
