@@ -11,10 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = {"/seller/home"})
 public class SellerHomeController extends HttpServlet {
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8742583617092661707L;
+	private static final long serialVersionUID = -5103550605491265959L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
