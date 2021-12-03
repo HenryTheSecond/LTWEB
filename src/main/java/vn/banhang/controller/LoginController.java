@@ -15,6 +15,7 @@ import vn.banhang.service.impl.UserServiceImpl;
 
 @WebServlet(urlPatterns = {"/login"})
 public class LoginController extends HttpServlet {
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
@@ -27,19 +28,20 @@ public class LoginController extends HttpServlet {
 
 		UserService service = new UserServiceImpl();
 		User user = service.get(username, password);
-
+		System.out.println(req.getParameter("next"));
 		if(user == null) {
 			req.setAttribute("message", "Sai tài khoản hoặc mật khẩu");
 			req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
 		}
 		else {
 			HttpSession session = req.getSession();
+			String next = req.getParameter("next");
 			session.setAttribute("user", user);
-			if(req.getParameter("next") == null || req.getParameter("next").equals("")) {
+			if(next == null || next.equals("")) {
 				resp.sendRedirect("home");
 			}
 			else {
-				resp.sendRedirect( req.getParameter("next") );
+				resp.sendRedirect( req.getContextPath() + "/" + req.getParameter("next") );
 			}
 				
 		}

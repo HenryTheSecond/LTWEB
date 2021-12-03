@@ -515,7 +515,7 @@
 								Order View</a>
 							</li>
 							<li>
-								<a href="ecommerce_products.html">
+								<a href="${pageContext.request.contextPath}/seller/product">
 								<i class="icon-handbag"></i>
 								Products</a>
 							</li>

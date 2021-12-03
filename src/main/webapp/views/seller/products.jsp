@@ -1350,93 +1350,62 @@
 											 Product&nbsp;Name
 										</th>
 										<th width="15%">
-											 Category
+											 Picture
 										</th>
 										<th width="10%">
 											 Price
 										</th>
 										<th width="10%">
-											 Quantity
+											 Sub Category
 										</th>
 										<th width="15%">
-											 Date&nbsp;Created
+											 Amount
 										</th>
 										<th width="10%">
 											 Status
 										</th>
 										<th width="10%">
-											 Actions
+											 Description
+										</th>
+										<th width="10%">
+											 Action
 										</th>
 									</tr>
+									
 									<tr role="row" class="filter">
 										<td>
 										</td>
 										<td>
-											<input type="text" class="form-control form-filter input-sm" name="product_id">
+											ID
 										</td>
 										<td>
-											<input type="text" class="form-control form-filter input-sm" name="product_name">
+											Name
+										</td>
+										
+										<td><img height="100" width="100" src="${imgUrl}" /></td>
+										
+										<td>
+											Giá
+										</td>
+										
+										<td>
+											Sub Category
 										</td>
 										<td>
-											<select name="product_category" class="form-control form-filter input-sm">
-												<option value="">Select...</option>
-												<option value="1">Mens</option>
-												<option value="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Footwear</option>
-												<option value="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clothing</option>
-												<option value="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accessories</option>
-												<option value="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fashion Outlet</option>
-												<option value="6">Football Shirts</option>
-												<option value="7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Premier League</option>
-												<option value="8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Football League</option>
-												<option value="9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serie A</option>
-												<option value="10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bundesliga</option>
-												<option value="11">Brands</option>
-												<option value="12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adidas</option>
-												<option value="13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nike</option>
-												<option value="14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Airwalk</option>
-												<option value="15">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USA Pro</option>
-												<option value="16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kangol</option>
-											</select>
+											Amount
 										</td>
 										<td>
-											<div class="margin-bottom-5">
-												<input type="text" class="form-control form-filter input-sm" name="product_price_from" placeholder="From"/>
-											</div>
-											<input type="text" class="form-control form-filter input-sm" name="product_price_to" placeholder="To"/>
+											Status
+										</td>
+										<td>
+											Description
 										</td>
 										<td>
 											<div class="margin-bottom-5">
-												<input type="text" class="form-control form-filter input-sm" name="product_quantity_from" placeholder="From"/>
+												<button class="btn btn-sm yellow filter-submit margin-bottom"><i class="fa fa-pencil"></i> Edit</button>
 											</div>
-											<input type="text" class="form-control form-filter input-sm" name="product_quantity_to" placeholder="To"/>
-										</td>
-										<td>
-											<div class="input-group date date-picker margin-bottom-5" data-date-format="dd/mm/yyyy">
-												<input type="text" class="form-control form-filter input-sm" readonly name="product_created_from" placeholder="From">
-												<span class="input-group-btn">
-												<button class="btn btn-sm default" type="button"><i class="fa fa-calendar"></i></button>
-												</span>
-											</div>
-											<div class="input-group date date-picker" data-date-format="dd/mm/yyyy">
-												<input type="text" class="form-control form-filter input-sm" readonly name="product_created_to " placeholder="To">
-												<span class="input-group-btn">
-												<button class="btn btn-sm default" type="button"><i class="fa fa-calendar"></i></button>
-												</span>
-											</div>
-										</td>
-										<td>
-											<select name="product_status" class="form-control form-filter input-sm">
-												<option value="">Select...</option>
-												<option value="published">Published</option>
-												<option value="notpublished">Not Published</option>
-												<option value="deleted">Deleted</option>
-											</select>
-										</td>
-										<td>
-											<div class="margin-bottom-5">
-												<button class="btn btn-sm yellow filter-submit margin-bottom"><i class="fa fa-search"></i> Search</button>
-											</div>
-											<button class="btn btn-sm red filter-cancel"><i class="fa fa-times"></i> Reset</button>
+											<button class="btn btn-sm red filter-cancel"><i class="fa fa-times"></i> Delete</button>
+
 										</td>
 									</tr>
 									</thead>
