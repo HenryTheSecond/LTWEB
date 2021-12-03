@@ -4,9 +4,11 @@
 <c:url value="/templates/assets" var="url"></c:url>
 
 
-
 <!-- BEGIN BODY -->
 <body class="login">
+<p class="text-danger">${message}</p>
+
+
 <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
 <div class="menu-toggler sidebar-toggler">
 </div>

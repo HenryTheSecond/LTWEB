@@ -38,9 +38,9 @@ public class HibernateUtil {
 		
 		pros.put(Environment.DIALECT, "org.hibernate.dialect.SQLServer2012Dialect");
 		pros.put(Environment.DRIVER, "com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		pros.put(Environment.URL, url);
-		pros.put(Environment.USER, user);
-		pros.put(Environment.PASS, pass);
+		pros.put(Environment.URL, "jdbc:sqlserver://MAYTINH-VMMN6QE:1433;databaseName=LTWEB");
+		pros.put(Environment.USER, "sa");
+		pros.put(Environment.PASS, "sa");
 		
 		conf.setProperties(pros);
 		conf.addAnnotatedClass(Category.class);
