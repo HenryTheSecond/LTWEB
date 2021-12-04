@@ -1326,16 +1326,18 @@
 							</div>
 							<div class="portlet-body">
 								<div class="table-container">
+									<input type="text" class="form-control form-filter input-sm" name="product_history_desc" placeholder="Tên sản phẩm" name="txtTenSanPham" id="txtTenSanPham">
 									<div class="table-actions-wrapper">
 										<span>
 										</span>
-										<select class="table-group-action-input form-control input-inline input-small input-sm">
-											<option value="">Select...</option>
-											<option value="publish">Publish</option>
-											<option value="unpublished">Un-publish</option>
-											<option value="delete">Delete</option>
+										<select class="table-group-action-input form-control input-inline input-small input-sm" name="productStatus" id="productStatus">
+											<option value="tatca">Tất cả</option>
+											<option value="dangban">Đang bán</option>
+											<option value="ngungban">Ngừng bán</option>
+											<option value="taman">Tạm ẩn</option>
+											<option value="hethang">Hết hàng</option>
 										</select>
-										<button class="btn btn-sm yellow table-group-action-submit"><i class="fa fa-check"></i> Submit</button>
+										<button class="btn btn-sm yellow table-group-action-submit" onclick="timKiemTheoStatus()"><i class="fa fa-check"></i> Submit</button>
 									</div>
 									<table class="table table-striped table-bordered table-hover" id="datatable_products">
 									<thead>
@@ -1372,42 +1374,48 @@
 										</th>
 									</tr>
 									
+									<c:forEach items="${listProduct}" var="product" varStatus="STT">
 									<tr role="row" class="filter">
 										<td>
 										</td>
 										<td>
-											ID
+											${product.id }
 										</td>
 										<td>
-											Name
-										</td>
-										
-										<td><img height="100" width="100" src="${imgUrl}" /></td>
-										
-										<td>
-											Giá
+											${product.name} 
 										</td>
 										
 										<td>
-											Sub Category
+											<c:url value="/image?fname=${product.picture}" var="imgUrl"></c:url>
+											<img height="100" width="100" src="${imgUrl}" />
+										</td>
+										
+										<td>
+											${product.price}
+										</td>
+										
+										<td>
+											${product.subCategory.name} 
 										</td>
 										<td>
-											Amount
+											${product.amount} 
 										</td>
 										<td>
-											Status
+											${product.status==1? "Đang bán":"Ngừng bán" }
 										</td>
 										<td>
-											Description
+											${product.description }
 										</td>
 										<td>
 											<div class="margin-bottom-5">
-												<button class="btn btn-sm yellow filter-submit margin-bottom"><i class="fa fa-pencil"></i> Edit</button>
+												<a class="btn btn-sm yellow filter-submit margin-bottom"><i class="fa fa-pencil"></i> Edit</a>
 											</div>
-											<button class="btn btn-sm red filter-cancel"><i class="fa fa-times"></i> Delete</button>
+											<a class="btn btn-sm red filter-cancel"><i class="fa fa-times"></i> Delete</a>
 
 										</td>
 									</tr>
+									</c:forEach>
+									
 									</thead>
 									<tbody>
 									</tbody>
@@ -1478,6 +1486,19 @@ Demo.init(); // init demo features
         });
     </script>
 <!-- END JAVASCRIPTS -->
+
+
+<!-- MY SCRIPT -->
+<script>
+	function timKiemTheoStatus(){
+		var status = document.getElementById("productStatus");
+		var tenSanPham = document.getElementById("txtTenSanPham");
+		console.log(tenSanPham.value);
+		console.log(status.value);
+	}
+</script>
+
+
 </body>
 <!-- END BODY -->
 </html>    

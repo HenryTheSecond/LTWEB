@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.Session;
@@ -35,6 +36,9 @@ public class User implements Serializable  {
 	
 	@OneToMany(mappedBy = "user")
 	private Set<Review> reviews;
+	
+	@OneToOne(mappedBy = "user")
+    private Shop shop;
 	
 	public int getId() {
 		return id;
@@ -97,6 +101,20 @@ public class User implements Serializable  {
 		this.email = email;
 	}
 	
+	
+	
+	public Set<Review> getReviews() {
+		return reviews;
+	}
+	public void setReviews(Set<Review> reviews) {
+		this.reviews = reviews;
+	}
+	public Shop getShop() {
+		return shop;
+	}
+	public void setShop(Shop shop) {
+		this.shop = shop;
+	}
 	public static void main(String[] args) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			session.getTransaction().begin();

@@ -36,9 +36,10 @@ public class ProductDAOImpl implements ProductDAO {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			
 			User u = session.get(User.class,1);
-			System.out.println(u);
+			System.out.println(u.getShop().getName());
 			ProductDAOImpl dao = new ProductDAOImpl();
-			System.out.println(dao.getAllShopProduct(u.get));
+			System.out.println(dao.getAllShopProduct(u.getShop()).get(1).getName());
+
 		}
 	}
 }
