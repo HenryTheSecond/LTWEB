@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
 encoding//src/main/java/vn/banhang/Model/Category.java=UTF-8
 encoding//src/main/java/vn/banhang/controller/LoginController.java=UTF-8
+encoding//src/main/java/vn/banhang/dao/impl/ProductDAOImpl.java=UTF-8

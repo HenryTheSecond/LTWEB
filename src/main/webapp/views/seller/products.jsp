@@ -1326,6 +1326,14 @@
 							</div>
 							<div class="portlet-body">
 								<div class="table-container">
+									
+									<select id="selectSubCategory" name="selectSubCategory">
+										<option value=""></option> 
+										<c:forEach items="${listSubCate}" var="subCate">
+											<option value="${subCate.id }">${subCate.name }</option>
+										</c:forEach>
+									</select>
+									
 									<input type="text" class="form-control form-filter input-sm" name="product_history_desc" placeholder="Tên sản phẩm" name="txtTenSanPham" id="txtTenSanPham">
 									<div class="table-actions-wrapper">
 										<span>
@@ -1337,7 +1345,7 @@
 											<option value="taman">Tạm ẩn</option>
 											<option value="hethang">Hết hàng</option>
 										</select>
-										<button class="btn btn-sm yellow table-group-action-submit" onclick="timKiemTheoStatus()"><i class="fa fa-check"></i> Submit</button>
+										<div class="btn btn-sm yellow" onclick="timKiemTheoStatus()"><i class="fa fa-check"></i> Submit</div>
 									</div>
 									<table class="table table-striped table-bordered table-hover" id="datatable_products">
 									<thead>
@@ -1493,8 +1501,11 @@ Demo.init(); // init demo features
 	function timKiemTheoStatus(){
 		var status = document.getElementById("productStatus");
 		var tenSanPham = document.getElementById("txtTenSanPham");
+		var subCate = document.getElementById("selectSubCategory");
+		console.log(subCate.value);
 		console.log(tenSanPham.value);
-		console.log(status.value);
+		console.log(status.value);	
+		window.location.href = "http://localhost:8080/BanHang/seller/product?kw=" + tenSanPham.value + "&status=" + status.value + "&subCate="+subCate.value;
 	}
 </script>
 

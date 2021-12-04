@@ -11,9 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import vn.banhang.Model.Product;
+import vn.banhang.Model.SubCategory;
 import vn.banhang.Model.User;
 import vn.banhang.service.ProductService;
+import vn.banhang.service.SubCategoryService;
 import vn.banhang.service.impl.ProductServiceImpl;
+import vn.banhang.service.impl.SubCategoryServiceImpl;
 import vn.banhang.utils.Utils;
 
 @WebServlet(urlPatterns = {"/seller/product"})
@@ -25,13 +28,39 @@ public class SellerProductController extends HttpServlet {
 			resp.setCharacterEncoding("UTF-8");
 			req.setCharacterEncoding("UTF-8");
 			
+			String kw = req.getParameter("kw");
+			String subCate = req.getParameter("subCate");
+			String status = req.getParameter("status");
+			
+			System.out.println(kw);System.out.println(subCate);System.out.println(status);
+			
 			HttpSession session = req.getSession();
 			User user = (User)session.getAttribute("user");
 			
 			ProductService service = new ProductServiceImpl();
-			List<Product> listProduct = service.getAllShopProduct(user.getShop());
+			SubCategoryService subCateService = new SubCategoryServiceImpl();
+			List<Product> listProduct;
+			if(kw == null && subCate == null && status == null) {
+				listProduct = service.getAllShopProduct(user.getShop());
+				req.setAttribute("listProduct", listProduct);
+			}
+			else {
+				if(subCate.equals("")) {
+					listProduct = service.searchProductShop(user.getShop(), kw, status);
+					req.setAttribute("listProduct", listProduct);
+					System.out.println(listProduct);
+				}
+				else {
+					int subCateId = Integer.parseInt(subCate);
+					listProduct = service.searchProductShop(user.getShop(), kw, subCateId, status);
+					req.setAttribute("listProduct", listProduct);
+					System.out.println(listProduct);
+				}
+			}
+
 			
-			req.setAttribute("listProduct", listProduct);
+			List<SubCategory> listSubCate = subCateService.getAllSubCategory();
+			req.setAttribute("listSubCate", listSubCate);
 			
 			
 			req.getRequestDispatcher("/views/seller/products.jsp").forward(req, resp);

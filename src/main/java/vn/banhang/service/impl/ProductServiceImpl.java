@@ -16,4 +16,16 @@ public class ProductServiceImpl implements ProductService {
 		return dao.getAllShopProduct(shop);
 	}
 
+	@Override
+	public List<Product> searchProductShop(Shop shop, String kw, int subCateId, String status) {
+		// TODO Auto-generated method stub
+		return dao.searchProductShop(shop, kw, subCateId, status);
+	}
+
+	@Override
+	public List<Product> searchProductShop(Shop shop, String kw, String status) {
+		// TODO Auto-generated method stub
+		return dao.searchProductShop(shop, kw, status);
+	}
+
 }

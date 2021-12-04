@@ -32,13 +32,90 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 	
-	public static void main(String[] args) {
-		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+
+	@Override
+	public List<Product> searchProductShop(Shop shop, String kw, int subCateId, String status) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Product> q = builder.createQuery(Product.class);
+			Root<Product> root = q.from(Product.class);
+			q.select(root);
 			
+			Predicate p = builder.like(root.get("name").as(String.class), "%%");
+			
+			Predicate p1 = builder.equal(root.get("shop").as(Shop.class), shop);
+			Predicate p2 = builder.like(root.get("name").as(String.class), "%" + kw + "%");
+			Predicate p3 = builder.equal(root.get("subCategory").get("id").as(Integer.class), subCateId);
+			
+			Predicate p4 = p;
+			
+			if(status.equals("dangban")) {
+				p4 = builder.equal(root.get("status").as(Integer.class), 1);
+			}
+			else if(status.equals("ngungban")) {
+				p4 = builder.equal(root.get("status").as(Integer.class), 0);
+			}
+			else if(status.equals("taman")) {
+				p4 = builder.equal(root.get("status").as(Integer.class), -1);
+			}
+			else if(status.equals("hethang")) {
+				p4 = builder.equal(root.get("amount").as(Integer.class), 0);
+			}
+
+			
+			
+			
+			
+			q.where(builder.and(p1, p2, p3, p4));
+			List<Product> list = session.createQuery(q).getResultList();
+			return list;
+		}
+	}
+	
+	public List<Product> searchProductShop(Shop shop, String kw, String status) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Product> q = builder.createQuery(Product.class);
+			Root<Product> root = q.from(Product.class);
+			q.select(root);
+			
+			Predicate p = builder.like(root.get("name").as(String.class), "%%");
+			
+			Predicate p1 = builder.equal(root.get("shop").as(Shop.class), shop);
+			Predicate p2 = builder.like(root.get("name").as(String.class), "%" + kw + "%");
+			
+			Predicate p4 = p;
+			
+			if(status.equals("dangban")) {
+				p4 = builder.equal(root.get("status").as(Integer.class), 1);
+			}
+			else if(status.equals("ngungban")) {
+				p4 = builder.equal(root.get("status").as(Integer.class), 0);
+			}
+			else if(status.equals("taman")) {
+				p4 = builder.equal(root.get("status").as(Integer.class), -1);
+			}
+			else if(status.equals("hethang")) {
+				p4 = builder.equal(root.get("amount").as(Integer.class), 0);
+			}
+			
+			q.where(builder.and(p1, p2, p4));
+			List<Product> list = session.createQuery(q).getResultList();
+			return list;
+		}
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+
+		
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			User u = session.get(User.class,1);
-			System.out.println(u.getShop().getName());
 			ProductDAOImpl dao = new ProductDAOImpl();
-			System.out.println(dao.getAllShopProduct(u.getShop()).get(1).getName());
+			
+			System.out.println(dao.searchProductShop(u.getShop(), "miku", 15, "tatca"));
 
 		}
 	}
