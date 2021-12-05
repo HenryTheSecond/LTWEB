@@ -16,4 +16,10 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 		return dao.getAllSubCategory();
 	}
 
+	@Override
+	public SubCategory get(int id) {
+		// TODO Auto-generated method stub
+		return dao.get(id);
+	}
+
 }

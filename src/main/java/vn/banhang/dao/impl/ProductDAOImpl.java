@@ -13,6 +13,7 @@ import org.hibernate.query.Query;
 import vn.banhang.Hibernate.HibernateUtil;
 import vn.banhang.Model.Product;
 import vn.banhang.Model.Shop;
+import vn.banhang.Model.Tag;
 import vn.banhang.Model.User;
 import vn.banhang.dao.ProductDAO;
 
@@ -113,12 +114,25 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 	
+	@Override
+	public void update(Product product) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			session.getTransaction().begin();
+			session.merge(product);
+			session.getTransaction().commit();
+		}
+	}
+	
 	public static void main(String[] args) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
-			User u = session.get(User.class,1);
+			/*User u = session.get(User.class,1);
 			ProductDAOImpl dao = new ProductDAOImpl();
 			
-			System.out.println(dao.searchProductShop(u.getShop(), "miku", 15, "tatca"));
+			System.out.println(dao.searchProductShop(u.getShop(), "miku", 15, "tatca"));*/
+			
+			Product p = session.get(Product.class, 1);
+
+			System.out.println(p.getTags().get(0).getKeyword());
 
 		}
 	}

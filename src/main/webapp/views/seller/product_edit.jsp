@@ -886,7 +886,7 @@
 					<!-- BEGIN PAGE CONTENT-->
 					<div class="row">
 						<div class="col-md-12">
-							<form class="form-horizontal form-row-seperated" action="#">
+							<!-- <form class="form-horizontal form-row-seperated" action="#"> -->
 								<div class="portlet light">
 									<div class="portlet-title">
 										<div class="caption">
@@ -933,14 +933,16 @@
 												<li><a href="#tab_reviews" data-toggle="tab">
 														Reviews <span class="badge badge-success"> 3 </span>
 												</a></li>
-												<li><a href="#tab_history" data-toggle="tab">
-														History </a></li>
+												<li><a href="#tab_history" data-toggle="tab">Order</a></li>
 											</ul>
+											
+											
 											<div class="tab-content no-space">
 												<div class="tab-pane active" id="tab_general">
-													<div class="form-body">
-
-														<div class="form-group">
+											
+												<div class="form-body">
+												<form role="form" action="/BanHang/seller/edit-product" method="post" enctype="multipart/form-data">
+														<div class="form-group" style="display:none">
 															<label class="col-md-2 control-label">ID: </label>
 															<div class="col-md-10">
 																<input type="text" class="form-control" name="productId"
@@ -995,8 +997,7 @@
 																		</ul>
 																	</div>
 																</div>
-																<span class="help-block"> select one or more
-																	categories </span>
+
 															</div>
 														</div>
 
@@ -1026,11 +1027,50 @@
 																<c:url value="/image?fname=${product.picture}" var="imgUrl"></c:url>
 																<img class="img-responsive" width="400px" src="${imgUrl}" alt="">
 																<label class="col-md-2 control-label">Ảnh Sản Phẩm</label> 
-																<input  class="form-control" type="file" name="icon" value="${product.picture}" />
+																<input  class="form-control" type="file" name="picture" value="${product.picture}" />
 															</div>
 														</div>
 														
-													</div>
+														<div class="form-group" id="">
+														
+															<div class="hashtagBlock">
+																<label class="col-md-2 control-label">Hashtag: </label>
+																<div class="col-md-10">
+																	<input class="form-control" name="tag1" value="${product.tags.get(0).keyword }"></input>                                       
+																</div>
+															</div>
+															
+															<div class="hashtagBlock">
+																<label class="col-md-2 control-label">Hashtag: </label>
+																<div class="col-md-10">
+																	<input class="form-control" name="tag2" value="${product.tags.get(1).keyword }"></input>                                       
+																</div>
+															</div>
+															
+															
+															<div class="hashtagBlock">
+																<label class="col-md-2 control-label">Hashtag: </label>
+																<div class="col-md-10">
+																	<input class="form-control" name="tag3" value="${product.tags.get(2).keyword }"></input>                                       
+																</div>
+															</div>
+															
+															<div class="hashtagBlock">
+																<label class="col-md-2 control-label">Hashtag: </label>
+																<div class="col-md-10">
+																	<input class="form-control" name="tag4" value="${product.tags.get(3).keyword }"></input>                                       
+																</div>
+															</div>
+															
+															<!-- <div class="btn-danger btn-sm" style="float:right" onclick="themHashtag()">Thêm Hashtag</div>   -->                                                                            
+														</div>
+														
+														
+														<button style="float:right" type="submit" class="btn btn-primary">Edit</button>
+														<button style="float:right" type="reset" class="btn btn-success">Reset</button>
+												</form>
+												</div>
+
 												</div>
 												<div class="tab-pane" id="tab_meta">
 													<div class="form-body">
@@ -1188,72 +1228,24 @@
 												</div>
 												<div class="tab-pane" id="tab_reviews">
 													<div class="table-container">
-														<table
-															class="table table-striped table-bordered table-hover"
-															id="datatable_reviews">
+														<table class="table table-striped table-bordered table-hover" id="datatable_reviews">
 															<thead>
 																<tr role="row" class="heading">
-																	<th width="5%">Review&nbsp;#</th>
-																	<th width="10%">Review&nbsp;Date</th>
-																	<th width="10%">Customer</th>
-																	<th width="20%">Review&nbsp;Content</th>
-																	<th width="10%">Status</th>
-																	<th width="10%">Actions</th>
+																	<th width="5%">ID</th>
+																	<th width="10%">Username</th>
+																	<th width="10%">Comment</th>
+																	<th width="10%">Rating</th>
+																	<th width="20%">Product Name</th>																		
 																</tr>
+																<c:forEach items="${product.reviews }" var="review">
 																<tr role="row" class="filter">
-																	<td><input type="text"
-																		class="form-control form-filter input-sm"
-																		name="product_review_no"></td>
-																	<td>
-																		<div
-																			class="input-group date date-picker margin-bottom-5"
-																			data-date-format="dd/mm/yyyy">
-																			<input type="text"
-																				class="form-control form-filter input-sm" readonly
-																				name="product_review_date_from" placeholder="From">
-																			<span class="input-group-btn">
-																				<button class="btn btn-sm default" type="button">
-																					<i class="fa fa-calendar"></i>
-																				</button>
-																			</span>
-																		</div>
-																		<div class="input-group date date-picker"
-																			data-date-format="dd/mm/yyyy">
-																			<input type="text"
-																				class="form-control form-filter input-sm" readonly
-																				name="product_review_date_to" placeholder="To">
-																			<span class="input-group-btn">
-																				<button class="btn btn-sm default" type="button">
-																					<i class="fa fa-calendar"></i>
-																				</button>
-																			</span>
-																		</div>
-																	</td>
-																	<td><input type="text"
-																		class="form-control form-filter input-sm"
-																		name="product_review_customer"></td>
-																	<td><input type="text"
-																		class="form-control form-filter input-sm"
-																		name="product_review_content"></td>
-																	<td><select name="product_review_status"
-																		class="form-control form-filter input-sm">
-																			<option value="">Select...</option>
-																			<option value="pending">Pending</option>
-																			<option value="approved">Approved</option>
-																			<option value="rejected">Rejected</option>
-																	</select></td>
-																	<td>
-																		<div class="margin-bottom-5">
-																			<button
-																				class="btn btn-sm yellow filter-submit margin-bottom">
-																				<i class="fa fa-search"></i> Search
-																			</button>
-																		</div>
-																		<button class="btn btn-sm red filter-cancel">
-																			<i class="fa fa-times"></i> Reset
-																		</button>
-																	</td>
+																	<td>${review.id}</td>
+																	<td>${review.user.username}</td>
+																	<td>${review.comment}</td>
+																	<td>${review.rating}/5</td>
+																	<td>${review.product.name}</td>
 																</tr>
+																</c:forEach>
 															</thead>
 															<tbody>
 															</tbody>
@@ -1332,7 +1324,7 @@
 										</div>
 									</div>
 								</div>
-							</form>
+							<!-- </form> -->
 						</div>
 					</div>
 					<!-- END PAGE CONTENT-->
@@ -1426,6 +1418,16 @@
 		});
 	</script>
 	<!-- END JAVASCRIPTS -->
+	
+	<script>
+		function themHashtag(){
+			var amount = document.getElementsByClassName("hashtagBlock").length;
+			console.log(amount)
+		}
+	
+	</script>
+
+	
 </body>
 <!-- END BODY -->
 </html>

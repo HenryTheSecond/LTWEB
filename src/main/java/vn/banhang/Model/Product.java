@@ -1,9 +1,11 @@
 package vn.banhang.Model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,14 +43,14 @@ public class Product implements Serializable {
 	private String description;
 	
 	
-	@OneToMany(mappedBy = "product")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "product")
 	private Set<Review> reviews;
 	
-	@OneToMany(mappedBy = "product")
+	@OneToMany( mappedBy = "product")
 	private Set<Cart> carts;
 	
-	@OneToMany(mappedBy = "product")
-	private Set<Tag> tags;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "product")
+	private List<Tag> tags;
 	
 	public int getId() {
 		return id;
@@ -82,10 +84,10 @@ public class Product implements Serializable {
 	public void setSubCategory(SubCategory subCategory) {
 		this.subCategory = subCategory;
 	}
-	public Set<Tag> getTags() {
+	public List<Tag> getTags() {
 		return tags;
 	}
-	public void setTags(Set<Tag> tags) {
+	public void setTags(List<Tag> tags) {
 		this.tags = tags;
 	}
 	public int getAmount() {

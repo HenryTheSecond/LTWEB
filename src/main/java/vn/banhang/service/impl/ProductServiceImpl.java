@@ -33,4 +33,11 @@ public class ProductServiceImpl implements ProductService {
 		return dao.get(id);
 	}
 
+	@Override
+	public void update(Product product) {
+		dao.update(product);
+		
+	}
+	
+
 }

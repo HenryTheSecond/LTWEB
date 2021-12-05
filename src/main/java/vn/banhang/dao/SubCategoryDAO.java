@@ -6,4 +6,5 @@ import vn.banhang.Model.SubCategory;
 
 public interface SubCategoryDAO {
 	public List<SubCategory> getAllSubCategory();
+	public SubCategory get(int id);
 }
