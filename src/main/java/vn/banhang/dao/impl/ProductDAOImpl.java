@@ -105,12 +105,15 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 	
-	
-	
+	@Override
+	public Product get(int id) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			Product product = session.get(Product.class, id);
+			return product;
+		}
+	}
 	
 	public static void main(String[] args) {
-
-		
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			User u = session.get(User.class,1);
 			ProductDAOImpl dao = new ProductDAOImpl();
@@ -119,4 +122,5 @@ public class ProductDAOImpl implements ProductDAO {
 
 		}
 	}
+
 }

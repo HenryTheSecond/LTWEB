@@ -1409,14 +1409,14 @@
 											${product.amount} 
 										</td>
 										<td>
-											${product.status==1? "Đang bán":"Ngừng bán" }
+											${product.status==1? "Đang bán":product.status==0? "Ngưng bán":"Tạm ẩn" }
 										</td>
 										<td>
 											${product.description }
 										</td>
 										<td>
 											<div class="margin-bottom-5">
-												<a class="btn btn-sm yellow filter-submit margin-bottom"><i class="fa fa-pencil"></i> Edit</a>
+												<a class="btn btn-sm yellow" href="/BanHang/seller/edit-product?id=${product.id}"><i class="fa fa-pencil"></i> Edit</a>
 											</div>
 											<a class="btn btn-sm red filter-cancel"><i class="fa fa-times"></i> Delete</a>
 
