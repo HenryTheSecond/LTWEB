@@ -40,6 +40,11 @@ public class User implements Serializable  {
 	@OneToOne(mappedBy = "user")
     private Shop shop;
 	
+	
+	@OneToMany(mappedBy = "user")
+	private Set<Cart> carts;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -115,6 +120,14 @@ public class User implements Serializable  {
 	public void setShop(Shop shop) {
 		this.shop = shop;
 	}
+	
+	public Set<Cart> getCarts() {
+		return carts;
+	}
+	public void setCarts(Set<Cart> carts) {
+		this.carts = carts;
+	}
+	
 	public static void main(String[] args) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			session.getTransaction().begin();
