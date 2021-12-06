@@ -1,59 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:url value="/templates/assets" var="url"></c:url>
 
 
+    
+    
 
-<!DOCTYPE html>
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.1
-Version: 3.6
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
-<!-- BEGIN HEAD -->
-<head>
-<meta charset="utf-8"/>
-<title>Metronic | Pages - User Account</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-<meta content="" name="description"/>
-<meta content="" name="author"/>
-<!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
-<link href="${url}/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="${url}/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
-<link href="${url}/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="${url}/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
-<link href="${url}/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
-<!-- END GLOBAL MANDATORY STYLES -->
-<!-- BEGIN PAGE LEVEL STYLES -->
-<link href="${url}/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css"/>
-<link href="${url}/admin/pages/css/profile.css" rel="stylesheet" type="text/css"/>
-<link href="${url}/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
-<!-- END PAGE LEVEL STYLES -->
-<!-- BEGIN THEME STYLES -->
-<link href="${url}/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
-<link href="${url}/global/css/plugins.css" rel="stylesheet" type="text/css"/>
-<link href="${url}/admin/layout2/css/layout.css" rel="stylesheet" type="text/css"/>
-<link id="style_color" href="${url}/admin/layout2/css/themes/grey.css" rel="stylesheet" type="text/css"/>
-<link href="${url}/admin/layout2/css/custom.css" rel="stylesheet" type="text/css"/>
-<!-- END THEME STYLES -->
-<link rel="shortcut icon" href="favicon.ico"/>
-</head>
-<!-- END HEAD -->
 <!-- BEGIN BODY -->
 <!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
 <!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
@@ -64,7 +17,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
 <!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
-<body class="page-boxed page-header-fixed page-container-bg-solid page-sidebar-closed page-sidebar-closed-hide-logo">
+<body class="page-boxed page-header-fixed page-container-bg-solid page-sidebar-closed-hide-logo ">
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
 	<!-- BEGIN HEADER INNER -->
@@ -87,8 +40,8 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!-- DOC: Remove "hide" class to enable the page header actions -->
 		<div class="page-actions">
 			<div class="btn-group">
-				<button type="button" class="btn btn-circle red-pink dropdown-toggle" data-toggle="dropdown">
-				<i class="fa fa-plus"></i>&nbsp;<span class="hidden-sm hidden-xs">New&nbsp;</span>&nbsp;<i class="fa fa-angle-down"></i>
+				<button type="button" class="btn btn-circle red-pink dropdown-toggle hide" data-toggle="dropdown">
+				<i class="icon-bar-chart"></i>&nbsp;<span class="hidden-sm hidden-xs">New&nbsp;</span>&nbsp;<i class="fa fa-angle-down"></i>
 				</button>
 				<ul class="dropdown-menu" role="menu">
 					<li>
@@ -118,11 +71,11 @@ License: You must have a valid license purchased only from themeforest(the above
 					</li>
 				</ul>
 			</div>
-			<div class="btn-group hide">
-				<button type="button" class="btn btn-circle green-haze dropdown-toggle" data-toggle="dropdown">
-				<i class="icon-bell"></i>&nbsp;<span class="hidden-sm hidden-xs">Post&nbsp;</span>&nbsp;<i class="fa fa-angle-down"></i>
+			<div class="btn-group">
+				<button type="button" class="btn btn-circle green-haze" data-toggle="dropdown">
+				<i class="fa fa-plus"></i>&nbsp;<span class="hidden-sm hidden-xs">New&nbsp;</span>&nbsp;<i class="fa fa-angle-down"></i>
 				</button>
-				<ul class="dropdown-menu" role="menu">
+				<ul class="dropdown-menu pull-left" role="menu">
 					<li>
 						<a href="#">
 						<i class="icon-docs"></i> New Post </a>
@@ -540,14 +493,15 @@ License: You must have a valid license purchased only from themeforest(the above
 						<span class="title">Dashboard</span>
 						</a>
 					</li>
-					<li>
+					<li class="active open">
 						<a href="javascript:;">
 						<i class="icon-basket"></i>
 						<span class="title">eCommerce</span>
-						<span class="arrow "></span>
+						<span class="selected"></span>
+						<span class="arrow open"></span>
 						</a>
 						<ul class="sub-menu">
-							<li>
+							<li class="active">
 								<a href="ecommerce_index.html">
 								<i class="icon-home"></i>
 								Dashboard</a>
@@ -890,12 +844,11 @@ License: You must have a valid license purchased only from themeforest(the above
 							</li>
 						</ul>
 					</li>
-					<li class="active open">
+					<li>
 						<a href="javascript:;">
 						<i class="icon-docs"></i>
 						<span class="title">Pages</span>
-						<span class="selected"></span>
-						<span class="arrow open"></span>
+						<span class="arrow "></span>
 						</a>
 						<ul class="sub-menu">
 							<li>
@@ -910,7 +863,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<i class="icon-hourglass"></i>
 								<span class="badge badge-danger">4</span>Todo</a>
 							</li>
-							<li class="active">
+							<li>
 								<a href="extra_profile.html">
 								<i class="icon-user-following"></i>
 								<span class="badge badge-success badge-roundless">new</span>New User Profile</a>
@@ -1286,7 +1239,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- END STYLE CUSTOMIZER -->
 				<!-- BEGIN PAGE HEADER-->
 				<h3 class="page-title">
-				User Account <small>user account page sample</small>
+				Dashboard <small>dashboard & statistics</small>
 				</h3>
 				<div class="page-bar">
 					<ul class="page-breadcrumb">
@@ -1296,11 +1249,11 @@ License: You must have a valid license purchased only from themeforest(the above
 							<i class="fa fa-angle-right"></i>
 						</li>
 						<li>
-							<a href="#">Pages</a>
+							<a href="#">eCommerce</a>
 							<i class="fa fa-angle-right"></i>
 						</li>
 						<li>
-							<a href="#">User Account</a>
+							<a href="#">Dashboard</a>
 						</li>
 					</ul>
 					<div class="page-toolbar">
@@ -1329,306 +1282,144 @@ License: You must have a valid license purchased only from themeforest(the above
 				</div>
 				<!-- END PAGE HEADER-->
 				<!-- BEGIN PAGE CONTENT-->
-				<div class="row">
-					<div class="col-md-12">
-						<!-- BEGIN PROFILE SIDEBAR -->
-						<div class="profile-sidebar" style="width:250px;">
-							<!-- PORTLET MAIN -->
-							<div class="portlet light profile-sidebar-portlet">
-								<!-- SIDEBAR USERPIC -->
-								<div class="profile-userpic">
-									<img src="${url}/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
-								</div>
-								<!-- END SIDEBAR USERPIC -->
-								<!-- SIDEBAR USER TITLE -->
-								<div class="profile-usertitle">
-									<div class="profile-usertitle-name">
-										 Marcus Doe
-									</div>
-									<div class="profile-usertitle-job">
-										 Developer
-									</div>
-								</div>
-								<!-- END SIDEBAR USER TITLE -->
-								<!-- SIDEBAR BUTTONS -->
-								<div class="profile-userbuttons">
-									<button type="button" class="btn btn-circle green-haze btn-sm">Follow</button>
-									<button type="button" class="btn btn-circle btn-danger btn-sm">Message</button>
-								</div>
-								<!-- END SIDEBAR BUTTONS -->
-								<!-- SIDEBAR MENU -->
-								<div class="profile-usermenu">
-									<ul class="nav">
-										<li>
-											<a href="extra_profile.html">
-											<i class="icon-home"></i>
-											Overview </a>
-										</li>
-										<li class="active">
-											<a href="extra_profile_account.html">
-											<i class="icon-settings"></i>
-											Account Settings </a>
-										</li>
-										<li>
-											<a href="page_todo.html" target="_blank">
-											<i class="icon-check"></i>
-											Tasks </a>
-										</li>
-										<li>
-											<a href="extra_profile_help.html">
-											<i class="icon-info"></i>
-											Help </a>
-										</li>
-									</ul>
-								</div>
-								<!-- END MENU -->
-							</div>
-							<!-- END PORTLET MAIN -->
-							<!-- PORTLET MAIN -->
-							<div class="portlet light">
-								<!-- STAT -->
-								<div class="row list-separated profile-stat">
-									<div class="col-md-4 col-sm-4 col-xs-6">
-										<div class="uppercase profile-stat-title">
-											 37
-										</div>
-										<div class="uppercase profile-stat-text">
-											 Projects
-										</div>
-									</div>
-									<div class="col-md-4 col-sm-4 col-xs-6">
-										<div class="uppercase profile-stat-title">
-											 51
-										</div>
-										<div class="uppercase profile-stat-text">
-											 Tasks
-										</div>
-									</div>
-									<div class="col-md-4 col-sm-4 col-xs-6">
-										<div class="uppercase profile-stat-title">
-											 61
-										</div>
-										<div class="uppercase profile-stat-text">
-											 Uploads
-										</div>
-									</div>
-								</div>
-								<!-- END STAT -->
-								<div>
-									<h4 class="profile-desc-title">About Marcus Doe</h4>
-									<span class="profile-desc-text"> Lorem ipsum dolor sit amet diam nonummy nibh dolore. </span>
-									<div class="margin-top-20 profile-desc-link">
-										<i class="fa fa-globe"></i>
-										<a href="http://www.keenthemes.com">www.keenthemes.com</a>
-									</div>
-									<div class="margin-top-20 profile-desc-link">
-										<i class="fa fa-twitter"></i>
-										<a href="http://www.twitter.com/keenthemes/">@keenthemes</a>
-									</div>
-									<div class="margin-top-20 profile-desc-link">
-										<i class="fa fa-facebook"></i>
-										<a href="http://www.facebook.com/keenthemes/">keenthemes</a>
-									</div>
+
+					<div class="form-body">
+						<form role="form" method="post" enctype="multipart/form-data">
+
+							<div class="form-group">
+								<label class="col-md-2 control-label">Name: </label>
+								<div class="col-md-10">
+									<input type="text" class="form-control" name="name"
+										placeholder="" value="">
 								</div>
 							</div>
-							<!-- END PORTLET MAIN -->
-						</div>
-						<!-- END BEGIN PROFILE SIDEBAR -->
-						<!-- BEGIN PROFILE CONTENT -->
-						<div class="profile-content">
-							<div class="row">
-								<div class="col-md-12">
-									<div class="portlet light">
-										<div class="portlet-title tabbable-line">
-											<div class="caption caption-md">
-												<i class="icon-globe theme-font hide"></i>
-												<span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
-											</div>
-											<ul class="nav nav-tabs">
-												<li class="active">
-													<a href="#tab_1_1" data-toggle="tab">Shop Info</a>
-												</li>
-												<li>
-													<a href="#tab_1_2" data-toggle="tab">Change Avatar</a>
-												</li>
-												<li>
-													<a href="#tab_1_3" data-toggle="tab">Change Password</a>
-												</li>
-												<li>
-													<a href="#tab_1_4" data-toggle="tab">Privacy Settings</a>
-												</li>
+
+							<div class="form-group">
+								<label class="col-md-2 control-label">Price: </label>
+								<div class="col-md-10">
+									<input class="form-control" name="price"
+										value=""></input>
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<label class="col-md-2 control-label">Description: </label>
+								<div class="col-md-10">
+									<textarea class="form-control" name="description""></textarea>
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<label class="col-md-2 control-label">Categories:</label>
+								<div class="col-md-10">
+									<div class="form-control height-auto">
+										<div class="scroller" style="height: 275px;"
+											data-always-visible="1">
+											<ul class="list-unstyled">
+												<c:forEach items="${listCategory}" var="category">
+
+													<li><label>${category.name}</label>
+														<ul class="list-unstyled">
+
+															<c:forEach items="${category.subCategories}"
+																var="subCategory">
+																<li>
+																	<label><input type="radio" name="subCategory" value="${subCategory.id}">${subCategory.name }</label>
+																</li>
+
+															</c:forEach>
+														</ul></li>
+												</c:forEach>
 											</ul>
 										</div>
-										
-										
-										<div class="portlet-body">
-											<div class="tab-content">
-												<!-- PERSONAL INFO TAB -->
-												<div class="tab-pane active" id="tab_1_1">
-													<form role="form" method="post" enctype="multipart/form-data">
-														<div class="form-group">
-															<label class="control-label">Location</label>
-															<input type="text" placeholder="" class="form-control" value="${shop.location }" name="location"/>
-														</div>
-														<div class="form-group">
-															<label class="control-label">Shop name</label>
-															<input type="text" placeholder="" class="form-control" value="${shop.name}" name="name"/>
-														</div>
-
-														
-														<div class="form-group">
-															<div class="fileinput fileinput-new" data-provides="fileinput">
-																<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-																<c:url value="/image?fname=${shop.avatar}" var="imgUrl"></c:url>
-																<img class="img-responsive" width="200px" height="150px" src="${imgUrl}" alt="">
-																<div>
-																	<span class="btn default btn-file">
-																	<span class="fileinput-new">Select image </span>
-																	<span class="fileinput-exists"> Change </span>
-																	<input type="file" name="avatar">
-																	</span>
-																	<div href="#" class="btn default fileinput-exists" data-dismiss="fileinput"> Remove </div>								
-																</div>
-															</div>
-
-														</div>
-														
-														
-														<div class="margiv-top-10">
-															<button type="submit" class="btn green-haze"> Save Changes </button>
-															<button type="reset"  class="btn default"> Cancel </button>
-														</div>
-														
-													</form>
-													
-													
-												</div>
-												<!-- END PERSONAL INFO TAB -->
-												<!-- CHANGE AVATAR TAB -->
-												<div class="tab-pane" id="tab_1_2">
-													<p>
-														 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-													</p>
-													<form action="#" role="form">
-														<div class="form-group">
-															<div class="fileinput fileinput-new" data-provides="fileinput">
-																<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-																	<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
-																</div>
-																<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
-																</div>
-																<div>
-																	<span class="btn default btn-file">
-																	<span class="fileinput-new">
-																	Select image </span>
-																	<span class="fileinput-exists"> Change </span>
-																	<input type="file" name="...">
-																	</span>
-																	<a href="#" class="btn default fileinput-exists" data-dismiss="fileinput"> Remove </a>
-																</div>
-															</div>
-															<div class="clearfix margin-top-10">
-																<span class="label label-danger">NOTE! </span>
-																<span>Attached image thumbnail is supported in Latest Firefox, Chrome, Opera, Safari and Internet Explorer 10 only </span>
-															</div>
-														</div>
-														<div class="margin-top-10">
-															<a href="#" class="btn green-haze"> Submit </a>
-															<a href="#" class="btn default">
-															Cancel </a>
-														</div>
-													</form>
-												</div>
-												<!-- END CHANGE AVATAR TAB -->
-												<!-- CHANGE PASSWORD TAB -->
-												<div class="tab-pane" id="tab_1_3">
-													<form action="#">
-														<div class="form-group">
-															<label class="control-label">Current Password</label>
-															<input type="password" class="form-control"/>
-														</div>
-														<div class="form-group">
-															<label class="control-label">New Password</label>
-															<input type="password" class="form-control"/>
-														</div>
-														<div class="form-group">
-															<label class="control-label">Re-type New Password</label>
-															<input type="password" class="form-control"/>
-														</div>
-														<div class="margin-top-10">
-															<a href="#" class="btn green-haze">
-															Change Password </a>
-															<a href="#" class="btn default">
-															Cancel </a>
-														</div>
-													</form>
-												</div>
-												<!-- END CHANGE PASSWORD TAB -->
-												<!-- PRIVACY SETTINGS TAB -->
-												<div class="tab-pane" id="tab_1_4">
-													<form action="#">
-														<table class="table table-light table-hover">
-														<tr>
-															<td>
-																 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus..
-															</td>
-															<td>
-																<label class="uniform-inline">
-																<input type="radio" name="optionsRadios1" value="option1"/>
-																Yes </label>
-																<label class="uniform-inline">
-																<input type="radio" name="optionsRadios1" value="option2" checked/>
-																No </label>
-															</td>
-														</tr>
-														<tr>
-															<td>
-																 Enim eiusmod high life accusamus terry richardson ad squid wolf moon
-															</td>
-															<td>
-																<label class="uniform-inline">
-																<input type="checkbox" value=""/> Yes </label>
-															</td>
-														</tr>
-														<tr>
-															<td>
-																 Enim eiusmod high life accusamus terry richardson ad squid wolf moon
-															</td>
-															<td>
-																<label class="uniform-inline">
-																<input type="checkbox" value=""/> Yes </label>
-															</td>
-														</tr>
-														<tr>
-															<td>
-																 Enim eiusmod high life accusamus terry richardson ad squid wolf moon
-															</td>
-															<td>
-																<label class="uniform-inline">
-																<input type="checkbox" value=""/> Yes </label>
-															</td>
-														</tr>
-														</table>
-														<!--end profile-settings-->
-														<div class="margin-top-10">
-															<a href="#" class="btn green-haze">
-															Save Changes </a>
-															<a href="#" class="btn default">
-															Cancel </a>
-														</div>
-													</form>
-												</div>
-												<!-- END PRIVACY SETTINGS TAB -->
-											</div>
-										</div>
 									</div>
+
 								</div>
 							</div>
-						</div>
-						<!-- END PROFILE CONTENT -->
+
+							<div class="form-group">
+								<label class="col-md-2 control-label">Amount: </label>
+								<div class="col-md-10">
+									<input class="form-control" name="amount"
+										value=""></input>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-2 control-label">Status:</label>
+								<div class="col-md-10">
+									<select
+										class="table-group-action-input form-control input-medium"
+										name="status">
+										<option value=1 >Đang
+											bán</option>
+										<option value=0 >
+											Ngưng bán</option>
+										<option value=-1 >Tạm
+											ẩn</option>
+									</select>
+								</div>
+							</div>
+
+
+
+							<div class="form-group">
+								<label class="col-md-2 control-label">Picture: </label>
+								<div class="col-md-10">
+									<c:url value="/image?fname=" var="imgUrl"></c:url>
+									<img class="img-responsive" width="400px" src="${imgUrl}"
+										alt=""> <label class="col-md-2 control-label">Ảnh Sản Phẩm</label> <input class="form-control" type="file" name="picture" value="" />
+								</div>
+							</div>
+
+							<div class="form-group" id="">
+
+								<div class="hashtagBlock">
+									<label class="col-md-2 control-label">Hashtag: </label>
+									<div class="col-md-10">
+										<input class="form-control" name="tag1"
+											value=""></input>
+									</div>
+								</div>
+
+								<div class="hashtagBlock">
+									<label class="col-md-2 control-label">Hashtag: </label>
+									<div class="col-md-10">
+										<input class="form-control" name="tag2"
+											value=""></input>
+									</div>
+								</div>
+
+
+								<div class="hashtagBlock">
+									<label class="col-md-2 control-label">Hashtag: </label>
+									<div class="col-md-10">
+										<input class="form-control" name="tag3"
+											value=""></input>
+									</div>
+								</div>
+
+								<div class="hashtagBlock">
+									<label class="col-md-2 control-label">Hashtag: </label>
+									<div class="col-md-10">
+										<input class="form-control" name="tag4"
+											value=""></input>
+									</div>
+								</div>
+
+								<!-- <div class="btn-danger btn-sm" style="float:right" onclick="themHashtag()">Thêm Hashtag</div>   -->
+							</div>
+
+
+							<button style="float: right" type="submit"
+								class="btn btn-primary">ADD</button>
+							<button style="float: right" type="reset" class="btn btn-success">Reset</button>
+						</form>
 					</div>
-				</div>
-				<!-- END PAGE CONTENT-->
+
+					<!-- END PAGE CONTENT-->
 			</div>
 		</div>
 		<!-- END CONTENT -->
@@ -1667,25 +1458,25 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="${url}/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="${url}/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
-<script src="${url}/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+<script src="${url}/global/plugins/flot/jquery.flot.js" type="text/javascript"></script>
+<script src="${url}/global/plugins/flot/jquery.flot.resize.js" type="text/javascript"></script>
+<script src="${url}/global/plugins/flot/jquery.flot.categories.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="${url}/global/scripts/metronic.js" type="text/javascript"></script>
 <script src="${url}/admin/layout2/scripts/layout.js" type="text/javascript"></script>
 <script src="${url}/admin/layout2/scripts/demo.js" type="text/javascript"></script>
-<script src="${url}/admin/pages/scripts/profile.js" type="text/javascript"></script>
+<script src="${url}/admin/pages/scripts/ecommerce-index.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
-jQuery(document).ready(function() {       
-   // initiate layout and plugins
-   Metronic.init(); // init metronic core components
+        jQuery(document).ready(function() {    
+           Metronic.init(); // init metronic core components
 Layout.init(); // init current layout
-Demo.init(); // init demo features\
-Profile.init(); // init page demo
-});
-</script>
+Demo.init(); // init demo features
+           EcommerceIndex.init();
+        });
+    </script>
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->
-</html>
+</html>    

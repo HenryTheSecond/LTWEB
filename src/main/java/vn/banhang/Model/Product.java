@@ -46,7 +46,7 @@ public class Product implements Serializable {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "product")
 	private Set<Review> reviews;
 	
-	@OneToMany( mappedBy = "product")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "product")
 	private Set<Cart> carts;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "product")

@@ -931,7 +931,7 @@
 												<li><a href="#tab_images" data-toggle="tab"> Images
 												</a></li>
 												<li><a href="#tab_reviews" data-toggle="tab">
-														Reviews <span class="badge badge-success"> 3 </span>
+														Reviews
 												</a></li>
 												<li><a href="#tab_history" data-toggle="tab">Order</a></li>
 											</ul>
@@ -1235,7 +1235,7 @@
 																	<th width="10%">Username</th>
 																	<th width="10%">Comment</th>
 																	<th width="10%">Rating</th>
-																	<th width="20%">Product Name</th>																		
+																	
 																</tr>
 																<c:forEach items="${product.reviews }" var="review">
 																<tr role="row" class="filter">
@@ -1243,7 +1243,7 @@
 																	<td>${review.user.username}</td>
 																	<td>${review.comment}</td>
 																	<td>${review.rating}/5</td>
-																	<td>${review.product.name}</td>
+
 																</tr>
 																</c:forEach>
 															</thead>
@@ -1254,66 +1254,35 @@
 												</div>
 												<div class="tab-pane" id="tab_history">
 													<div class="table-container">
-														<table
-															class="table table-striped table-bordered table-hover"
-															id="datatable_history">
+														<table class="table table-striped table-bordered table-hover" id="datatable_history">
 															<thead>
 																<tr role="row" class="heading">
-																	<th width="25%">Datetime</th>
-																	<th width="55%">Description</th>
-																	<th width="10%">Notification</th>
-																	<th width="10%">Actions</th>
+																	<th width="10%">Người đặt</th>
+																	<th width="10%">Điện thoại</th>
+																	<th width="10%">Địa chỉ</th>
+																	<th width="10%">Sản phẩm</th>
+																	<th width="5%">Giá</th>
+																	<th width="5%">Số lượng</th>
+																	<th width="15%">Ngày đặt</th>
+																	<th width="15%">Ngày giao</th>
+																	<th width="10%">Trạng thái</th>
+																	<th width="10%">Username</th>
 																</tr>
+																
+																<c:forEach items="${product.carts }" var="cart">
 																<tr role="row" class="filter">
-																	<td>
-																		<div
-																			class="input-group date datetime-picker margin-bottom-5"
-																			data-date-format="dd/mm/yyyy hh:ii">
-																			<input type="text"
-																				class="form-control form-filter input-sm" readonly
-																				name="product_history_date_from" placeholder="From">
-																			<span class="input-group-btn">
-																				<button class="btn btn-sm default date-set"
-																					type="button">
-																					<i class="fa fa-calendar"></i>
-																				</button>
-																			</span>
-																		</div>
-																		<div class="input-group date datetime-picker"
-																			data-date-format="dd/mm/yyyy hh:ii">
-																			<input type="text"
-																				class="form-control form-filter input-sm" readonly
-																				name="product_history_date_to" placeholder="To">
-																			<span class="input-group-btn">
-																				<button class="btn btn-sm default date-set"
-																					type="button">
-																					<i class="fa fa-calendar"></i>
-																				</button>
-																			</span>
-																		</div>
-																	</td>
-																	<td><input type="text"
-																		class="form-control form-filter input-sm"
-																		name="product_history_desc" placeholder="To" /></td>
-																	<td><select name="product_history_notification"
-																		class="form-control form-filter input-sm">
-																			<option value="">Select...</option>
-																			<option value="pending">Pending</option>
-																			<option value="notified">Notified</option>
-																			<option value="failed">Failed</option>
-																	</select></td>
-																	<td>
-																		<div class="margin-bottom-5">
-																			<button
-																				class="btn btn-sm yellow filter-submit margin-bottom">
-																				<i class="fa fa-search"></i> Search
-																			</button>
-																		</div>
-																		<button class="btn btn-sm red filter-cancel">
-																			<i class="fa fa-times"></i> Reset
-																		</button>
-																	</td>
+																	<td>${cart.name }</td>
+																	<td>${cart.phone }</td>
+																	<td>${cart.location }</td>
+																	<td>${cart.product.name }</td>
+																	<td>${cart.price }</td>
+																	<td>${cart.amount }</td>
+																	<td>${cart.order_date.getTime() }</td>
+																	<td>${cart.delivery_date.getTime() }</td>
+																	<td>${cart.status }</td>
+																	<td>${cart.user.username }</td>
 																</tr>
+																</c:forEach>
 															</thead>
 															<tbody>
 															</tbody>

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import vn.banhang.Model.User;
 
-@WebServlet(urlPatterns = {"/seller/home"})
+@WebServlet(urlPatterns = {"/seller/home","/seller", "/seller/"})
 public class SellerHomeController extends HttpServlet {
 	
 	/**

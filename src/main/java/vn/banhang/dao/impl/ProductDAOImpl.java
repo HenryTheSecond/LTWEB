@@ -1,5 +1,6 @@
 package vn.banhang.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -11,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import vn.banhang.Hibernate.HibernateUtil;
+import vn.banhang.Model.Cart;
 import vn.banhang.Model.Product;
 import vn.banhang.Model.Shop;
 import vn.banhang.Model.Tag;
@@ -123,6 +125,21 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 	
+
+
+	@Override
+	public void add(Product product) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			session.getTransaction().begin();
+			session.save(product);
+			for(Tag tag:product.getTags()) {
+				session.save(tag);
+			}
+			session.getTransaction().commit();
+		}
+	}
+	
+	
 	public static void main(String[] args) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			/*User u = session.get(User.class,1);
@@ -131,7 +148,9 @@ public class ProductDAOImpl implements ProductDAO {
 			System.out.println(dao.searchProductShop(u.getShop(), "miku", 15, "tatca"));*/
 			
 			Product p = session.get(Product.class, 1);
-
+			for(Cart cart: p.getCarts()) {
+				System.out.println(cart.getOrder_date().getTime());
+			}
 			System.out.println(p.getTags().get(0).getKeyword());
 
 		}

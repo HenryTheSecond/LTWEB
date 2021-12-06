@@ -11,4 +11,5 @@ public interface ProductDAO {
 	public List<Product> searchProductShop(Shop shop, String kw, String status);
 	public Product get(int id);
 	public void update(Product product);
+	public void add(Product product);
 }
