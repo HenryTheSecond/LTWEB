@@ -13,10 +13,18 @@ public class ProductServiceImpl implements ProductService {
 	
 	
 	@Override
-	public List<Product> getAllProduct() {
-		return dao.getAllProduct();
+	public List<Product> getSixProduct() {
+		return dao.getSixProduct();
 	}
 
+	@Override
+	public List<Product> getSevenProduct(){
+		return dao.getSevenProduct();
+	}
+	
+	public List<Product> getAllProduct(){
+		return dao.getAllProduct();
+	}
 	
 	@Override
 	public List<Product> getAllShopProduct(Shop shop) {
