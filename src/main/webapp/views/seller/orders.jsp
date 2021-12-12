@@ -295,6 +295,9 @@
 										<th width="10%">
 											 Status
 										</th>
+										<th>
+											Action
+										</th>
 									</tr>
 									<c:forEach items="${listCart }" var="cart">
 									<tr role="row" class="filter">
@@ -326,6 +329,10 @@
 											${cart.delivery_date.getTime() }
 										</td>
 										<td>${cart.status }</td>
+										
+										<td> 
+											<a onclick="delivery(${cart.id})"> ${cart.status=="pending"? "Giao hang":"" } </a>  
+										</td>
 									</tr>
 									</c:forEach>
 									</thead>
@@ -386,6 +393,28 @@ Demo.init(); // init demo features
         });
     </script>
 <!-- END JAVASCRIPTS -->
+
+
+<!-- MY SCRIPT -->
+<script>
+	function delivery(id){
+		console.log(id)
+		fetch("/BanHang/api/delivery",{
+			method : "post",
+			body: JSON.stringify({
+				"id": id
+	        }),
+	        headers: {
+	            "Content-Type": "application/json"
+	        }
+		}).then(function(res){
+			return res.json()
+		}).then(function(data){
+			location.reload()
+		})
+	}
+</script>
+
 </body>
 <!-- END BODY -->
 </html>

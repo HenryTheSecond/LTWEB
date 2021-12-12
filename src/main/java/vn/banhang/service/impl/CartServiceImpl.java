@@ -21,4 +21,10 @@ public class CartServiceImpl implements CartService {
 	public List<Cart> shopSearch(Shop shop, String status, String kw, Calendar from, Calendar to) {
 		return dao.shopSearch(shop, status, kw, from, to);
 	}
+
+	@Override
+	public void deliveryCart(int id) {
+		dao.deliveryCart(id);
+		
+	}
 }

@@ -491,7 +491,7 @@
           <div class="col-md-9 col-sm-8">
             <h2>Three items</h2>
             <div class="owl-carousel owl-carousel3">
-            <c:forEach items="listAllProduct" var="p">
+            <c:forEach items="${listAllProduct}" var="p">
               <div>
                 <div class="product-item">
                   <div class="pi-img-wrapper">

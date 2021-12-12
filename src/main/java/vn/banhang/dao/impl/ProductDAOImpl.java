@@ -160,11 +160,14 @@ public class ProductDAOImpl implements ProductDAO {
 			
 			System.out.println(dao.searchProductShop(u.getShop(), "miku", 15, "tatca"));*/
 			
-			Product p = session.get(Product.class, 1);
+			/*Product p = session.get(Product.class, 1);
 			for(Cart cart: p.getCarts()) {
 				System.out.println(cart.getOrder_date().getTime());
 			}
-			System.out.println(p.getTags().get(0).getKeyword());
+			System.out.println(p.getTags().get(0).getKeyword());*/
+			
+			List<Product> list = new ProductDAOImpl().getAllProduct();
+			System.out.println(list.get(0).getName());
 
 		}
 	}

@@ -74,6 +74,19 @@ public class CartDAOImpl implements CartDAO {
 		}
 	}
 
+	@Override
+	public void deliveryCart(int id) {
+		try(Session session = factory.openSession()){
+			session.getTransaction().begin();
+			
+			Cart cart = session.get(Cart.class, id);
+			cart.setStatus("deliveried");
+			cart.setDelivery_date(Calendar.getInstance());
+			session.saveOrUpdate(cart);
+			
+			session.getTransaction().commit();
+		}
+	}
 	
 	public static void main(String[] args) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
@@ -99,5 +112,6 @@ public class CartDAOImpl implements CartDAO {
 			System.out.println(list);
 		}
 	}
+
 
 }
