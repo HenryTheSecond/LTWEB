@@ -20,8 +20,9 @@ import vn.banhang.service.impl.CategoryServiceImpl;
 import vn.banhang.service.impl.ProductServiceImpl;
 import vn.banhang.service.impl.SubCategoryServiceImpl;
 
-@WebServlet(urlPatterns = {"/home","/trang-chu"})
-public class HomeController  extends HttpServlet{
+
+@WebServlet(urlPatterns = {"/product","/san-pham"})
+public class ProductController  extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/htm");
@@ -32,11 +33,8 @@ public class HomeController  extends HttpServlet{
 		SubCategoryService subCategoryService = new SubCategoryServiceImpl();
 		ProductService productService = new ProductServiceImpl();
 		
-		List<Product> sixProduct = productService.getSixProduct();
-		req.setAttribute("listSixProduct", sixProduct);
-		
-		List<Product> sevenProduct = productService.getSevenProduct();
-		req.setAttribute("listSevenProduct", sevenProduct);
+		List<Product> allProduct = productService.getAllProduct();
+		req.setAttribute("listAllProduct", allProduct);
 		
 		List<SubCategory> allSubCate = subCategoryService.getAllSubCategory();
 		req.setAttribute("listSubCate", allSubCate);
@@ -44,7 +42,7 @@ public class HomeController  extends HttpServlet{
 		List<Category> allCate = categoryService.getCategories();
 		req.setAttribute("listCate", allCate);
 		
-		RequestDispatcher rq = req.getRequestDispatcher("/views/home.jsp");
+		RequestDispatcher rq = req.getRequestDispatcher("/views/product.jsp");
 		rq.forward(req, resp);
 	}
 }

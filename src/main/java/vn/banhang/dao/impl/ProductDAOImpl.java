@@ -141,13 +141,37 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	
 	@Override
-	public List<Product> getAllProduct() {
+	public List<Product> getSixProduct() {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<Product> q = builder.createQuery(Product.class);
 			Root<Product> root = q.from(Product.class);
 			q.select(root);
 			List<Product> list = session.createQuery(q).setMaxResults(6).getResultList();
+			return list;
+		}
+	}
+	
+	@Override
+	public List<Product> getSevenProduct() {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Product> q = builder.createQuery(Product.class);
+			Root<Product> root = q.from(Product.class);
+			q.select(root);
+			List<Product> list = session.createQuery(q).setMaxResults(7).getResultList();
+			return list;
+		}
+	}
+	
+	@Override
+	public List<Product> getAllProduct() {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Product> q = builder.createQuery(Product.class);
+			Root<Product> root = q.from(Product.class);
+			q.select(root);
+			List<Product> list = session.createQuery(q).getResultList();
 			return list;
 		}
 	}
@@ -165,9 +189,7 @@ public class ProductDAOImpl implements ProductDAO {
 				System.out.println(cart.getOrder_date().getTime());
 			}
 			System.out.println(p.getTags().get(0).getKeyword());*/
-			
-			List<Product> list = new ProductDAOImpl().getAllProduct();
-			System.out.println(list.get(0).getName());
+		
 
 		}
 	}

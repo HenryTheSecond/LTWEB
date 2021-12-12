@@ -12,5 +12,7 @@ public interface ProductService {
 	public Product get(int id);
 	public void update(Product product);
 	public void add(Product product);
+	public List<Product> getSixProduct();
+	public List<Product> getSevenProduct();
 	public List<Product> getAllProduct();
 }
