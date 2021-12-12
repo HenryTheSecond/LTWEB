@@ -11,6 +11,13 @@ import vn.banhang.service.ProductService;
 public class ProductServiceImpl implements ProductService {
 	private ProductDAO dao = new ProductDAOImpl();
 	
+	
+	@Override
+	public List<Product> getAllProduct() {
+		return dao.getAllProduct();
+	}
+
+	
 	@Override
 	public List<Product> getAllShopProduct(Shop shop) {
 		return dao.getAllShopProduct(shop);

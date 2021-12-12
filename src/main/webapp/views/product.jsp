@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<c:url value="/templates/assets" var="url"></c:url>
+<c:url value="/templates" var="url"></c:url>
 
 
 
@@ -153,27 +153,187 @@
         <!--END CART -->
 
         <!-- BEGIN NAVIGATION -->
-  
         <div class="header-navigation">
           <ul>
-          <c:forEach items="${listCate}" var="c">
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
-                ${c.name} 
+                Woman 
+                
               </a>
+                
               <!-- BEGIN DROPDOWN MENU -->
               <ul class="dropdown-menu">
-               <c:forEach items="${listSubCate}" var="s">
-               <c:if test="${ c.id == s.category.id}">
-                <li><a href="shop-product-list.html">${s.name}</a></li>
-                </c:if>
-                </c:forEach>
+                <li class="dropdown-submenu">
+                  <a href="shop-product-list.html">Hi Tops <i class="fa fa-angle-right"></i></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="shop-product-list.html">Second Level Link</a></li>
+                    <li><a href="shop-product-list.html">Second Level Link</a></li>
+                    <li class="dropdown-submenu">
+                      <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
+                        Second Level Link 
+                        <i class="fa fa-angle-right"></i>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a href="shop-product-list.html">Third Level Link</a></li>
+                        <li><a href="shop-product-list.html">Third Level Link</a></li>
+                        <li><a href="shop-product-list.html">Third Level Link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="shop-product-list.html">Running Shoes</a></li>
+                <li><a href="shop-product-list.html">Jackets and Coats</a></li>
               </ul>
               <!-- END DROPDOWN MENU -->
-           </c:forEach>
-           <li> <a data-target="#" href="${pageContext.request.contextPath}/views/product.jsp">
-                Product
-             </a></li>
+            </li>
+            <li class="dropdown dropdown-megamenu">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
+                Man
+                
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="header-navigation-content">
+                    <div class="row">
+                      <div class="col-md-4 header-navigation-col">
+                        <h4>Footwear</h4>
+                        <ul>
+                          <li><a href="shop-product-list.html">Astro Trainers</a></li>
+                          <li><a href="shop-product-list.html">Basketball Shoes</a></li>
+                          <li><a href="shop-product-list.html">Boots</a></li>
+                          <li><a href="shop-product-list.html">Canvas Shoes</a></li>
+                          <li><a href="shop-product-list.html">Football Boots</a></li>
+                          <li><a href="shop-product-list.html">Golf Shoes</a></li>
+                          <li><a href="shop-product-list.html">Hi Tops</a></li>
+                          <li><a href="shop-product-list.html">Indoor and Court Trainers</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-md-4 header-navigation-col">
+                        <h4>Clothing</h4>
+                        <ul>
+                          <li><a href="shop-product-list.html">Base Layer</a></li>
+                          <li><a href="shop-product-list.html">Character</a></li>
+                          <li><a href="shop-product-list.html">Chinos</a></li>
+                          <li><a href="shop-product-list.html">Combats</a></li>
+                          <li><a href="shop-product-list.html">Cricket Clothing</a></li>
+                          <li><a href="shop-product-list.html">Fleeces</a></li>
+                          <li><a href="shop-product-list.html">Gilets</a></li>
+                          <li><a href="shop-product-list.html">Golf Tops</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-md-4 header-navigation-col">
+                        <h4>Accessories</h4>
+                        <ul>
+                          <li><a href="shop-product-list.html">Belts</a></li>
+                          <li><a href="shop-product-list.html">Caps</a></li>
+                          <li><a href="shop-product-list.html">Gloves, Hats and Scarves</a></li>
+                        </ul>
+
+                        <h4>Clearance</h4>
+                        <ul>
+                          <li><a href="shop-product-list.html">Jackets</a></li>
+                          <li><a href="shop-product-list.html">Bottoms</a></li>
+                        </ul>
+                      </div>
+                      <div class="col-md-12 nav-brands">
+                        <ul>
+                          <li><a href="shop-product-list.html"><img title="esprit" alt="esprit" src="${url}/frontend/pages/img/brands/esprit.jpg"></a></li>
+                          <li><a href="shop-product-list.html"><img title="gap" alt="gap" src="${url}/frontend/pages/img/brands/gap.jpg"></a></li>
+                          <li><a href="shop-product-list.html"><img title="next" alt="next" src="${url}/frontend/pages/img/brands/next.jpg"></a></li>
+                          <li><a href="shop-product-list.html"><img title="puma" alt="puma" src="${url}/frontend/pages/img/brands/puma.jpg"></a></li>
+                          <li><a href="shop-product-list.html"><img title="zara" alt="zara" src="${url}/frontend/pages/img/brands/zara.jpg"></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li><a href="shop-item.html">Kids</a></li>
+            <li class="dropdown dropdown100 nav-catalogue">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
+                New
+                
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="header-navigation-content">
+                    <div class="row">
+                      <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="product-item">
+                          <div class="pi-img-wrapper">
+                            <a href="shop-item.html"><img src="${url}/frontend/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                          </div>
+                          <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                          <div class="pi-price">$29.00</div>
+                          <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="product-item">
+                          <div class="pi-img-wrapper">
+                            <a href="shop-item.html"><img src="${url}/frontend/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                          </div>
+                          <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                          <div class="pi-price">$29.00</div>
+                          <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="product-item">
+                          <div class="pi-img-wrapper">
+                            <a href="shop-item.html"><img src="${url}/frontend/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                          </div>
+                          <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                          <div class="pi-price">$29.00</div>
+                          <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-4 col-xs-6">
+                        <div class="product-item">
+                          <div class="pi-img-wrapper">
+                            <a href="shop-item.html"><img src="${url}/frontend/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                          </div>
+                          <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                          <div class="pi-price">$29.00</div>
+                          <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown active">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
+                Pages 
+                
+              </a>
+                
+              <ul class="dropdown-menu">
+                <li><a href="shop-index.html">Home Default</a></li>
+                <li><a href="shop-index-header-fix.html">Home Header Fixed</a></li>
+                <li><a href="shop-index-light-footer.html">Home Light Footer</a></li>
+                <li class="active"><a href="shop-product-list.html">Product List</a></li>
+                <li><a href="shop-search-result.html">Search Result</a></li>
+                <li><a href="shop-item.html">Product Page</a></li>
+                <li><a href="shop-shopping-cart-null.html">Shopping Cart (Null Cart)</a></li>
+                <li><a href="shop-shopping-cart.html">Shopping Cart</a></li>
+                <li><a href="shop-checkout.html">Checkout</a></li>
+                <li><a href="shop-about.html">About</a></li>
+                <li><a href="shop-contacts.html">Contacts</a></li>
+                <li><a href="shop-account.html">My account</a></li>
+                <li><a href="shop-wishlist.html">My Wish List</a></li>
+                <li><a href="shop-goods-compare.html">Product Comparison</a></li>
+                <li><a href="shop-standart-forms.html">Standart Forms</a></li>
+                <li><a href="shop-faq.html">FAQ</a></li>
+                <li><a href="shop-privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="shop-terms-conditions-page.html">Terms &amp; Conditions</a></li>
+              </ul>
+            </li>
+            <li><a href="index.html" target="_blank">Corporate</a></li>
+            <li><a href="onepage-index.html" target="_blank">One Page</a></li>
+            <li><a href="http://keenthemes.com/preview/metronic/theme/templates/admin&amp;page=ecommerce_index.html" target="_blank">Admin theme</a></li>
 
             <!-- BEGIN TOP SEARCH -->
             <li class="menu-search">
@@ -198,179 +358,141 @@
     </div>
     <!-- Header END -->
 
-    <!-- BEGIN SLIDER -->
-    <div class="page-slider margin-bottom-35">
-      <!-- LayerSlider start -->
-      <div id="layerslider" style="width: 100%; height: 494px; margin: 0 auto;">
-
-        <!-- slide one start -->
-        <div class="ls-slide ls-slide1" data-ls="offsetxin: right; slidedelay: 7000; transition2d: 24,25,27,28;">
-
-          <img src="${url}/frontend/pages/img/layerslider/slide1/bg.jpg" class="ls-bg" alt="Slide background">
-
-          <div class="ls-l ls-title" style="top: 96px; left: 35%; white-space: nowrap;" data-ls="
-            fade: true; 
-            fadeout: true; 
-            durationin: 750; 
-            durationout: 750; 
-            easingin: easeOutQuint; 
-            rotatein: 90; 
-            rotateout: -90; 
-            scalein: .5; 
-            scaleout: .5; 
-            showuntil: 4000;
-          ">Tones of <strong>shop UI features</strong> designed</div>
-
-          <div class="ls-l ls-mini-text" style="top: 338px; left: 35%; white-space: nowrap;" data-ls="
-          fade: true; 
-          fadeout: true; 
-          durationout: 750; 
-          easingin: easeOutQuint; 
-          delayin: 300; 
-          showuntil: 4000;
-          ">Lorem ipsum dolor sit amet  constectetuer diam<br > adipiscing elit euismod ut laoreet dolore.
-          </div>
-        </div>
-        <!-- slide one end -->
-
-        <!-- slide two start -->
-        <div class="ls-slide ls-slide2" data-ls="offsetxin: right; slidedelay: 7000; transition2d: 110,111,112,113;">
-
-          <img src="${url}/frontend/pages/img/layerslider/slide2/bg.jpg" class="ls-bg" alt="Slide background">
-          
-          <div class="ls-l ls-title" style="top: 40%; left: 21%; white-space: nowrap;" data-ls="
-          fade: true; 
-          fadeout: true;  
-          durationin: 750; durationout: 109750; 
-          easingin: easeOutQuint; 
-          easingout: easeInOutQuint; 
-          delayin: 0; 
-          delayout: 0; 
-          rotatein: 90; 
-          rotateout: -90; 
-          scalein: .5; 
-          scaleout: .5; 
-          showuntil: 4000;
-          "><strong>Unlimted</strong> Layout Options <em>Fully Responsive</em>
-            </div>
-
-          <div class="ls-l ls-price" style="top: 50%; left: 45%; white-space: nowrap;" data-ls="
-          fade: true; 
-          fadeout: true;  
-          durationout: 109750; 
-          easingin: easeOutQuint; 
-          delayin: 300; 
-          scalein: .8; 
-          scaleout: .8; 
-          showuntil: 4000;"><b>from</b> <strong><span>$</span>25</strong>
-          </div>
-
-          <a href="#" class="ls-l ls-more" style="top: 72%; left: 21%; display: inline-block; white-space: nowrap;" data-ls="
-          fade: true; 
-          fadeout: true; 
-          durationin: 750; 
-          durationout: 750; 
-          easingin: easeOutQuint; 
-          easingout: easeInOutQuint; 
-          delayin: 0; 
-          delayout: 0; 
-          rotatein: 90; 
-          rotateout: -90; 
-          scalein: .5; 
-          scaleout: .5; 
-          showuntil: 4000;">See More Details
-          </a>
-        </div>
-        <!-- slide two end -->
-
-        <!-- slide three start -->
-        <div class="ls-slide ls-slide3" data-ls="offsetxin: right; slidedelay: 7000; transition2d: 92,93,105;">
-
-          <img src="${url}/frontend/pages/img/layerslider/slide3/bg.jpg" class="ls-bg" alt="Slide background">
-          
-          <div class="ls-l ls-title" style="top: 83px; left: 33%; white-space: nowrap;" data-ls="
-          fade: true; 
-          fadeout: true; 
-          durationin: 750; 
-          durationout: 750; 
-          easingin: easeOutQuint; 
-          rotatein: 90; 
-          rotateout: -90; 
-          scalein: .5; 
-          scaleout: .5; 
-          showuntil: 4000;
-          ">Full Admin &amp; Frontend <strong>eCommerce UI</strong> Is Ready For Your Project
-          </div>
-          <div class="ls-l" style="top: 333px; left: 33%; white-space: nowrap; font-size: 20px; font: 20px 'Open Sans Light', sans-serif;" data-ls="
-          fade: true; 
-          fadeout: true; 
-          durationout: 750; 
-          easingin: easeOutQuint; 
-          delayin: 300; 
-          scalein: .8; 
-          scaleout: .8; 
-          showuntil: 4000;
-          ">
-            <a href="#" class="ls-buy">
-              Buy It Now!
-            </a>
-            <div class="ls-price">
-              <span>All these for only:</span>
-              <strong>25<sup>$</sup></strong>
-            </div>
-          </div>
-        </div>
-        <!-- slide three end -->
-
-        <!-- slide four start -->
-        <div class="ls-slide ls-slide4" data-ls="offsetxin: right; slidedelay: 7000; transition2d: 110,111,112,113;">
-
-          <img src="${url}/frontend/pages/img/layerslider/slide5/bg.jpg" class="ls-bg" alt="Slide background">
-          
-          <div class="ls-l ls-title" style="top: 35%; left: 60%; white-space: nowrap;" data-ls="
-          fade: true; 
-          fadeout: true; 
-          durationin: 750; 
-          durationout: 750; 
-          easingin: easeOutQuint; 
-          rotatein: 90; 
-          rotateout: -90; 
-          scalein: .5; 
-          scaleout: .5; 
-          showuntil: 4000;">
-          The most<br>
-          wanted bijouterie
-          </div>
-
-          <div class="ls-l ls-mini-text" style="top: 70%; left: 60%; white-space: nowrap;" data-ls="
-          fade: true; 
-          fadeout: true;  
-          durationout: 750; 
-          easingin: easeOutQuint; 
-          delayin: 300; 
-          scalein: .8; 
-          scaleout: .8; 
-          showuntil: 4000;">
-          <span>Lorem ipsum and</span>
-          <a href="#">Buy It Now!</a>
-          </div>
-
-        </div>
-        <!-- slide four end -->
-      </div>
-      <!-- LayerSlider end -->
+    <div class="title-wrapper">
+      <div class="container"><div class="container-inner">
+        <h1><span>MEN</span> CATEGORY</h1>
+        <em>Over 4000 Items are available here</em>
+      </div></div>
     </div>
-    <!-- END SLIDER -->
 
     <div class="main">
       <div class="container">
-        <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="">Store</a></li>
+            <li class="active">Men category</li>
+        </ul>
+        <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row margin-bottom-40">
-          <!-- BEGIN SALE PRODUCT -->
-          <div class="col-md-12 sale-product">
-            <h2>New Arrivals</h2>
-            <div class="owl-carousel owl-carousel5">
-              <div>
+          <!-- BEGIN SIDEBAR -->
+          <div class="sidebar col-md-3 col-sm-5">
+            <ul class="list-group margin-bottom-25 sidebar-menu">
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Ladies</a></li>
+              <li class="list-group-item clearfix dropdown active">
+                <a href="javascript:void(0);" class="collapsed">
+                  <i class="fa fa-angle-right"></i>
+                  Mens
+                  
+                </a>
+                <ul class="dropdown-menu" style="display:block;">
+                  <li class="list-group-item dropdown clearfix active">
+                    <a href="javascript:void(0);" class="collapsed"><i class="fa fa-angle-right"></i> Shoes </a>
+                      <ul class="dropdown-menu" style="display:block;">
+                        <li class="list-group-item dropdown clearfix">
+                          <a href="javascript:void(0);"><i class="fa fa-angle-right"></i> Classic </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic 1</a></li>
+                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic 2</a></li>
+                          </ul>
+                        </li>
+                        <li class="list-group-item dropdown clearfix active">
+                          <a href="javascript:void(0);" class="collapsed"><i class="fa fa-angle-right"></i> Sport  </a>
+                          <ul class="dropdown-menu" style="display:block;">
+                            <li class="active"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 1</a></li>
+                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 2</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                  </li>
+                  <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Trainers</a></li>
+                  <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Jeans</a></li>
+                  <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Chinos</a></li>
+                  <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> T-Shirts</a></li>
+                </ul>
+              </li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Kids</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Accessories</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sports</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Brands</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Electronics</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Home & Garden</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Custom Link</a></li>
+            </ul>
+
+            <div class="sidebar-filter margin-bottom-25">
+              <h2>Filter</h2>
+              <h3>Availability</h3>
+              <div class="checkbox-list">
+                <label><input type="checkbox"> Not Available (3)</label>
+                <label><input type="checkbox"> In Stock (26)</label>
+              </div>
+
+              <h3>Price</h3>
+              <p>
+                <label for="amount">Range:</label>
+                <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
+              </p>
+              <div id="slider-range"></div>
+            </div>
+
+            <div class="sidebar-products clearfix">
+              <h2>Bestsellers</h2>
+              <div class="item">
+                <a href="shop-item.html"><img src="${url}/frontend/pages/img/products/k1.jpg" alt="Some Shoes in Animal with Cut Out"></a>
+                <h3><a href="shop-item.html">Some Shoes in Animal with Cut Out</a></h3>
+                <div class="price">$31.00</div>
+              </div>
+              <div class="item">
+                <a href="shop-item.html"><img src="${url}/frontend/pages/img/products/k4.jpg" alt="Some Shoes in Animal with Cut Out"></a>
+                <h3><a href="shop-item.html">Some Shoes in Animal with Cut Out</a></h3>
+                <div class="price">$23.00</div>
+              </div>
+              <div class="item">
+                <a href="shop-item.html"><img src="${url}/frontend/pages/img/products/k3.jpg" alt="Some Shoes in Animal with Cut Out"></a>
+                <h3><a href="shop-item.html">Some Shoes in Animal with Cut Out</a></h3>
+                <div class="price">$86.00</div>
+              </div>
+            </div>
+          </div>
+          <!-- END SIDEBAR -->
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-9 col-sm-7">
+            <div class="row list-view-sorting clearfix">
+              <div class="col-md-2 col-sm-2 list-view">
+                <a href="#"><i class="fa fa-th-large"></i></a>
+                <a href="#"><i class="fa fa-th-list"></i></a>
+              </div>
+              <div class="col-md-10 col-sm-10">
+                <div class="pull-right">
+                  <label class="control-label">Show:</label>
+                  <select class="form-control input-sm">
+                    <option value="#?limit=24" selected="selected">24</option>
+                    <option value="#?limit=25">25</option>
+                    <option value="#?limit=50">50</option>
+                    <option value="#?limit=75">75</option>
+                    <option value="#?limit=100">100</option>
+                  </select>
+                </div>
+                <div class="pull-right">
+                  <label class="control-label">Sort&nbsp;By:</label>
+                  <select class="form-control input-sm">
+                    <option value="#?sort=p.sort_order&amp;order=ASC" selected="selected">Default</option>
+                    <option value="#?sort=pd.name&amp;order=ASC">Name (A - Z)</option>
+                    <option value="#?sort=pd.name&amp;order=DESC">Name (Z - A)</option>
+                    <option value="#?sort=p.price&amp;order=ASC">Price (Low &gt; High)</option>
+                    <option value="#?sort=p.price&amp;order=DESC">Price (High &gt; Low)</option>
+                    <option value="#?sort=rating&amp;order=DESC">Rating (Highest)</option>
+                    <option value="#?sort=rating&amp;order=ASC">Rating (Lowest)</option>
+                    <option value="#?sort=p.model&amp;order=ASC">Model (A - Z)</option>
+                    <option value="#?sort=p.model&amp;order=DESC">Model (Z - A)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- BEGIN PRODUCT LIST -->
+            <div class="row product-list">
+              <!-- PRODUCT ITEM START -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
                     <img src="${url}/frontend/pages/img/products/model1.jpg" class="img-responsive" alt="Berry Lace Dress">
@@ -379,13 +501,14 @@
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                  <h3><a href="shop-item.html">Berry Lace Dress Berry Lace Dress</a></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                  <div class="sticker sticker-sale"></div>
                 </div>
               </div>
-              <div>
+              <!-- PRODUCT ITEM END -->
+              <!-- PRODUCT ITEM START -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
                     <img src="${url}/frontend/pages/img/products/model2.jpg" class="img-responsive" alt="Berry Lace Dress">
@@ -394,12 +517,14 @@
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
+                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
               </div>
-              <div>
+              <!-- PRODUCT ITEM END -->
+              <!-- PRODUCT ITEM START -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
                     <img src="${url}/frontend/pages/img/products/model6.jpg" class="img-responsive" alt="Berry Lace Dress">
@@ -408,230 +533,136 @@
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
+                  <h3><a href="shop-item.html">Berry Lace Dress 2</a></h3>
+                  <div class="pi-price">$29.00</div>
+                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                </div>
+              </div>              
+              <!-- PRODUCT ITEM END -->
+            </div>
+            <div class="row product-list">
+              <!-- PRODUCT ITEM START -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="${url}/frontend/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
+                    <div>
+                        <a href="${url}/frontend/pages/img/products/model4.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                  </div>
+                  <h3><a href="shop-item.html">Berry Lace Dress Berry Lace Dress</a></h3>
                   <div class="pi-price">$29.00</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
               </div>
-              <div>
-                  <div class="product-item">
-                    <div class="pi-img-wrapper">
-                      <img src="${url}/frontend/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                      <div>
-                        <a href="${url}/frontend/pages/img/products/model4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                      </div>
-                    </div>
-                    <h3><a href="#">Berry Lace Dress4</a></h3>
-                    <div class="pi-price">$29.00</div>
-                    <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                    <div class="sticker sticker-new"></div>
-                  </div>
-              </div>
-              <div>
+              <!-- PRODUCT ITEM END -->
+              <!-- PRODUCT ITEM START -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
                     <img src="${url}/frontend/pages/img/products/model5.jpg" class="img-responsive" alt="Berry Lace Dress">
                     <div>
-                      <a href="${url}/frontend/pages/img/products/model5.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                        <a href="${url}/frontend/pages/img/products/model5.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
+                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
                   <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/model3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/model7.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- END SALE PRODUCT -->
-        </div>
-        <!-- END SALE PRODUCT & NEW ARRIVALS -->
-
-        <!-- BEGIN SIDEBAR & CONTENT -->
-        <div class="row margin-bottom-40 ">
-          <!-- BEGIN SIDEBAR -->
-          <div class="sidebar col-md-3 col-sm-4">
-            <ul class="list-group margin-bottom-25 sidebar-menu">
-             <c:forEach items="${listCate}" var="c">
-              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> ${c.name} </a></li>
-			</c:forEach>
-            </ul>
-          </div>
-          <!-- END SIDEBAR -->
-          <!-- BEGIN CONTENT -->
-          <div class="col-md-9 col-sm-8">
-            <h2>Three items</h2>
-            <div class="owl-carousel owl-carousel3">
-            <c:forEach items="listAllProduct" var="p">
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">${p.name}</a></h3>
-                  <div class="pi-price">$ ${p.price}</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                   <div class="sticker sticker-new"></div>
                 </div>
               </div>
-             </c:forEach>
+              <!-- PRODUCT ITEM END -->
+              <!-- PRODUCT ITEM START -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="${url}/frontend/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress">
+                    <div>
+                        <a href="${url}/frontend/pages/img/products/model3.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                  </div>
+                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                  <div class="pi-price">$29.00</div>
+                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                </div>
+              </div>              
+              <!-- PRODUCT ITEM END -->
+            </div>
+            <div class="row product-list">
+              <!-- PRODUCT ITEM START -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="${url}/frontend/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress">
+                    <div>
+                        <a href="${url}/frontend/pages/img/products/model7.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                  </div>
+                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                  <div class="pi-price">$29.00</div>
+                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                </div>
+              </div>
+              <!-- PRODUCT ITEM END -->
+              <!-- PRODUCT ITEM START -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="${url}/frontend/pages/img/products/model1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                    <div>
+                        <a href="${url}/frontend/pages/img/products/model1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                  </div>
+                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                  <div class="pi-price">$29.00</div>
+                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                </div>
+              </div>
+              <!-- PRODUCT ITEM END -->
+              <!-- PRODUCT ITEM START -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="${url}/frontend/pages/img/products/model2.jpg" class="img-responsive" alt="Berry Lace Dress">
+                    <div>
+                        <a href="${url}/frontend/pages/img/products/model2.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                  </div>
+                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                  <div class="pi-price">$29.00</div>
+                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                  <div class="sticker sticker-sale"></div>
+                </div>
+              </div>
+              <!-- PRODUCT ITEM END -->
+            </div>
+            <!-- END PRODUCT LIST -->
+            <!-- BEGIN PAGINATOR -->
+            <div class="row">
+              <div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 total</div>
+              <div class="col-md-8 col-sm-8">
+                <ul class="pagination pull-right">
+                  <li><a href="#">&laquo;</a></li>
+                  <li><a href="#">1</a></li>
+                  <li><span>2</span></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- END PAGINATOR -->
+          </div>
           <!-- END CONTENT -->
         </div>
         <!-- END SIDEBAR & CONTENT -->
-
-        <!-- BEGIN TWO PRODUCTS & PROMO -->
-        <div class="row margin-bottom-35 ">
-          <!-- BEGIN TWO PRODUCTS -->
-          <div class="col-md-6 two-items-bottom-items">
-            <h2>Two items</h2>
-            <div class="owl-carousel owl-carousel2">
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/k4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/k4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- END TWO PRODUCTS -->
-          <!-- BEGIN PROMO -->
-          <div class="col-md-6 shop-index-carousel">
-            <div class="content-slider">
-              <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                  <li data-target="#myCarousel" data-slide-to="1"></li>
-                  <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="item active">
-                    <img src="${url}/frontend/pages/img/index-sliders/slide1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                  </div>
-                  <div class="item">
-                    <img src="${url}/frontend/pages/img/index-sliders/slide2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                  </div>
-                  <div class="item">
-                    <img src="${url}/frontend/pages/img/index-sliders/slide3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- END PROMO -->
-        </div>        
-        <!-- END TWO PRODUCTS & PROMO -->
       </div>
     </div>
 
@@ -706,7 +737,7 @@
               <li><i class="fa fa-angle-right"></i> <a href="#">Delivery Information</a></li>
               <li><i class="fa fa-angle-right"></i> <a href="#">Customer Service</a></li>
               <li><i class="fa fa-angle-right"></i> <a href="#">Order Tracking</a></li>
-              <li><i class="fa fa-angle-right"></i> <a href="#">Shipping &amp; Returns</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Shipping & Returns</a></li>
               <li><i class="fa fa-angle-right"></i> <a href="contacts.html">Contact Us</a></li>
               <li><i class="fa fa-angle-right"></i> <a href="#">Careers</a></li>
               <li><i class="fa fa-angle-right"></i> <a href="#">Payment Methods</a></li>
@@ -720,7 +751,7 @@
             <a class="twitter-timeline" href="https://twitter.com/twitterapi" data-tweet-limit="2" data-theme="dark" data-link-color="#57C8EB" data-widget-id="455411516829736961" data-chrome="noheader nofooter noscrollbar noborders transparent">Loading tweets by @keenthemes...</a>      
           </div>
           <!-- END TWITTER BLOCK -->
-
+          
           <!-- BEGIN BOTTOM CONTACTS -->
           <div class="col-md-3 col-sm-6 pre-footer-col">
             <h2>Our Contacts</h2>
@@ -811,7 +842,7 @@
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-9">
-                  <h2>Cool green dress with red bell</h2>
+                  <h1>Cool green dress with red bell</h1>
                   <div class="price-availability-block clearfix">
                     <div class="price">
                       <strong><span>$</span>47.00</strong>
@@ -859,10 +890,10 @@ Nostrud duis molestie at dolore.</p>
     <!-- END fast view of a product -->
 
     <!-- Load javascripts at bottom, this will reduce page load time -->
-    <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+    <!-- BEGIN CORE PLUGINS(REQUIRED FOR ALL PAGES) -->
     <!--[if lt IE 9]>
     <script src="${url}/global/plugins/respond.min.js"></script>  
-    <![endif]-->
+    <![endif]-->  
     <script src="${url}/global/plugins/jquery.min.js" type="text/javascript"></script>
     <script src="${url}/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
     <script src="${url}/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>      
@@ -875,23 +906,20 @@ Nostrud duis molestie at dolore.</p>
     <script src="${url}/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js" type="text/javascript"></script><!-- slider for products -->
     <script src='${url}/global/plugins/zoom/jquery.zoom.min.js' type="text/javascript"></script><!-- product zoom -->
     <script src="${url}/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script><!-- Quantity -->
-
-    <!-- BEGIN LayerSlider -->
-    <script src="${url}/global/plugins/slider-layer-slider/js/greensock.js" type="text/javascript"></script><!-- External libraries: GreenSock -->
-    <script src="${url}/global/plugins/slider-layer-slider/js/layerslider.transitions.js" type="text/javascript"></script><!-- LayerSlider script files -->
-    <script src="${url}/global/plugins/slider-layer-slider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script><!-- LayerSlider script files -->
-    <script src="${url}/frontend/pages/scripts/layerslider-init.js" type="text/javascript"></script>
-    <!-- END LayerSlider -->
+    <script src="${url}/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="${url}/global/plugins/rateit/src/jquery.rateit.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script><!-- for slider-range -->
 
     <script src="${url}/frontend/layout/scripts/layout.js" type="text/javascript"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             Layout.init();    
             Layout.initOWL();
-            LayersliderInit.initLayerSlider();
+            Layout.initTwitter();
             Layout.initImageZoom();
             Layout.initTouchspin();
-            Layout.initTwitter();
+            Layout.initUniform();
+            Layout.initSliderRange();
         });
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->

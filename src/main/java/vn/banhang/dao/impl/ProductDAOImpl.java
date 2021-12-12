@@ -140,6 +140,19 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 	
 	
+	@Override
+	public List<Product> getAllProduct() {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Product> q = builder.createQuery(Product.class);
+			Root<Product> root = q.from(Product.class);
+			q.select(root);
+			List<Product> list = session.createQuery(q).setMaxResults(6).getResultList();
+			return list;
+		}
+	}
+	
+	
 	public static void main(String[] args) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			/*User u = session.get(User.class,1);

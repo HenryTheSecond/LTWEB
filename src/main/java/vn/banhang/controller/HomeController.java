@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import vn.banhang.Model.Category;
+import vn.banhang.Model.Product;
 import vn.banhang.Model.SubCategory;
 import vn.banhang.service.CategoryService;
+import vn.banhang.service.ProductService;
 import vn.banhang.service.SubCategoryService;
 import vn.banhang.service.impl.CategoryServiceImpl;
+import vn.banhang.service.impl.ProductServiceImpl;
 import vn.banhang.service.impl.SubCategoryServiceImpl;
 
 @WebServlet(urlPatterns = {"/home","/trang-chu"})
@@ -26,9 +29,13 @@ public class HomeController  extends HttpServlet{
 		req.setCharacterEncoding("UTF-8");
 		
 		CategoryService categoryService = new CategoryServiceImpl();
-		SubCategoryService subCategorySercive = new SubCategoryServiceImpl();
+		SubCategoryService subCategoryService = new SubCategoryServiceImpl();
+		ProductService productService = new ProductServiceImpl();
 		
-		List<SubCategory> allSubCate = subCategorySercive.getAllSubCategory();
+		List<Product> allProduct = productService.getAllProduct();
+		req.setAttribute("listAllProduct", allProduct);
+		
+		List<SubCategory> allSubCate = subCategoryService.getAllSubCategory();
 		req.setAttribute("listSubCate", allSubCate);
 		
 		List<Category> allCate = categoryService.getCategories();
