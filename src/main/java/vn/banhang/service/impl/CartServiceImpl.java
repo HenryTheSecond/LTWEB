@@ -27,4 +27,9 @@ public class CartServiceImpl implements CartService {
 		dao.deliveryCart(id);
 		
 	}
+
+	@Override
+	public List<Object[]> statsQuantityShop(Shop shop) {
+		return dao.statsQuantityShop(shop);
+	}
 }

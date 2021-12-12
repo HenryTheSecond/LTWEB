@@ -153,6 +153,29 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 	
 	
+	@Override
+	public List<Object[]> statsQuantityShop(Shop shop) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Object[]> q = builder.createQuery(Object[].class);
+			
+			Root<Product> productRoot = q.from(Product.class);
+			Root<Cart> cartRoot = q.from(Cart.class);
+			
+			
+			q.where(builder.equal(productRoot.get("id"), cartRoot.get("product")), builder.equal(productRoot.get("shop").as(Shop.class), shop),
+					builder.equal(cartRoot.get("status").as(String.class), "deliveried"));
+			
+			
+			q.multiselect(productRoot.get("name"),
+							builder.sum(cartRoot.get("amount").as(Integer.class)),
+							builder.sum(builder.prod(cartRoot.get("amount").as(Integer.class), cartRoot.get("price").as(Double.class))) );
+			q.groupBy(productRoot.get("name"));
+			List<Object[]> list = session.createQuery(q).getResultList();
+			return list;
+		}
+	}
+	
 	public static void main(String[] args) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			/*User u = session.get(User.class,1);
@@ -166,10 +189,16 @@ public class ProductDAOImpl implements ProductDAO {
 			}
 			System.out.println(p.getTags().get(0).getKeyword());*/
 			
-			List<Product> list = new ProductDAOImpl().getAllProduct();
-			System.out.println(list.get(0).getName());
+			/*List<Product> list = new ProductDAOImpl().getAllProduct();
+			System.out.println(list.get(0).getName());*/
+			Shop shop = session.get(Shop.class, 1);
+			List<Object[]> list = new ProductDAOImpl().statsQuantityShop(shop);
+			for(Object[] obj: list) {
+				System.out.println(obj[2]);
+			}
 
 		}
 	}
+
 
 }
