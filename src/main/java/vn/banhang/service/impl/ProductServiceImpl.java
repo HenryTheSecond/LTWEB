@@ -59,6 +59,11 @@ public class ProductServiceImpl implements ProductService {
 		dao.add(product);
 		
 	}
+
+	@Override
+	public List<Object[]> statsQuantityShop(Shop shop) {
+		return dao.statsQuantityShop(shop);
+	}
 	
 
 }

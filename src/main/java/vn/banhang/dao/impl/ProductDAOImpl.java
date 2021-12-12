@@ -212,7 +212,7 @@ public class ProductDAOImpl implements ProductDAO {
 				System.out.println(cart.getOrder_date().getTime());
 			}
 			System.out.println(p.getTags().get(0).getKeyword());*/
-<<<<<<< HEAD
+
 			
 			/*List<Product> list = new ProductDAOImpl().getAllProduct();
 			System.out.println(list.get(0).getName());*/
@@ -221,10 +221,6 @@ public class ProductDAOImpl implements ProductDAO {
 			for(Object[] obj: list) {
 				System.out.println(obj[2]);
 			}
-=======
-		
->>>>>>> adf1201ff8e5fb748f7665f96a0f8fb89b6aafe9
-
 		}
 	}
 

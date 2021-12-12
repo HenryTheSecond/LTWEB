@@ -15,4 +15,5 @@ public interface ProductService {
 	public List<Product> getSixProduct();
 	public List<Product> getSevenProduct();
 	public List<Product> getAllProduct();
+	public List<Object[]> statsQuantityShop(Shop shop);
 }
