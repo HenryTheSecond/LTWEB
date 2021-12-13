@@ -15,4 +15,7 @@ public interface ProductDAO {
 	public List<Product> getSixProduct();
 	public List<Product> getSevenProduct();
 	public List<Product> getAllProduct();
+	public List<Product> getProductBySubCate(int subCateId);
+	public List<Product> getProductByCate(int CateId);
+	public List<Product> getThreeProduct();
 }

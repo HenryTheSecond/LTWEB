@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
@@ -15,6 +16,7 @@ import vn.banhang.Hibernate.HibernateUtil;
 import vn.banhang.Model.Cart;
 import vn.banhang.Model.Product;
 import vn.banhang.Model.Shop;
+import vn.banhang.Model.SubCategory;
 import vn.banhang.Model.Tag;
 import vn.banhang.Model.User;
 import vn.banhang.dao.ProductDAO;
@@ -165,12 +167,54 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 	
 	@Override
+	public List<Product> getThreeProduct() {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Product> q = builder.createQuery(Product.class);
+			Root<Product> root = q.from(Product.class);
+			q.select(root);
+			List<Product> list = session.createQuery(q).setMaxResults(3).getResultList();
+			return list;
+		}
+	}
+	
+	@Override
 	public List<Product> getAllProduct() {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<Product> q = builder.createQuery(Product.class);
 			Root<Product> root = q.from(Product.class);
 			q.select(root);
+			List<Product> list = session.createQuery(q).getResultList();
+			return list;
+		}
+	}
+	
+	
+	@Override
+	public List<Product> getProductBySubCate(int subCateId) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Product> q = builder.createQuery(Product.class);
+			Root<Product> root = q.from(Product.class);
+			q.select(root);
+			Predicate p = builder.equal(root.get("subCategory").get("id").as(Integer.class), subCateId);
+			q.where(p);
+			List<Product> list = session.createQuery(q).getResultList();
+			return list;
+		}
+	}
+	
+	
+	@Override
+	public List<Product> getProductByCate(int CateId) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Product> q = builder.createQuery(Product.class);
+			Root<Product> root = q.from(Product.class);
+			q.select(root);
+			Predicate p = builder.equal(root.get("subCategory").get("category").get("id").as(Integer.class), CateId);
+			q.where(p);
 			List<Product> list = session.createQuery(q).getResultList();
 			return list;
 		}
@@ -184,6 +228,10 @@ public class ProductDAOImpl implements ProductDAO {
 			
 			System.out.println(dao.searchProductShop(u.getShop(), "miku", 15, "tatca"));*/
 			
+			
+			ProductDAOImpl dao = new ProductDAOImpl();
+			
+			System.out.println(dao.getProductByCate(3));
 			/*Product p = session.get(Product.class, 1);
 			for(Cart cart: p.getCarts()) {
 				System.out.println(cart.getOrder_date().getTime());
