@@ -158,20 +158,20 @@
           <ul>
           <c:forEach items="${listCate}" var="c">
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">
+              <a class="dropdown-toggle" href="${pageContext.request.contextPath}/product?cid=${c.id}&scid=0">
                 ${c.name} 
               </a>
               <!-- BEGIN DROPDOWN MENU -->
               <ul class="dropdown-menu">
                <c:forEach items="${listSubCate}" var="s">
                <c:if test="${ c.id == s.category.id}">
-                <li><a href="shop-product-list.html">${s.name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/product?cid=0&scid=${s.id}">${s.name}</a></li>
                 </c:if>
                 </c:forEach>
               </ul>
               <!-- END DROPDOWN MENU -->
            </c:forEach>
-           <li> <a data-target="#" href="${pageContext.request.contextPath}/product">
+           <li> <a data-target="#" href="${pageContext.request.contextPath}/product?cid=0&scid=0">
                 Product
              </a></li>
 
@@ -378,7 +378,7 @@
 					<img class="img-responsive" src="${imgUrl}"  alt="${p.name}" />
                     <div>
                       <a href="${imgUrl}">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                      <a href="${pageContext.request.contextPath}/detail?pid=${p.id}" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
                   <h3><a href="shop-item.html">${p.name}</a></h3>
@@ -399,7 +399,7 @@
           <div class="sidebar col-md-3 col-sm-4">
             <ul class="list-group margin-bottom-25 sidebar-menu">
              <c:forEach items="${listCate}" var="c">
-              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> ${c.name} </a></li>
+              <li class="list-group-item clearfix"><a href="${pageContext.request.contextPath}/product?cid=${c.id}&scid=0"><i class="fa fa-angle-right"></i> ${c.name} </a></li>
 			</c:forEach>
             </ul>
           </div>
@@ -417,7 +417,7 @@
 
                     <div>
                       <a href="${imgUrl}" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                      <a href="${pageContext.request.contextPath}/detail?pid=${p.id}" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
                   <h3><a href="shop-item.html">${p.name}</a></h3>
@@ -445,7 +445,7 @@
 
                     <div>
                       <a href="${imgUrl}" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                      <a href="${pageContext.request.contextPath}/detail?pid=${p.id}" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
                   <h3><a href="shop-item.html">${p.name}</a></h3>

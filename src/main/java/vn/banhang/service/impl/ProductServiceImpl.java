@@ -23,9 +23,26 @@ public class ProductServiceImpl implements ProductService {
 		return dao.getSevenProduct();
 	}
 	
+	@Override
 	public List<Product> getAllProduct(){
 		return dao.getAllProduct();
 	}
+	
+	@Override
+	public List<Product> getProductBySubCate(int subCateId){
+		return dao.getProductBySubCate(subCateId);
+	}
+	
+	@Override
+	public List<Product> getProductByCate(int CateId){
+		return dao.getProductByCate(CateId);
+	}
+	
+	@Override
+	public List<Product> getThreeProduct() {
+		return dao.getThreeProduct();
+	}
+	
 	
 	@Override
 	public List<Product> getAllShopProduct(Shop shop) {
