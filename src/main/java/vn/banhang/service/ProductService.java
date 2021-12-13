@@ -1,5 +1,6 @@
 package vn.banhang.service;
 
+import java.util.Calendar;
 import java.util.List;
 
 import vn.banhang.Model.Product;
@@ -15,5 +16,5 @@ public interface ProductService {
 	public List<Product> getSixProduct();
 	public List<Product> getSevenProduct();
 	public List<Product> getAllProduct();
-	public List<Object[]> statsQuantityShop(Shop shop);
+	public List<Object[]> statsQuantityShop(Shop shop, Calendar from, Calendar to);
 }

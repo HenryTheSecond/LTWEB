@@ -1,10 +1,14 @@
 package vn.banhang.dao.impl;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
@@ -14,6 +18,7 @@ import org.hibernate.query.Query;
 import vn.banhang.Hibernate.HibernateUtil;
 import vn.banhang.Model.Cart;
 import vn.banhang.Model.Product;
+import vn.banhang.Model.Review;
 import vn.banhang.Model.Shop;
 import vn.banhang.Model.Tag;
 import vn.banhang.Model.User;
@@ -178,7 +183,7 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	
 	@Override
-	public List<Object[]> statsQuantityShop(Shop shop) {
+	public List<Object[]> statsQuantityShop(Shop shop, Calendar from, Calendar to) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<Object[]> q = builder.createQuery(Object[].class);
@@ -186,9 +191,21 @@ public class ProductDAOImpl implements ProductDAO {
 			Root<Product> productRoot = q.from(Product.class);
 			Root<Cart> cartRoot = q.from(Cart.class);
 			
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(productRoot.get("id"), cartRoot.get("product")));
+			predicates.add(builder.equal(productRoot.get("shop").as(Shop.class), shop));
+			predicates.add(builder.equal(cartRoot.get("status").as(String.class), "deliveried"));
 			
-			q.where(builder.equal(productRoot.get("id"), cartRoot.get("product")), builder.equal(productRoot.get("shop").as(Shop.class), shop),
-					builder.equal(cartRoot.get("status").as(String.class), "deliveried"));
+			if(from != null) {
+				Predicate geFrom = builder.greaterThanOrEqualTo(cartRoot.get("delivery_date").as(Calendar.class), from);
+				predicates.add(geFrom);
+			}
+			if(to != null) {
+				Predicate leTo = builder.lessThanOrEqualTo(cartRoot.get("delivery_date").as(Calendar.class), to);
+				predicates.add(leTo);
+			}
+			
+			q.where(predicates.toArray(new Predicate[] {}));
 			
 			
 			q.multiselect(productRoot.get("name"),
@@ -197,6 +214,26 @@ public class ProductDAOImpl implements ProductDAO {
 			q.groupBy(productRoot.get("name"));
 			List<Object[]> list = session.createQuery(q).getResultList();
 			return list;
+		}
+	}
+	
+	
+	public Object[] statsProduct(int id) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Object[]> q = builder.createQuery(Object[].class);
+			
+			Root<Product> productRoot = q.from(Product.class);
+			Root<Cart> cartRoot = q.from(Cart.class);
+			
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(productRoot.get("id").as(Integer.class), id));
+			predicates.add(builder.equal(productRoot.get("id"), cartRoot.get("product")));
+			
+			q.where(predicates.toArray(new Predicate[] {}));
+			
+			q.multiselect( builder.count )
+			
 		}
 	}
 	
@@ -216,11 +253,11 @@ public class ProductDAOImpl implements ProductDAO {
 			
 			/*List<Product> list = new ProductDAOImpl().getAllProduct();
 			System.out.println(list.get(0).getName());*/
-			Shop shop = session.get(Shop.class, 1);
+			/*Shop shop = session.get(Shop.class, 1);
 			List<Object[]> list = new ProductDAOImpl().statsQuantityShop(shop);
 			for(Object[] obj: list) {
 				System.out.println(obj[2]);
-			}
+			}*/
 		}
 	}
 
