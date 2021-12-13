@@ -38,7 +38,7 @@ public class HibernateUtil {
 		
 		pros.put(Environment.DIALECT, "org.hibernate.dialect.SQLServer2012Dialect");
 		pros.put(Environment.DRIVER, "com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		pros.put(Environment.URL, "jdbc:sqlserver://DESKTOP-B3CJK1E:1433;databaseName=LTWEB");
+		pros.put(Environment.URL, "jdbc:sqlserver://BOOMKICK:1433;databaseName=LTWEB");
 		pros.put(Environment.USER, "sa");
 		pros.put(Environment.PASS, "sa");
 		
