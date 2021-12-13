@@ -28,4 +28,9 @@ public class CartServiceImpl implements CartService {
 		
 	}
 
+	@Override
+	public long countOrderByStatus(Shop shop, String status) {
+		return dao.countOrderByStatus(shop, status);
+	}
+
 }

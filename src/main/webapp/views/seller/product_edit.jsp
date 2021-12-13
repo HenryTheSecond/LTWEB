@@ -356,6 +356,103 @@
 												</div>
 												<div class="tab-pane" id="tab_meta">
 													
+													
+													<div class="row">
+														<div class=" col-md-2 col-sm-6 col-xs-12">
+															<div class="dashboard-stat blue">
+																<div class="visual">
+																	<i class="fa fa-comments"></i>
+																</div>
+																<div class="details">
+																	<div class="number">
+																		 ${deliveried[0]}
+																	</div>
+																	<div class="desc">
+																		 Đơn đã giao
+																	</div>
+																</div>
+																<a class="more" href="#">
+																View more <i class="m-icon-swapright m-icon-white"></i>
+																</a>
+															</div>
+														</div>
+														<div class=" col-md-2 col-sm-6 col-xs-12">
+															<div class="dashboard-stat blue">
+																<div class="visual">
+																	<i class="fa fa-shopping-cart"></i>
+																</div>
+																<div class="details">
+																	<div class="number">
+																		 ${deliveried[1] }
+																	</div>
+																	<div class="desc">
+																		 Doanh số
+																	</div>
+																</div>
+																<a class="more" href="#">
+																View more <i class="m-icon-swapright m-icon-white"></i>
+																</a>
+															</div>
+														</div>
+														<div class=" col-md-2 col-sm-6 col-xs-12">
+															<div class="dashboard-stat blue">
+																<div class="visual">
+																	<i class="fa fa-globe"></i>
+																</div>
+																<div class="details">
+																	<div class="number">
+																		 ${deliveried[2] }
+																	</div>
+																	<div class="desc">
+																		 Doanh thu
+																	</div>
+																</div>
+																<a class="more" href="#">
+																View more <i class="m-icon-swapright m-icon-white"></i>
+																</a>
+															</div>
+														</div>
+														<div class=" col-md-2 col-sm-6 col-xs-12">
+															<div class="dashboard-stat blue">
+																<div class="visual">
+																	<i class="fa fa-bar-chart-o"></i>
+																</div>
+																<div class="details">
+																	<div class="number">
+																		 ${pendingOrder }
+																	</div>
+																	<div class="desc">
+																		 Đơn đợi xử lý
+																	</div>
+																</div>
+																<a class="more" href="#">
+																View more <i class="m-icon-swapright m-icon-white"></i>
+																</a>
+															</div>
+														</div>
+														<div class=" col-md-2 col-sm-6 col-xs-12">
+															<div class="dashboard-stat blue">
+																<div class="visual">
+																	<i class="fa fa-bar-chart-o"></i>
+																</div>
+																<div class="details">
+																	<div class="number">
+																		 ${canceledOrder }
+																	</div>
+																	<div class="desc">
+																		 Đơn hủy
+																	</div>
+																</div>
+																<a class="more" href="#">
+																View more <i class="m-icon-swapright m-icon-white"></i>
+																</a>
+															</div>
+														</div>
+														
+													</div>
+													
+													
+													
 												</div>
 												<div class="tab-pane" id="tab_images">
 													<div class="alert alert-success margin-bottom-10">
@@ -480,6 +577,7 @@
 												</div>
 												<div class="tab-pane" id="tab_reviews">
 													<div class="table-container">
+														<h1>${avgRating==null? "Chưa có đánh giá":avgRating }</h1>
 														<table class="table table-striped table-bordered table-hover" id="datatable_reviews">
 															<thead>
 																<tr role="row" class="heading">

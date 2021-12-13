@@ -17,16 +17,22 @@ import javax.servlet.http.HttpSession;
 import vn.banhang.Model.User;
 import vn.banhang.service.ProductService;
 import vn.banhang.service.impl.ProductServiceImpl;
+import vn.banhang.utils.Utils;
 
 @WebServlet(urlPatterns = {"/seller/stats"})
 public class SellerStatsController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		User user = (User)req.getSession().getAttribute("user");
-		ProductService productSerivce = new ProductServiceImpl();
-		List<Object[]> stats = productSerivce.statsQuantityShop(user.getShop(), null, null);
-		req.setAttribute("stats", stats);
-		req.getRequestDispatcher("/views/seller/stats.jsp").forward(req, resp);;
+		if(Utils.kiemTraIsSeller(req, resp)) {
+			User user = (User)req.getSession().getAttribute("user");
+			ProductService productSerivce = new ProductServiceImpl();
+			List<Object[]> stats = productSerivce.statsQuantityShop(user.getShop(), null, null);
+			req.setAttribute("stats", stats);
+			req.getRequestDispatcher("/views/seller/stats.jsp").forward(req, resp);;
+		}
+		else {
+			resp.sendRedirect(req.getContextPath() + "/login?next=seller/stats");
+		}
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

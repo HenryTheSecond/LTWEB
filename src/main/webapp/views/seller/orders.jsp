@@ -239,7 +239,7 @@
 							</div>
 							<div class="portlet-body">
 								<div class="table-container">
-								<form action="" method="post">
+								<form action="" method="get">
 										<select class="table-group-action-input form-control input-inline input-small input-sm" name="status">
 											<option value="" ${status==""? "selected":"" }>All</option>
 											<option value="pending"  ${status=="pending"? "selected":"" }>Pending</option>

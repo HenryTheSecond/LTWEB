@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/templates/assets" var="url"></c:url>
+<c:url value="/admin/user/edit" var="edit"></c:url>
 
 <!-- BEGIN BODY -->
 <!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
@@ -154,7 +155,7 @@
 							<i class="fa fa-angle-right"></i>
 						</li>
 						<li>
-							<a href="#">Manage</a>
+							<a href="#">Edit</a>
 						</li>
 					</ul>
 					<div class="page-toolbar">
@@ -170,76 +171,51 @@
 				</div>
 				<!-- END PAGE HEADER-->
 				<!-- BEGIN EDITTING CATEGORY -->
-									
-									
-					<table id="example" class="table table-striped table-bordered"
-						style="width: 100%">
-						<thead>
-							<tr>
-								<th>STT</th>
-								<th>Username</th>
-								<th>Password</th>
-								<th>IsSeller</th>
-								<th>IsAdmin</th>
-								<th>Name</th>
-								<th>Gender</th>
-								<th>Birthdate</th>
-								<th>Phone</th>
-								<th>Email</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-						<tbody>
-					
-							<c:forEach items="${userList}" var="user" varStatus="STT">
-								<tr>
-									<td>${STT.index+1}</td>
-									<td>${user.username}</td>
-									<td>${user.password}</td>
-									<td>${user.is_seller}</td>
-									<td>${user.is_admin}</td>
-									<td>${user.name}</td>
-									<td>${user.gender}</td>
-									<td>${user.birthdate.getTime()}</td>
-									<td>${user.phone}</td>
-									<td>${user.email}</td>
-									<td><a
-										href="<c:url value='/admin/user/edit?id=${user.id}'/>"
-										class="center">Sửa</a> | <a
-										href="<c:url value='/admin/user/delete?id=${user.id}'/>"
-										class="center">Xóa</a></td>
-								</tr>
-							</c:forEach>
-					
-					
-						</tbody>
-						<tfoot>
-							<tr>
-								<th>STT</th>
-								<th>Username</th>
-								<th>Password</th>
-								<th>IsSeller</th>
-								<th>IsAdmin</th>
-								<th>Name</th>
-								<th>Gender</th>
-								<th>Birthdate</th>
-								<th>Phone</th>
-								<th>Email</th>
-								<th>Action</th>
-							</tr>
-						</tfoot>
-					</table>
-					
-					<button type="button" class="btn btn-info"><a href="/BanHang/admin/user/add" style="color: dark;">Thêm</a></button>
-					<script>
-						$(document).ready(function() {
-							var table = $('#example').DataTable({
-								fixedHeader : true
-							});
-						});
-					</script>
-				<h2>Mới làm những chức năng cơ bản chưa check biến, username</h2>
-				<h2>Còn phần in ra pdf excel</h2>
+				
+				<form role="form" action="${edit}" method="post"
+					enctype="multipart/form-data">
+					<input name="id" value="${user.id}" hidden="">
+						<div class="form-group">
+							<label>Username:</label> <input class="form-control"
+								placeholder="please enter username" name="username" value="${user.username}" />
+						</div>
+						<div class="form-group">
+							<label>Password:</label> <input class="form-control"
+								placeholder="please enter password" name="password" value="${user.password}" />
+						</div>
+						<div class="form-group">
+							<label>IsSeller</label> <input type="checkbox" class="form-control"
+								placeholder="please enter username" name="isSeller" value=1 ${is_seller == 1 ? "checked" :""} />
+						</div>
+						<div class="form-group">
+							<label>IsAdmin:</label> <input type="checkbox" class="form-control"
+								placeholder="please enter username" name="isAdmin" value=1 ${is_admin == 1 ? "checked" :""} />
+						</div>
+						<div class="form-group">
+							<label>Name:</label> <input class="form-control"
+								placeholder="please enter name" name="name" value="${user.name}" />
+						</div>
+						<div class="form-group">
+							<label>Gender:</label> <input class="form-control"
+								placeholder="please enter gender" name="gender" value="${user.gender}" />
+						</div>
+						<div class="form-group">
+							<label>Birthdate:</label> <input class="form-control"
+								placeholder="please enter birthdate" name="birthdate" value="${user.birthdate.getTime()}" />
+						</div>
+						<div class="form-group">
+							<label>Phone:</label> <input class="form-control"
+								placeholder="please enter phone" name="phone" value="${user.phone}" />
+						</div>
+						<div class="form-group">
+							<label>email:</label> <input class="form-control"
+								placeholder="please enter email" name="email" value="${user.email}" />
+						</div>
+				
+						<button type="submit" class="btn btn-primary">Sửa</button>
+						<button type="reset" class="btn btn-danger">Hủy</button>
+				</form>		
+				
 				<!-- END EDITTING CATEGORY -->
 			</div>
 		</div>

@@ -128,6 +128,44 @@ public class User implements Serializable  {
 		this.carts = carts;
 	}
 	
+	
+	
+	public User(int id, String username, String password, int is_seller, int is_admin, String name, String gender,
+			Calendar birthdate, String phone, String email) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.is_seller = is_seller;
+		this.is_admin = is_admin;
+		this.name = name;
+		this.gender = gender;
+		this.birthdate = birthdate;
+		this.phone = phone;
+		this.email = email;
+	}
+	public User() {
+		super();
+	}
+	
+	
+	public User(int id, String username, String password, int is_seller, int is_admin, String name, String gender,
+			Calendar birthdate, String phone, String email, Set<Review> reviews, Shop shop, Set<Cart> carts) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.is_seller = is_seller;
+		this.is_admin = is_admin;
+		this.name = name;
+		this.gender = gender;
+		this.birthdate = birthdate;
+		this.phone = phone;
+		this.email = email;
+		this.reviews = reviews;
+		this.shop = shop;
+		this.carts = carts;
+	}
 	public static void main(String[] args) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			session.getTransaction().begin();

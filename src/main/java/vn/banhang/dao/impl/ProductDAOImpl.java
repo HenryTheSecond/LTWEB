@@ -217,25 +217,66 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 	
-	
-	public Object[] statsProduct(int id) {
+	public Object[] statsDeliveriedProduct(int id) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<Object[]> q = builder.createQuery(Object[].class);
 			
-			Root<Product> productRoot = q.from(Product.class);
 			Root<Cart> cartRoot = q.from(Cart.class);
 			
 			List<Predicate> predicates = new ArrayList<Predicate>();
-			predicates.add(builder.equal(productRoot.get("id").as(Integer.class), id));
-			predicates.add(builder.equal(productRoot.get("id"), cartRoot.get("product")));
-			
+			predicates.add(builder.equal(cartRoot.get("product").get("id").as(Integer.class), id));
+			predicates.add(builder.equal(cartRoot.get("status").as(String.class), "deliveried"));
+				
 			q.where(predicates.toArray(new Predicate[] {}));
 			
-			q.multiselect( builder.count )
+			q.multiselect( builder.count(cartRoot.get("id")),
+							builder.sum(cartRoot.get("amount")),
+							builder.sum(builder.prod(cartRoot.get("amount").as(Integer.class), cartRoot.get("price").as(Double.class))));
+			return session.createQuery(q).getSingleResult();
 			
 		}
 	}
+	
+	public long countPendingOrder(int id) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Long> q = builder.createQuery(Long.class);
+			
+			Root<Cart> cartRoot = q.from(Cart.class);
+			
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(cartRoot.get("product").get("id").as(Integer.class), id));
+			predicates.add(builder.equal(cartRoot.get("status").as(String.class), "pending"));
+				
+			q.where(predicates.toArray(new Predicate[] {}));
+			
+			q.multiselect( builder.count(cartRoot.get("id")));
+			return session.createQuery(q).getSingleResult();
+			
+		}
+	}
+	
+	public long countCanceledOrder(int id) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Long> q = builder.createQuery(Long.class);
+			
+			Root<Cart> cartRoot = q.from(Cart.class);
+			
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(cartRoot.get("product").get("id").as(Integer.class), id));
+			predicates.add(builder.equal(cartRoot.get("status").as(String.class), "canceled"));
+				
+			q.where(predicates.toArray(new Predicate[] {}));
+			
+			q.multiselect( builder.count(cartRoot.get("id")));
+			return session.createQuery(q).getSingleResult();
+			
+		}
+	}
+	
+	
 	
 	public static void main(String[] args) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
@@ -258,6 +299,9 @@ public class ProductDAOImpl implements ProductDAO {
 			for(Object[] obj: list) {
 				System.out.println(obj[2]);
 			}*/
+			
+			long count = new ProductDAOImpl().countCanceledOrder(3);
+			System.out.println(count);
 		}
 	}
 

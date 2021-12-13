@@ -88,6 +88,26 @@ public class CartDAOImpl implements CartDAO {
 		}
 	}
 	
+	@Override
+	public long countOrderByStatus(Shop shop, String status) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Long> q = builder.createQuery(Long.class);
+			
+			Root<Cart> cartRoot = q.from(Cart.class);
+			
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(cartRoot.get("product").get("shop").as(Shop.class), shop));
+			predicates.add(builder.equal(cartRoot.get("status").as(String.class), status));
+				
+			q.where(predicates.toArray(new Predicate[] {}));
+			
+			q.multiselect( builder.count(cartRoot.get("id")));
+			return session.createQuery(q).getSingleResult();
+			
+		}
+	}
+	
 	public static void main(String[] args) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			Shop shop = session.get(Shop.class, 1);
@@ -112,6 +132,7 @@ public class CartDAOImpl implements CartDAO {
 			System.out.println(list);
 		}
 	}
+
 
 
 }

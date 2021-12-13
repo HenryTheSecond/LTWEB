@@ -67,5 +67,20 @@ public class ProductServiceImpl implements ProductService {
 		return dao.statsQuantityShop(shop, from, to);
 	}
 
+	@Override
+	public Object[] statsDeliveriedProduct(int id) {
+		return dao.statsDeliveriedProduct(id);
+	}
+
+	@Override
+	public long countPendingOrder(int id) {
+		return dao.countPendingOrder(id);
+	}
+
+	@Override
+	public long countCanceledOrder(int id) {
+		return dao.countCanceledOrder(id);
+	}
+
 
 }

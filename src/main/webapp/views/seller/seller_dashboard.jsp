@@ -194,13 +194,13 @@
 							</div>
 							<div class="details">
 								<div class="number">
-									 $168,492.54
+									${countDeliveried }
 								</div>
 								<div class="desc">
-									 Lifetime Sales
+									 Deliveried Orders
 								</div>
 							</div>
-							<a class="more" href="#">
+							<a class="more" href="${pageContext.request.contextPath }/seller/order?status=deliveried">
 							View more <i class="m-icon-swapright m-icon-white"></i>
 							</a>
 						</div>
@@ -212,13 +212,13 @@
 							</div>
 							<div class="details">
 								<div class="number">
-									 1,127,390
+									 ${countPending }
 								</div>
 								<div class="desc">
-									 Total Orders
+									 Pending Orders
 								</div>
 							</div>
-							<a class="more" href="#">
+							<a class="more" href="${pageContext.request.contextPath }/seller/order?status=pending">
 							View more <i class="m-icon-swapright m-icon-white"></i>
 							</a>
 						</div>
@@ -230,13 +230,13 @@
 							</div>
 							<div class="details">
 								<div class="number">
-									 $670.54
+									 ${countCanceled }
 								</div>
 								<div class="desc">
-									 Average Orders
+									 Canceled Orders
 								</div>
 							</div>
-							<a class="more" href="#">
+							<a class="more" href="${pageContext.request.contextPath }/seller/order?status=canceled">
 							View more <i class="m-icon-swapright m-icon-white"></i>
 							</a>
 						</div>
@@ -314,128 +314,36 @@
 														 Product Name
 													</th>
 													<th>
-														 Price
+														 Số đơn hàng
 													</th>
 													<th>
-														 Sold
+														 Doanh số
 													</th>
 													<th>
+														Doanh Thu
 													</th>
 												</tr>
 												</thead>
 												<tbody>
+												<c:forEach items="${top5Selling }" var="product">
 												<tr>
 													<td>
-														<a href="#">
-														Apple iPhone 4s - 16GB - Black </a>
+														<a href="${pageContext.request.contextPath }/seller/edit-product?id=${product[0]}">${product[1]}</a>
 													</td>
 													<td>
-														 $625.50
+														 ${product[2] }
 													</td>
 													<td>
-														 809
+														 ${product[3] }
 													</td>
 													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
+														${product[4] }
 													</td>
 												</tr>
-												<tr>
-													<td>
-														<a href="#">
-														Samsung Galaxy S III SGH-I747 - 16GB </a>
-													</td>
-													<td>
-														 $915.50
-													</td>
-													<td>
-														 6709
-													</td>
-													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<a href="#">
-														Motorola Droid 4 XT894 - 16GB - Black </a>
-													</td>
-													<td>
-														 $878.50
-													</td>
-													<td>
-														 784
-													</td>
-													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<a href="#">
-														Regatta Luca 3 in 1 Jacket </a>
-													</td>
-													<td>
-														 $25.50
-													</td>
-													<td>
-														 1245
-													</td>
-													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<a href="#">
-														Samsung Galaxy Note 3 </a>
-													</td>
-													<td>
-														 $925.50
-													</td>
-													<td>
-														 21245
-													</td>
-													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<a href="#">
-														Inoval Digital Pen </a>
-													</td>
-													<td>
-														 $125.50
-													</td>
-													<td>
-														 1245
-													</td>
-													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<a href="#">
-														Metronic - Responsive Admin + Frontend Theme </a>
-													</td>
-													<td>
-														 $20.00
-													</td>
-													<td>
-														 11190
-													</td>
-													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
-													</td>
-												</tr>
+												</c:forEach>
+												
+												
+							
 												</tbody>
 												</table>
 											</div>

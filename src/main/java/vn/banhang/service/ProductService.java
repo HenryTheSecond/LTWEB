@@ -17,4 +17,7 @@ public interface ProductService {
 	public List<Product> getSevenProduct();
 	public List<Product> getAllProduct();
 	public List<Object[]> statsQuantityShop(Shop shop, Calendar from, Calendar to);
+	public Object[] statsDeliveriedProduct(int id);
+	public long countPendingOrder(int id);
+	public long countCanceledOrder(int id);
 }
