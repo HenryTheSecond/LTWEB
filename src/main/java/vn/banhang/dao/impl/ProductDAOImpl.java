@@ -156,6 +156,8 @@ public class ProductDAOImpl implements ProductDAO {
 			CriteriaQuery<Product> q = builder.createQuery(Product.class);
 			Root<Product> root = q.from(Product.class);
 			q.select(root);
+			Predicate p = builder.equal(root.get("status").as(Integer.class), 1);
+			q.where(p);
 			List<Product> list = session.createQuery(q).setMaxResults(6).getResultList();
 			return list;
 		}
@@ -168,6 +170,8 @@ public class ProductDAOImpl implements ProductDAO {
 			CriteriaQuery<Product> q = builder.createQuery(Product.class);
 			Root<Product> root = q.from(Product.class);
 			q.select(root);
+			Predicate p = builder.equal(root.get("status").as(Integer.class), 1);
+			q.where(p);
 			List<Product> list = session.createQuery(q).setMaxResults(7).getResultList();
 			return list;
 		}
@@ -180,6 +184,8 @@ public class ProductDAOImpl implements ProductDAO {
 			CriteriaQuery<Product> q = builder.createQuery(Product.class);
 			Root<Product> root = q.from(Product.class);
 			q.select(root);
+			Predicate p = builder.equal(root.get("status").as(Integer.class), 1);
+			q.where(p);
 			List<Product> list = session.createQuery(q).setMaxResults(3).getResultList();
 			return list;
 		}
@@ -192,6 +198,8 @@ public class ProductDAOImpl implements ProductDAO {
 			CriteriaQuery<Product> q = builder.createQuery(Product.class);
 			Root<Product> root = q.from(Product.class);
 			q.select(root);
+			Predicate p = builder.equal(root.get("status").as(Integer.class), 1);
+			q.where(p);
 			List<Product> list = session.createQuery(q).getResultList();
 			return list;
 		}
@@ -239,8 +247,9 @@ public class ProductDAOImpl implements ProductDAO {
 			CriteriaQuery<Product> q = builder.createQuery(Product.class);
 			Root<Product> root = q.from(Product.class);
 			q.select(root);
-			Predicate p = builder.equal(root.get("subCategory").get("id").as(Integer.class), subCateId);
-			q.where(p);
+			Predicate p = builder.equal(root.get("status").as(Integer.class), 1);
+			Predicate p1 = builder.equal(root.get("subCategory").get("id").as(Integer.class), subCateId);
+			q.where(builder.and(p, p1));
 			List<Product> list = session.createQuery(q).getResultList();
 
 			return list;
@@ -315,8 +324,9 @@ public class ProductDAOImpl implements ProductDAO {
 			CriteriaQuery<Product> q = builder.createQuery(Product.class);
 			Root<Product> root = q.from(Product.class);
 			q.select(root);
-			Predicate p = builder.equal(root.get("subCategory").get("category").get("id").as(Integer.class), CateId);
-			q.where(p);
+			Predicate p = builder.equal(root.get("status").as(Integer.class), 1);
+			Predicate p1 = builder.equal(root.get("subCategory").get("category").get("id").as(Integer.class), CateId);
+			q.where(builder.and(p, p1));
 			List<Product> list = session.createQuery(q).getResultList();
 			return list;
 
