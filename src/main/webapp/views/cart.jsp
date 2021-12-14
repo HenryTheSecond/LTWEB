@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<c:url value="/templates" var="url"></c:url>
+<c:url value="/templates/assets" var="url"></c:url>
 
 
 <!-- Body BEGIN -->
@@ -70,15 +70,15 @@
     <!-- BEGIN HEADER -->
     <div class="header">
       <div class="container">
-        <a class="site-logo" href="shop-index.html"><img src="../../assets/frontend/layout/img/logos/logo-shop-red.png" alt="Metronic Shop UI"></a>
+        <a class="site-logo" href="shop-index.html"><img src="${url}/frontend/layout/img/logos/logo-shop-red.png" alt="Metronic Shop UI"></a>
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
         <!-- BEGIN CART -->
         <div class="top-cart-block">
           <div class="top-cart-info">
-            <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
-            <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
+            <a id="cartQuantity"  class="top-cart-info-count">${cartQuantity } items</a>
+            <a id="cartCharge"  class="top-cart-info-value">${cartCharge }</a>
           </div>
           <i class="fa fa-shopping-cart"></i>
                         
@@ -86,56 +86,56 @@
             <div class="top-cart-content">
               <ul class="scroller" style="height: 250px;">
                 <li>
-                  <a href="shop-item.html"><img src="../../assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="shop-item.html"><img src="${url}/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
                   <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="../../assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="shop-item.html"><img src="${url}/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
                   <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="../../assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="shop-item.html"><img src="${url}/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
                   <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="../../assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="shop-item.html"><img src="${url}/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
                   <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="../../assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="shop-item.html"><img src="${url}/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
                   <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="../../assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="shop-item.html"><img src="${url}/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
                   <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="../../assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="shop-item.html"><img src="${url}/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
                   <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
                   <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
                 </li>
                 <li>
-                  <a href="shop-item.html"><img src="../../assets/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
+                  <a href="shop-item.html"><img src="${url}/frontend/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37" height="34"></a>
                   <span class="cart-content-count">x 1</span>
                   <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
                   <em>$1230</em>
@@ -236,11 +236,11 @@
                       </div>
                       <div class="col-md-12 nav-brands">
                         <ul>
-                          <li><a href="shop-product-list.html"><img title="esprit" alt="esprit" src="../../assets/frontend/pages/img/brands/esprit.jpg"></a></li>
-                          <li><a href="shop-product-list.html"><img title="gap" alt="gap" src="../../assets/frontend/pages/img/brands/gap.jpg"></a></li>
-                          <li><a href="shop-product-list.html"><img title="next" alt="next" src="../../assets/frontend/pages/img/brands/next.jpg"></a></li>
-                          <li><a href="shop-product-list.html"><img title="puma" alt="puma" src="../../assets/frontend/pages/img/brands/puma.jpg"></a></li>
-                          <li><a href="shop-product-list.html"><img title="zara" alt="zara" src="../../assets/frontend/pages/img/brands/zara.jpg"></a></li>
+                          <li><a href="shop-product-list.html"><img title="esprit" alt="esprit" src="${url}/frontend/pages/img/brands/esprit.jpg"></a></li>
+                          <li><a href="shop-product-list.html"><img title="gap" alt="gap" src="${url}/frontend/pages/img/brands/gap.jpg"></a></li>
+                          <li><a href="shop-product-list.html"><img title="next" alt="next" src="${url}/frontend/pages/img/brands/next.jpg"></a></li>
+                          <li><a href="shop-product-list.html"><img title="puma" alt="puma" src="${url}/frontend/pages/img/brands/puma.jpg"></a></li>
+                          <li><a href="shop-product-list.html"><img title="zara" alt="zara" src="${url}/frontend/pages/img/brands/zara.jpg"></a></li>
                         </ul>
                       </div>
                     </div>
@@ -261,7 +261,7 @@
                       <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="product-item">
                           <div class="pi-img-wrapper">
-                            <a href="shop-item.html"><img src="../../assets/frontend/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                            <a href="shop-item.html"><img src="${url}/frontend/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
                           </div>
                           <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
                           <div class="pi-price">$29.00</div>
@@ -271,7 +271,7 @@
                       <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="product-item">
                           <div class="pi-img-wrapper">
-                            <a href="shop-item.html"><img src="../../assets/frontend/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                            <a href="shop-item.html"><img src="${url}/frontend/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
                           </div>
                           <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
                           <div class="pi-price">$29.00</div>
@@ -281,7 +281,7 @@
                       <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="product-item">
                           <div class="pi-img-wrapper">
-                            <a href="shop-item.html"><img src="../../assets/frontend/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                            <a href="shop-item.html"><img src="${url}/frontend/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
                           </div>
                           <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
                           <div class="pi-price">$29.00</div>
@@ -291,7 +291,7 @@
                       <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="product-item">
                           <div class="pi-img-wrapper">
-                            <a href="shop-item.html"><img src="../../assets/frontend/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
+                            <a href="shop-item.html"><img src="${url}/frontend/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress"></a>
                           </div>
                           <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
                           <div class="pi-price">$29.00</div>
@@ -370,85 +370,55 @@
                 <table summary="Shopping cart">
                   <tr>
                     <th class="goods-page-image">Image</th>
-                    <th class="goods-page-description">Description</th>
-                    <th class="goods-page-ref-no">Ref No</th>
+                    <th class="goods-page-description">Product Name</th>
+                    <th class="goods-page-ref-no">Cart ID</th>
                     <th class="goods-page-quantity">Quantity</th>
                     <th class="goods-page-price">Unit price</th>
                     <th class="goods-page-total" colspan="2">Total</th>
                   </tr>
+                  
+                  <c:forEach items="${cart.values()}" var="cart">
                   <tr>
                     <td class="goods-page-image">
-                      <a href="#"><img src="../../assets/frontend/pages/img/products/model3.jpg" alt="Berry Lace Dress"></a>
+                    	<c:url value="/image?fname=${cart.product.picture}" var="imgUrl"></c:url>
+						<img height="100" width="150" src="${imgUrl}" />
                     </td>
                     <td class="goods-page-description">
-                      <h3><a href="#">Cool green dress with red bell</a></h3>
-                      <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                      <em>More info is here</em>
+                      <h3><a href="/BanHang/detail?pid=${cart.product.id }">${cart.product.name }</a></h3>
                     </td>
                     <td class="goods-page-ref-no">
-                      javc2133
+                      ${cart.id }
                     </td>
                     <td class="goods-page-quantity">
                       <div class="product-quantity">
-                          <input id="product-quantity" type="text" value="1" readonly class="form-control input-sm">
+                          <input id="product-quantity" type="number" value="${cart.amount }" class="" onblur="updateCart(${cart.product.id}, this)">
                       </div>
                     </td>
                     <td class="goods-page-price">
-                      <strong><span>$</span>47.00</strong>
+                      <strong><span>$</span>${cart.price }</strong>
                     </td>
                     <td class="goods-page-total">
-                      <strong><span>$</span>47.00</strong>
+                      <strong><span>$</span>${cart.amount * cart.price }</strong>
                     </td>
                     <td class="del-goods-col">
                       <a class="del-goods" href="#">&nbsp;</a>
                     </td>
                   </tr>
-                  <tr>
-                    <td class="goods-page-image">
-                      <a href="#"><img src="../../assets/frontend/pages/img/products/model4.jpg" alt="Berry Lace Dress"></a>
-                    </td>
-                    <td class="goods-page-description">
-                      <h3><a href="#">Cool green dress with red bell</a></h3>
-                      <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                      <em>More info is here</em>
-                    </td>
-                    <td class="goods-page-ref-no">
-                      javc2133
-                    </td>
-                    <td class="goods-page-quantity">
-                      <div class="product-quantity">
-                          <input id="product-quantity2" type="text" value="1" readonly class="form-control input-sm">
-                      </div>
-                    </td>
-                    <td class="goods-page-price">
-                      <strong><span>$</span>47.00</strong>
-                    </td>
-                    <td class="goods-page-total">
-                      <strong><span>$</span>47.00</strong>
-                    </td>
-                    <td class="del-goods-col">
-                      <a class="del-goods" href="#">&nbsp;</a>
-                    </td>
-                  </tr>
+                 </c:forEach>
+                 
+
                 </table>
                 </div>
 
                 <div class="shopping-total">
                   <ul>
-                    <li>
-                      <em>Sub total</em>
-                      <strong class="price"><span>$</span>47.00</strong>
-                    </li>
-                    <li>
-                      <em>Shipping cost</em>
-                      <strong class="price"><span>$</span>3.00</strong>
-                    </li>
                     <li class="shopping-total-price">
                       <em>Total</em>
-                      <strong class="price"><span>$</span>50.00</strong>
+                      <strong id="total" class="price"><span>$</span>${cartCharge }</strong>
                     </li>
                   </ul>
                 </div>
+              
               </div>
               <button class="btn btn-default" type="submit">Continue shopping <i class="fa fa-shopping-cart"></i></button>
               <button class="btn btn-primary" type="submit">Checkout <i class="fa fa-check"></i></button>
@@ -466,9 +436,9 @@
               <div>
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="../../assets/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                    <img src="${url}/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
                     <div>
-                      <a href="../../assets/frontend/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="${url}/frontend/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -481,9 +451,9 @@
               <div>
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="../../assets/frontend/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
+                    <img src="${url}/frontend/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
                     <div>
-                      <a href="../../assets/frontend/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="${url}/frontend/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -495,9 +465,9 @@
               <div>
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="../../assets/frontend/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
+                    <img src="${url}/frontend/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
                     <div>
-                      <a href="../../assets/frontend/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="${url}/frontend/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -509,9 +479,9 @@
               <div>
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="../../assets/frontend/pages/img/products/k4.jpg" class="img-responsive" alt="Berry Lace Dress">
+                    <img src="${url}/frontend/pages/img/products/k4.jpg" class="img-responsive" alt="Berry Lace Dress">
                     <div>
-                      <a href="../../assets/frontend/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="${url}/frontend/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -524,9 +494,9 @@
               <div>
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="../../assets/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                    <img src="${url}/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
                     <div>
-                      <a href="../../assets/frontend/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="${url}/frontend/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -538,9 +508,9 @@
               <div>
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="../../assets/frontend/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
+                    <img src="${url}/frontend/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
                     <div>
-                      <a href="../../assets/frontend/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="${url}/frontend/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
@@ -683,11 +653,11 @@
           <!-- BEGIN PAYMENTS -->
           <div class="col-md-6 col-sm-6">
             <ul class="list-unstyled list-inline pull-right">
-              <li><img src="../../assets/frontend/layout/img/payments/western-union.jpg" alt="We accept Western Union" title="We accept Western Union"></li>
-              <li><img src="../../assets/frontend/layout/img/payments/american-express.jpg" alt="We accept American Express" title="We accept American Express"></li>
-              <li><img src="../../assets/frontend/layout/img/payments/MasterCard.jpg" alt="We accept MasterCard" title="We accept MasterCard"></li>
-              <li><img src="../../assets/frontend/layout/img/payments/PayPal.jpg" alt="We accept PayPal" title="We accept PayPal"></li>
-              <li><img src="../../assets/frontend/layout/img/payments/visa.jpg" alt="We accept Visa" title="We accept Visa"></li>
+              <li><img src="${url}/frontend/layout/img/payments/western-union.jpg" alt="We accept Western Union" title="We accept Western Union"></li>
+              <li><img src="${url}/frontend/layout/img/payments/american-express.jpg" alt="We accept American Express" title="We accept American Express"></li>
+              <li><img src="${url}/frontend/layout/img/payments/MasterCard.jpg" alt="We accept MasterCard" title="We accept MasterCard"></li>
+              <li><img src="${url}/frontend/layout/img/payments/PayPal.jpg" alt="We accept PayPal" title="We accept PayPal"></li>
+              <li><img src="${url}/frontend/layout/img/payments/visa.jpg" alt="We accept Visa" title="We accept Visa"></li>
             </ul>
           </div>
           <!-- END PAYMENTS -->
@@ -702,12 +672,12 @@
               <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-3">
                   <div class="product-main-image">
-                    <img src="../../assets/frontend/pages/img/products/model7.jpg" alt="Cool green dress with red bell" class="img-responsive">
+                    <img src="${url}/frontend/pages/img/products/model7.jpg" alt="Cool green dress with red bell" class="img-responsive">
                   </div>
                   <div class="product-other-images">
-                    <a href="#" class="active"><img alt="Berry Lace Dress" src="../../assets/frontend/pages/img/products/model3.jpg"></a>
-                    <a href="#"><img alt="Berry Lace Dress" src="../../assets/frontend/pages/img/products/model4.jpg"></a>
-                    <a href="#"><img alt="Berry Lace Dress" src="../../assets/frontend/pages/img/products/model5.jpg"></a>
+                    <a href="#" class="active"><img alt="Berry Lace Dress" src="${url}/frontend/pages/img/products/model3.jpg"></a>
+                    <a href="#"><img alt="Berry Lace Dress" src="${url}/frontend/pages/img/products/model4.jpg"></a>
+                    <a href="#"><img alt="Berry Lace Dress" src="${url}/frontend/pages/img/products/model5.jpg"></a>
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-9">
@@ -761,25 +731,25 @@ Nostrud duis molestie at dolore.</p>
     <!-- Load javascripts at bottom, this will reduce page load time -->
     <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
     <!--[if lt IE 9]>
-    <script src="../../assets/global/plugins/respond.min.js"></script>  
+    <script src="${url}/global/plugins/respond.min.js"></script>  
     <![endif]-->  
-    <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-    <script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
-    <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>      
-    <script src="../../assets/frontend/layout/scripts/back-to-top.js" type="text/javascript"></script>
-    <script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="${url}/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="${url}/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="${url}/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>      
+    <script src="${url}/frontend/layout/scripts/back-to-top.js" type="text/javascript"></script>
+    <script src="${url}/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- END CORE PLUGINS -->
 
     <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
-    <script src="../../assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script><!-- pop up -->
-    <script src="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js" type="text/javascript"></script><!-- slider for products -->
-    <script src='../../assets/global/plugins/zoom/jquery.zoom.min.js' type="text/javascript"></script><!-- product zoom -->
-    <script src="../../assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script><!-- Quantity -->
-    <script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-    <script src="../../assets/global/plugins/rateit/src/jquery.rateit.js" type="text/javascript"></script>
+    <script src="${url}/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script><!-- pop up -->
+    <script src="${url}/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js" type="text/javascript"></script><!-- slider for products -->
+    <script src='${url}/global/plugins/zoom/jquery.zoom.min.js' type="text/javascript"></script><!-- product zoom -->
+    <script src="${url}/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script><!-- Quantity -->
+    <script src="${url}/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="${url}/global/plugins/rateit/src/jquery.rateit.js" type="text/javascript"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script><!-- for slider-range -->
 
-    <script src="../../assets/frontend/layout/scripts/layout.js" type="text/javascript"></script>
+    <script src="${url}/frontend/layout/scripts/layout.js" type="text/javascript"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             Layout.init();    
@@ -792,6 +762,27 @@ Nostrud duis molestie at dolore.</p>
         });
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
+    
+    
+    <!-- MY SCRIPT -->
+    <script>
+    	function updateCart(productId, input){
+    		$.ajax({
+    			url : "/BanHang/api/update-cart",
+    			type : "get",
+    			data : {
+    				id : productId,
+    				amount : input.value
+    			},
+    			success : function(data) {
+    				console.log(data)
+    			},
+    			error : function(xhr) {
+    			}
+    		});
+    	}
+    </script>
+    
 </body>
 <!-- END BODY -->
 </html>

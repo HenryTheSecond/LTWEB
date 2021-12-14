@@ -4,7 +4,14 @@
 <c:url value="/templates/assets" var="url"></c:url>
 
     
-    
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+<link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" />
+<link href="https://cdn.datatables.net/fixedheader/3.2.0/css/fixedHeader.bootstrap4.min.cs" />
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/fixedheader/3.2.0/js/dataTables.fixedHeader.min.js"></script>
 
 <!-- BEGIN BODY -->
 <!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
@@ -16,6 +23,8 @@
 <!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
 <!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+
+
 <body class="page-boxed page-header-fixed page-container-bg-solid page-sidebar-closed-hide-logo ">
 	<!-- BEGIN CONTENT -->
 		<div class="page-content-wrapper">
@@ -253,6 +262,7 @@
 										</select>
 										<div class="btn btn-sm yellow" onclick="timKiemTheoStatus()"><i class="fa fa-check"></i> Submit</div>
 									</div>
+									
 									<table class="table table-striped table-bordered table-hover" id="datatable_products">
 									<thead>
 									<tr role="row" class="heading">
@@ -288,6 +298,10 @@
 										</th>
 									</tr>
 									
+
+									</thead>
+									
+									<tbody id="productTableBody">
 									<c:forEach items="${listProduct}" var="product" varStatus="STT">
 									<tr role="row" class="filter">
 										<td>
@@ -329,12 +343,22 @@
 										</td>
 									</tr>
 									</c:forEach>
-									
-									</thead>
-									<tbody>
 									</tbody>
 									</table>
-								</div>
+
+								<nav aria-label="Page navigation example">
+									<ul class="pagination">
+										<li class="page-item" onclick="prePageClick()"><a class="">Previous</a></li>
+										
+										<c:forEach begin="1" end="${pages }" var="i" >
+											<li class="page-item" onclick="paging(${i})"><a id="pageNumber${i}" ${pageActive==i? "style='background-color:yellow'":"" } >${i }</a></li>						
+										</c:forEach>
+										
+										<li class="page-item" onclick="nextPageClick()"><a class="">Next</a></li>
+									</ul>
+								</nav>
+
+							</div>
 							</div>
 						</div>
 						<!-- End: life time stats -->
@@ -388,7 +412,15 @@ Demo.init(); // init demo features
 
 
 <!-- MY SCRIPT -->
+
+<script src="//code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" type="text/javascript"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
+	curPage = ${pageActive}
+	
 	function timKiemTheoStatus(){
 		var status = document.getElementById("productStatus");
 		var tenSanPham = document.getElementById("txtTenSanPham");
@@ -397,6 +429,45 @@ Demo.init(); // init demo features
 		console.log(tenSanPham.value);
 		console.log(status.value);	
 		window.location.href = "http://localhost:8080/BanHang/seller/product?kw=" + tenSanPham.value + "&status=" + status.value + "&subCate="+subCate.value;
+	}
+	
+	function paging(page){
+		body = document.getElementById("productTableBody")
+		
+		oldPage = curPage
+		document.getElementById("pageNumber" + oldPage).style.backgroundColor = ""
+		curPage = page
+		document.getElementById("pageNumber" + page).style.backgroundColor = "yellow"
+		
+		kw = "${kw}"
+		status = "${status}"
+		subCate = "${subCateId}"
+		$.ajax({
+			url : "/BanHang/api/paging-seller",
+			type : "get",
+			data : {
+				page: page,
+				kw: kw,
+				status: status,
+				subCate: subCate
+			},
+			success : function(data) {
+				body.innerHTML = data;
+			},
+			error : function(xhr) {
+			}
+		});
+	}
+	
+	function nextPageClick(){
+		pages = ${pages}
+		if(curPage<pages)
+			paging(curPage+1)
+	}
+	
+	function prePageClick(){
+		if(curPage>1)
+			paging(curPage-1)
 	}
 </script>
 		

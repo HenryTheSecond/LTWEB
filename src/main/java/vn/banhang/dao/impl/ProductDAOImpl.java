@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import javafx.util.Pair;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -31,7 +32,7 @@ import vn.banhang.dao.ProductDAO;
 public class ProductDAOImpl implements ProductDAO {
 
 	@Override
-	public List<Product> getAllShopProduct(Shop shop) {
+	public Pair< Integer, List<Product> > getAllShopProduct(Shop shop, int page) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<Product> q = builder.createQuery(Product.class);
@@ -39,14 +40,22 @@ public class ProductDAOImpl implements ProductDAO {
 			q.select(root);
 			Predicate p = builder.equal(root.get("shop").as(Shop.class), shop);
 			q.where(p);
+			
 			List<Product> list = session.createQuery(q).getResultList();
-			return list;
+			
+			int start = (page-1)*5;
+			int end = start+5;
+			if( end > list.size() )
+				end = list.size();
+				
+			
+			return new Pair< Integer, List<Product> >(list.size(), list.subList(start, end));
 		}
 	}
 	
 
 	@Override
-	public List<Product> searchProductShop(Shop shop, String kw, int subCateId, String status) {
+	public Pair< Integer, List<Product>> searchProductShop(Shop shop, String kw, int subCateId, String status, int page) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<Product> q = builder.createQuery(Product.class);
@@ -73,18 +82,21 @@ public class ProductDAOImpl implements ProductDAO {
 			else if(status.equals("hethang")) {
 				p4 = builder.equal(root.get("amount").as(Integer.class), 0);
 			}
-
-			
-			
-			
+		
 			
 			q.where(builder.and(p1, p2, p3, p4));
 			List<Product> list = session.createQuery(q).getResultList();
-			return list;
+			
+			int start = (page-1)*5;
+			int end = start+5;
+			if( end > list.size() )
+				end = list.size();
+			
+			return new Pair< Integer, List<Product> >(list.size(), list.subList(start, end));
 		}
 	}
 	
-	public List<Product> searchProductShop(Shop shop, String kw, String status) {
+	public Pair< Integer, List<Product>> searchProductShop(Shop shop, String kw, String status, int page) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
 			CriteriaBuilder builder = session.getCriteriaBuilder();
 			CriteriaQuery<Product> q = builder.createQuery(Product.class);
@@ -113,7 +125,13 @@ public class ProductDAOImpl implements ProductDAO {
 			
 			q.where(builder.and(p1, p2, p4));
 			List<Product> list = session.createQuery(q).getResultList();
-			return list;
+			
+			int start = (page-1)*5;
+			int end = start+5;
+			if( end > list.size() )
+				end = list.size();
+			
+			return new Pair< Integer, List<Product> >(list.size(), list.subList(start, end));
 		}
 	}
 	
@@ -343,9 +361,9 @@ public class ProductDAOImpl implements ProductDAO {
 			System.out.println(dao.searchProductShop(u.getShop(), "miku", 15, "tatca"));*/
 			
 			
-			ProductDAOImpl dao = new ProductDAOImpl();
+			/*ProductDAOImpl dao = new ProductDAOImpl();
 			
-			System.out.println(dao.getProductByCate(3));
+			System.out.println(dao.getProductByCate(3));*/
 			/*Product p = session.get(Product.class, 1);
 			for(Cart cart: p.getCarts()) {
 				System.out.println(cart.getOrder_date().getTime());
@@ -361,8 +379,11 @@ public class ProductDAOImpl implements ProductDAO {
 				System.out.println(obj[2]);
 			}*/
 			
-			long count = new ProductDAOImpl().countCanceledOrder(3);
-			System.out.println(count);
+			Pair<Integer, List<Product>> pair = new ProductDAOImpl().getAllShopProduct( session.get(Shop.class, 2) , 1);
+			System.out.println(pair.getKey());
+			for(Product p: pair.getValue())
+				System.out.println(p.getName());
+			
 		}
 	}
 

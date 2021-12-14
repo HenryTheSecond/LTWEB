@@ -15,4 +15,11 @@ public class Utils {
 		}
 		return true;
 	}
+	public static boolean kiemTraDangNhap(HttpServletRequest req, HttpServletResponse resp) {
+		HttpSession session = req.getSession();
+		User user = (User)session.getAttribute("user");
+		if(user == null)
+			return false;
+		return true;
+	}
 }

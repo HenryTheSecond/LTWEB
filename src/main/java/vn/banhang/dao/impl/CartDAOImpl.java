@@ -108,6 +108,25 @@ public class CartDAOImpl implements CartDAO {
 		}
 	}
 	
+	@Override
+	public void add(Cart cart) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			session.getTransaction().begin();
+			session.save(cart);
+			session.getTransaction().commit();
+		}
+		
+	}
+	
+	@Override
+	public void update(Cart cart) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			session.getTransaction().begin();
+			session.merge(cart);
+			session.getTransaction().commit();
+		}
+	}
+	
 	public static void main(String[] args) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			Shop shop = session.get(Shop.class, 1);
@@ -132,7 +151,6 @@ public class CartDAOImpl implements CartDAO {
 			System.out.println(list);
 		}
 	}
-
 
 
 }

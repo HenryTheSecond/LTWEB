@@ -1,7 +1,8 @@
 package vn.banhang.dao;
 
 import java.util.List;
-
+import javafx.util.Pair;
+import vn.banhang.Model.Cart;
 import vn.banhang.Model.User;
 
 public interface UserDAO {
@@ -11,4 +12,6 @@ public interface UserDAO {
 	public void insert(User user);
 	public void edit(User user);
 	public void delete(String username);
+	public Object[] cartStats(User user);
+	public List<Cart> getCartByUser(User user);
 }

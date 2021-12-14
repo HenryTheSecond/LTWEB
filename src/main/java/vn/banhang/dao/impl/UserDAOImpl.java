@@ -3,10 +3,18 @@ package vn.banhang.dao.impl;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
+import javafx.util.Pair;
 import vn.banhang.Hibernate.HibernateUtil;
+import vn.banhang.Model.Cart;
+import vn.banhang.Model.Product;
 import vn.banhang.Model.User;
 import vn.banhang.dao.UserDAO;
 
@@ -88,6 +96,40 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 	
+	@Override
+	public Object[] cartStats(User user) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Object[]> q = builder.createQuery(Object[].class);
+			
+			Root<Cart> cartRoot = q.from(Cart.class);
+			Predicate userEqual = builder.equal(cartRoot.get("user").as(User.class), user);
+			Predicate incart = builder.equal(cartRoot.get("status").as(String.class), "incart");
+
+			q.where(userEqual, incart);
+			q.multiselect(builder.sum(cartRoot.get("amount")),
+						  builder.sum( builder.prod(cartRoot.get("price"), cartRoot.get("amount")) ));
+			return session.createQuery(q).getSingleResult();
+			
+		}
+	}
+	
+	
+	@Override
+	public List<Cart> getCartByUser(User user) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Cart> q = builder.createQuery(Cart.class);
+			
+			Root<Cart> cartRoot = q.from(Cart.class);
+			Predicate userEqual = builder.equal(cartRoot.get("user").as(User.class), user);
+			Predicate incart = builder.equal(cartRoot.get("status").as(String.class), "incart");
+			
+			q.where(userEqual, incart);
+			List<Cart> list = session.createQuery(q).getResultList();
+			return list;
+		}
+	}
 	
 	public static void main(String[] args) {
 		UserDAOImpl dao = new UserDAOImpl();
@@ -96,7 +138,7 @@ public class UserDAOImpl implements UserDAO {
 		/*List<User> uTest = dao.getAllUsers();
 		uTest.forEach(u -> System.out.println(u.getName()));*/
 		
-		Calendar birthdate = Calendar.getInstance();
+		/*Calendar birthdate = Calendar.getInstance();
 		User u1 = new User();
 		u1.setUsername("thang1");
 		u1.setPassword("123");
@@ -135,8 +177,15 @@ public class UserDAOImpl implements UserDAO {
 		dao.insert(u3);
 		
 		List<User> uTest = dao.getAllUsers();
-		uTest.forEach(u -> System.out.println(u.getName()));
+		uTest.forEach(u -> System.out.println(u.getName()));*/
+		
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
+			User user = session.get(User.class, 1);
+			List<Cart> list = dao.getCartByUser(user);
+			System.out.println(list.get(0).getName());
+		}
 	}
+
 	
 	
 }

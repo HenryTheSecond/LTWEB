@@ -33,4 +33,14 @@ public class CartServiceImpl implements CartService {
 		return dao.countOrderByStatus(shop, status);
 	}
 
+	@Override
+	public void add(Cart cart) {
+		dao.add(cart);
+	}
+
+	@Override
+	public void update(Cart cart) {
+		dao.update(cart);
+	}
+
 }

@@ -3,6 +3,7 @@ package vn.banhang.service.impl;
 import java.util.Calendar;
 import java.util.List;
 
+import javafx.util.Pair;
 import vn.banhang.Model.Product;
 import vn.banhang.Model.Shop;
 import vn.banhang.dao.ProductDAO;
@@ -45,20 +46,20 @@ public class ProductServiceImpl implements ProductService {
 	
 	
 	@Override
-	public List<Product> getAllShopProduct(Shop shop) {
-		return dao.getAllShopProduct(shop);
+	public Pair< Integer, List<Product>> getAllShopProduct(Shop shop, int page) {
+		return dao.getAllShopProduct(shop, page);
 	}
 
 	@Override
-	public List<Product> searchProductShop(Shop shop, String kw, int subCateId, String status) {
+	public Pair< Integer, List<Product>> searchProductShop(Shop shop, String kw, int subCateId, String status, int page) {
 		// TODO Auto-generated method stub
-		return dao.searchProductShop(shop, kw, subCateId, status);
+		return dao.searchProductShop(shop, kw, subCateId, status, page);
 	}
 
 	@Override
-	public List<Product> searchProductShop(Shop shop, String kw, String status) {
+	public Pair< Integer, List<Product>> searchProductShop(Shop shop, String kw, String status, int page) {
 		// TODO Auto-generated method stub
-		return dao.searchProductShop(shop, kw, status);
+		return dao.searchProductShop(shop, kw, status, page);
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package vn.banhang.service.impl;
 
 import java.util.List;
 
+import vn.banhang.Model.Cart;
 import vn.banhang.Model.User;
 import vn.banhang.dao.UserDAO;
 import vn.banhang.dao.impl.UserDAOImpl;
@@ -34,5 +35,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getByID(int id) {
 		return dao.getByID(id);
+	}
+	@Override
+	public Object[] cartStats(User user) {
+		return dao.cartStats(user);
+	}
+	@Override
+	public List<Cart> getCartByUser(User user) {
+		return dao.getCartByUser(user);
 	}
 }
