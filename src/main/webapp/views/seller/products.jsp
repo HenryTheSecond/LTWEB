@@ -234,22 +234,22 @@
 								<div class="table-container">
 									
 									<select id="selectSubCategory" name="selectSubCategory">
-										<option value=""></option> 
+										<option value="" ${subCateId==""? "selected":"" }></option> 
 										<c:forEach items="${listSubCate}" var="subCate">
-											<option value="${subCate.id }">${subCate.name }</option>
+											<option value="${subCate.id }" ${subCateId==subCate.id? "selected":"" } >${subCate.name }</option>
 										</c:forEach>
 									</select>
 									
-									<input type="text" class="form-control form-filter input-sm" name="product_history_desc" placeholder="Tên sản phẩm" name="txtTenSanPham" id="txtTenSanPham">
+									<input type="text" class="form-control form-filter input-sm" name="product_history_desc" placeholder="Tên sản phẩm" name="txtTenSanPham" id="txtTenSanPham" value="${kw }">
 									<div class="table-actions-wrapper">
 										<span>
 										</span>
 										<select class="table-group-action-input form-control input-inline input-small input-sm" name="productStatus" id="productStatus">
-											<option value="tatca">Tất cả</option>
-											<option value="dangban">Đang bán</option>
-											<option value="ngungban">Ngừng bán</option>
-											<option value="taman">Tạm ẩn</option>
-											<option value="hethang">Hết hàng</option>
+											<option value="tatca" ${status=="tatca"? "selected":"" }>Tất cả</option>
+											<option value="dangban" ${status=="dangban"? "selected":"" }>Đang bán</option>
+											<option value="ngungban" ${status=="ngungban"? "selected":"" }>Ngừng bán</option>
+											<option value="taman" ${status=="taman"? "selected":"" }>Tạm ẩn</option>
+											<option value="hethang" ${status=="hethang"? "selected":"" }>Hết hàng</option>
 										</select>
 										<div class="btn btn-sm yellow" onclick="timKiemTheoStatus()"><i class="fa fa-check"></i> Submit</div>
 									</div>

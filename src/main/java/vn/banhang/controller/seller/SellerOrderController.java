@@ -33,36 +33,40 @@ import vn.banhang.utils.Utils;
 public class SellerOrderController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		if(Utils.kiemTraIsSeller(req, resp)) {
 			resp.setContentType("text/html");
 			resp.setCharacterEncoding("UTF-8");
 			req.setCharacterEncoding("UTF-8");
 			
-			HttpSession session = req.getSession();
-			User user = (User)session.getAttribute("user");
-			
-			CartService cartSerivce = new CartServiceImpl();
-			
-			List<Cart> list = cartSerivce.getAllShopOrder(user.getShop());
-			req.setAttribute("listCart", list);
-			
-		
-			req.getRequestDispatcher("/views/seller/orders.jsp").forward(req, resp);
+			if(req.getQueryString()==null) {
+				HttpSession session = req.getSession();
+				User user = (User)session.getAttribute("user");
+				
+				CartService cartSerivce = new CartServiceImpl();
+				List<Cart> list = cartSerivce.getAllShopOrder(user.getShop());
+				req.setAttribute("listCart", list);
+				req.getRequestDispatcher("/views/seller/orders.jsp").forward(req, resp);
+			}
+			else
+				doGetWithParams(req, resp);
 
 		}
 		else {
 			resp.sendRedirect(req.getContextPath() + "/login?next=seller/order");
 		}
 	}
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+	protected void doGetWithParams(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
 		
-		String status = req.getParameter("status");
-		String kw = req.getParameter("txtTenSanPham").trim();
+		String status = "", kw="";
+		
+		if(req.getParameter("status") != null)
+			status = req.getParameter("status");
+		if(req.getParameter("txtTenSanPham") != null)
+			kw = req.getParameter("txtTenSanPham").trim();
 		Calendar from = null;
 		Calendar to = null;
 		
@@ -70,7 +74,7 @@ public class SellerOrderController extends HttpServlet {
 		HttpSession session = req.getSession();
 		User user = (User)session.getAttribute("user");
 		
-		if( !req.getParameter("from").trim().equals("") )
+		if( req.getParameter("from")!=null && !req.getParameter("from").trim().equals("") )
 			try {
 				Date date = new SimpleDateFormat("MM/dd/yyyy").parse(req.getParameter("from"));
 				from = Calendar.getInstance();
@@ -79,7 +83,7 @@ public class SellerOrderController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		if( !req.getParameter("to").trim().equals("") )
+		if( req.getParameter("to")!=null && !req.getParameter("to").trim().equals("") )
 			try {
 				Date date = new SimpleDateFormat("MM/dd/yyyy").parse(req.getParameter("to"));
 				to = Calendar.getInstance();

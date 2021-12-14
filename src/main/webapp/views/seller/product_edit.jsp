@@ -209,7 +209,7 @@
 											<ul class="nav nav-tabs">
 												<li class="active"><a href="#tab_general"
 													data-toggle="tab"> General </a></li>
-												<li><a href="#tab_meta" data-toggle="tab"> Meta </a></li>
+												<li><a href="#tab_meta" data-toggle="tab"> Thống kê </a></li>
 												<li><a href="#tab_images" data-toggle="tab"> Images
 												</a></li>
 												<li><a href="#tab_reviews" data-toggle="tab">
@@ -355,37 +355,104 @@
 
 												</div>
 												<div class="tab-pane" id="tab_meta">
-													<div class="form-body">
-														<div class="form-group">
-															<label class="col-md-2 control-label">Meta Title:</label>
-															<div class="col-md-10">
-																<input type="text"
-																	class="form-control maxlength-handler"
-																	name="product[meta_title]" maxlength="100"
-																	placeholder=""> <span class="help-block">
-																	max 100 chars </span>
+													
+													
+													<div class="row">
+														<div class=" col-md-2 col-sm-6 col-xs-12">
+															<div class="dashboard-stat blue">
+																<div class="visual">
+																	<i class="fa fa-comments"></i>
+																</div>
+																<div class="details">
+																	<div class="number">
+																		 ${deliveried[0]}
+																	</div>
+																	<div class="desc">
+																		 Đơn đã giao
+																	</div>
+																</div>
+																<a class="more" href="#">
+																View more <i class="m-icon-swapright m-icon-white"></i>
+																</a>
 															</div>
 														</div>
-														<div class="form-group">
-															<label class="col-md-2 control-label">Meta
-																Keywords:</label>
-															<div class="col-md-10">
-																<textarea class="form-control maxlength-handler"
-																	rows="8" name="product[meta_keywords]" maxlength="1000"></textarea>
-																<span class="help-block"> max 1000 chars </span>
+														<div class=" col-md-2 col-sm-6 col-xs-12">
+															<div class="dashboard-stat blue">
+																<div class="visual">
+																	<i class="fa fa-shopping-cart"></i>
+																</div>
+																<div class="details">
+																	<div class="number">
+																		 ${deliveried[1] }
+																	</div>
+																	<div class="desc">
+																		 Doanh số
+																	</div>
+																</div>
+																<a class="more" href="#">
+																View more <i class="m-icon-swapright m-icon-white"></i>
+																</a>
 															</div>
 														</div>
-														<div class="form-group">
-															<label class="col-md-2 control-label">Meta
-																Description:</label>
-															<div class="col-md-10">
-																<textarea class="form-control maxlength-handler"
-																	rows="8" name="product[meta_description]"
-																	maxlength="255"></textarea>
-																<span class="help-block"> max 255 chars </span>
+														<div class=" col-md-2 col-sm-6 col-xs-12">
+															<div class="dashboard-stat blue">
+																<div class="visual">
+																	<i class="fa fa-globe"></i>
+																</div>
+																<div class="details">
+																	<div class="number">
+																		 ${deliveried[2] }
+																	</div>
+																	<div class="desc">
+																		 Doanh thu
+																	</div>
+																</div>
+																<a class="more" href="#">
+																View more <i class="m-icon-swapright m-icon-white"></i>
+																</a>
 															</div>
 														</div>
+														<div class=" col-md-2 col-sm-6 col-xs-12">
+															<div class="dashboard-stat blue">
+																<div class="visual">
+																	<i class="fa fa-bar-chart-o"></i>
+																</div>
+																<div class="details">
+																	<div class="number">
+																		 ${pendingOrder }
+																	</div>
+																	<div class="desc">
+																		 Đơn đợi xử lý
+																	</div>
+																</div>
+																<a class="more" href="#">
+																View more <i class="m-icon-swapright m-icon-white"></i>
+																</a>
+															</div>
+														</div>
+														<div class=" col-md-2 col-sm-6 col-xs-12">
+															<div class="dashboard-stat blue">
+																<div class="visual">
+																	<i class="fa fa-bar-chart-o"></i>
+																</div>
+																<div class="details">
+																	<div class="number">
+																		 ${canceledOrder }
+																	</div>
+																	<div class="desc">
+																		 Đơn hủy
+																	</div>
+																</div>
+																<a class="more" href="#">
+																View more <i class="m-icon-swapright m-icon-white"></i>
+																</a>
+															</div>
+														</div>
+														
 													</div>
+													
+													
+													
 												</div>
 												<div class="tab-pane" id="tab_images">
 													<div class="alert alert-success margin-bottom-10">
@@ -510,6 +577,7 @@
 												</div>
 												<div class="tab-pane" id="tab_reviews">
 													<div class="table-container">
+														<h1>${avgRating==null? "Chưa có đánh giá":avgRating }</h1>
 														<table class="table table-striped table-bordered table-hover" id="datatable_reviews">
 															<thead>
 																<tr role="row" class="heading">

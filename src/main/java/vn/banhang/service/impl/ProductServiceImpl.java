@@ -1,5 +1,6 @@
 package vn.banhang.service.impl;
 
+import java.util.Calendar;
 import java.util.List;
 
 import vn.banhang.Model.Product;
@@ -76,6 +77,27 @@ public class ProductServiceImpl implements ProductService {
 		dao.add(product);
 		
 	}
-	
+
+	@Override
+	public List<Object[]> statsQuantityShop(Shop shop, Calendar from, Calendar to) {
+		// TODO Auto-generated method stub
+		return dao.statsQuantityShop(shop, from, to);
+	}
+
+	@Override
+	public Object[] statsDeliveriedProduct(int id) {
+		return dao.statsDeliveriedProduct(id);
+	}
+
+	@Override
+	public long countPendingOrder(int id) {
+		return dao.countPendingOrder(id);
+	}
+
+	@Override
+	public long countCanceledOrder(int id) {
+		return dao.countCanceledOrder(id);
+	}
+
 
 }

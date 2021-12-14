@@ -18,6 +18,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import vn.banhang.Model.Category;
 import vn.banhang.Model.Product;
+import vn.banhang.Model.Review;
 import vn.banhang.Model.SubCategory;
 import vn.banhang.Model.User;
 import vn.banhang.service.CategoryService;
@@ -51,6 +52,24 @@ public class SellerProductEditController extends HttpServlet{
 			
 			List<Category> listCategory = categoryService.getCategories();
 			req.setAttribute("listCategory", listCategory);
+			
+			Object[] deliveried = productService.statsDeliveriedProduct(id);
+			req.setAttribute("deliveried", deliveried);
+			long pendingOrder = productService.countPendingOrder(id);
+			req.setAttribute("pendingOrder", pendingOrder);
+			long canceledOrder = productService.countCanceledOrder(id);
+			req.setAttribute("canceledOrder", canceledOrder);
+			
+			float avgRating = 0;
+			for(Review review: product.getReviews()) {
+				avgRating += review.getRating();
+			}
+			if(!product.getReviews().isEmpty()) {
+				avgRating = avgRating/product.getReviews().size();
+				req.setAttribute("avgRating", avgRating);
+			}
+			else
+				req.setAttribute("avgRating", null);
 			
 			req.getRequestDispatcher("/views/seller/product_edit.jsp").forward(req, resp);;
 

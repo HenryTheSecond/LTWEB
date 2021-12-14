@@ -10,4 +10,5 @@ public interface CartService {
 	 public List<Cart> getAllShopOrder(Shop shop);
 	 public List<Cart> shopSearch(Shop shop, String status, String kw, Calendar from, Calendar to);
 	 public void deliveryCart(int id);
+	 public long countOrderByStatus(Shop shop, String status);
 }

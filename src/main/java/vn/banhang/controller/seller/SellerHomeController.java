@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import vn.banhang.Model.User;
+import vn.banhang.service.CartService;
+import vn.banhang.service.ProductService;
+import vn.banhang.service.ShopService;
+import vn.banhang.service.impl.CartServiceImpl;
+import vn.banhang.service.impl.ProductServiceImpl;
+import vn.banhang.service.impl.ShopServiceImpl;
 
 @WebServlet(urlPatterns = {"/seller/home","/seller", "/seller/"})
 public class SellerHomeController extends HttpServlet {
@@ -26,6 +32,13 @@ public class SellerHomeController extends HttpServlet {
 			resp.sendRedirect(req.getContextPath() +  "/login?next=seller/home");
 			return;
 		}
+		User user = (User)req.getSession().getAttribute("user");
+		CartService cartService = new CartServiceImpl();
+		ShopService shopService = new ShopServiceImpl();
+		req.setAttribute("countDeliveried", cartService.countOrderByStatus(user.getShop(), "deliveried"));
+		req.setAttribute("countPending", cartService.countOrderByStatus(user.getShop(), "pending"));
+		req.setAttribute("countCanceled", cartService.countOrderByStatus(user.getShop(), "canceled"));
+		req.setAttribute("top5Selling", shopService.top5Selling(user.getShop()));
 		RequestDispatcher rq = req.getRequestDispatcher("/views/seller/seller_dashboard.jsp");
 		rq.forward(req, resp);
 	}

@@ -29,8 +29,11 @@ public class SellerProductController extends HttpServlet {
 			req.setCharacterEncoding("UTF-8");
 			
 			String kw = req.getParameter("kw");
+			req.setAttribute("kw", kw);
 			String subCate = req.getParameter("subCate");
+			req.setAttribute("subCateId", subCate);
 			String status = req.getParameter("status");
+			req.setAttribute("status", status);
 			
 			System.out.println(kw);System.out.println(subCate);System.out.println(status);
 			
@@ -61,6 +64,7 @@ public class SellerProductController extends HttpServlet {
 			
 			List<SubCategory> listSubCate = subCateService.getAllSubCategory();
 			req.setAttribute("listSubCate", listSubCate);
+			
 			
 			
 			req.getRequestDispatcher("/views/seller/products.jsp").forward(req, resp);
