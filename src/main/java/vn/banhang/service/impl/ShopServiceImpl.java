@@ -20,4 +20,34 @@ public class ShopServiceImpl implements ShopService {
 		return dao.top5Selling(shop);
 	}
 
+	@Override
+	public List<Shop> getAllShop() {
+		return dao.getAllShop();
+	}
+
+	@Override
+	public Shop get(String name) {
+		return dao.get(name);
+	}
+
+	@Override
+	public Shop getByID(int id) {
+		return dao.getByID(id);
+	}
+
+	@Override
+	public void insert(Shop shop) {
+		dao.insert(shop);
+	}
+
+	@Override
+	public void delete(String name) {
+		dao.delete(name);
+	}
+
+	@Override
+	public void edit(Shop shop) {
+		dao.edit(shop);
+	}
+
 }

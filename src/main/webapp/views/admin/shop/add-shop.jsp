@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/templates/assets" var="url"></c:url>
-
+<c:url value="/admin/shop/add" var="add"></c:url>
 
 <!-- BEGIN BODY -->
 <!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
@@ -155,7 +155,7 @@
 							<i class="fa fa-angle-right"></i>
 						</li>
 						<li>
-							<a href="#">Manage</a>
+							<a href="#">Add</a>
 						</li>
 					</ul>
 					<div class="page-toolbar">
@@ -171,58 +171,30 @@
 				</div>
 				<!-- END PAGE HEADER-->
 				<!-- BEGIN EDITTING CATEGORY -->
-				<table id="example" class="table table-striped table-bordered"
-						style="width: 100%">
-						<thead>
-							<tr>
-								<th>STT</th>
-								<th>Id</th>
-								<th>Location</th>
-								<th>Name</th>
-								<th>Avatar</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-						<tbody>
-					
-							<c:forEach items="${shopList}" var="shop" varStatus="STT">
-								<tr>
-									<td>${STT.index+1}</td>
-									<td>${shop.id}</td>
-									<td>${shop.location}</td>
-									<td>${shop.name}</td>
-									<c:url value="/image?fname=${shop.avatar} " var="imgUrl"></c:url>
-									<td><img height="150" width="200" alt="Avatar shop" src="${imgUrl }"></td>
-									<td><a
-										href="<c:url value='/admin/shop/edit?id=${shop.id}'/>"
-										class="center">Sửa</a> | <a
-										href="<c:url value='/admin/shop/delete?id=${shop.id}'/>"
-										class="center">Xóa</a></td>
-								</tr>
-							</c:forEach>
-					
-					
-						</tbody>
-						<tfoot>
-							<tr>
-								<th>STT</th>
-								<th>Id</th>
-								<th>Location</th>
-								<th>Name</th>
-								<th>Avatar</th>
-								<th>Action</th>
-							</tr>
-						</tfoot>
-					</table>
-					
-					<button type="button" class="btn btn-info"><a href="/BanHang/admin/shop/add" style="color: dark;">Thêm</a></button>
-					<script>
-						$(document).ready(function() {
-							var table = $('#example').DataTable({
-								fixedHeader : true
-							});
-						});
-					</script>
+				
+				<form role="form" action="${add }" method="post"
+						enctype="multipart/form-data">
+						<div class="form-group">
+							<label>ID :</label> <input class="form-control"
+								placeholder="please enter id user" name="id" />
+						</div>
+						<div class="form-group">
+							<label>Location :</label> <input class="form-control"
+								placeholder="please enter location" name="location" />
+						</div>
+						<div class="form-group">
+							<label>Name shop:</label>
+							<input class="form-control"
+								placeholder="please enter name of shop" name="name" /> 
+						</div>
+						<div class="form-group">
+							<label>Pick avatar:</label>
+							<input type = "file" name="avatar" /> 
+							
+						</div>
+						<button type="submit" class="btn btn-primary">Thêm</button>
+						<button type="reset" class="btn btn-danger">Hủy</button>
+				</form>		
 				
 				<!-- END EDITTING CATEGORY -->
 			</div>

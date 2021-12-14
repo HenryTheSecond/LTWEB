@@ -1,7 +1,6 @@
 package vn.banhang.controller.admin;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,19 +13,15 @@ import vn.banhang.Model.Shop;
 import vn.banhang.service.ShopService;
 import vn.banhang.service.impl.ShopServiceImpl;
 
-@WebServlet(urlPatterns = {"/admin/shop/manage","/admin/shop"})
-public class ShopManageController extends HttpServlet{
+@WebServlet(urlPatterns = {"/admin/shop/delete"})
+public class ShopDeleteController extends HttpServlet{
 	ShopService shopService = new ShopServiceImpl();
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2549369702282502968L;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Shop> shopList = shopService.getAllShop();
-		req.setAttribute("shopList", shopList);
-		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/shop/manage-shop.jsp");
-		rq.forward(req, resp);
+		int id = Integer.parseInt(req.getParameter("id"));
+		Shop shop = shopService.getByID(id);
+		shopService.delete(shop.getName());
+		resp.sendRedirect(req.getContextPath() + "/admin/shop/manage");
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
