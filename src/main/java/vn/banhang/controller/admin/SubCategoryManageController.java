@@ -1,6 +1,7 @@
 package vn.banhang.controller.admin;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,15 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import vn.banhang.Model.SubCategory;
+import vn.banhang.service.SubCategoryService;
+import vn.banhang.service.impl.SubCategoryServiceImpl;
+
 @WebServlet(urlPatterns = {"/admin/sub_category","/admin/sub_category/manage"})
 public class SubCategoryManageController extends HttpServlet{
-	
+	SubCategoryService subCateService = new SubCategoryServiceImpl();
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2819492850772393335L;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		List<SubCategory> subCateList = subCateService.getAllSubCategory();
+		req.setAttribute("subCateList", subCateList);
 		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/sub_category/manage-sub_category.jsp");
 		rq.forward(req, resp);
 	}

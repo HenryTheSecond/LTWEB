@@ -22,4 +22,24 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 		return dao.get(id);
 	}
 
+	@Override
+	public SubCategory getByName(String name) {
+		return dao.getByName(name);
+	}
+
+	@Override
+	public void insert(SubCategory subCate) {
+		dao.insert(subCate);
+	}
+
+	@Override
+	public void delete(String name) {
+		dao.delete(name);
+	}
+
+	@Override
+	public void edit(SubCategory subCate) {
+		dao.edit(subCate);
+	}
+
 }

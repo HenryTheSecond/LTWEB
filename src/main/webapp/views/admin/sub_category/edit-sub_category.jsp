@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/templates/assets" var="url"></c:url>
+<c:url value="/admin/sub_category/edit" var="edit"></c:url>
 
 <!-- BEGIN BODY -->
 <!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
@@ -150,11 +151,11 @@
 							<i class="fa fa-angle-right"></i>
 						</li>
 						<li>
-							<a href="#">Sub_Category</a>
+							<a href="#">SubCategory</a>
 							<i class="fa fa-angle-right"></i>
 						</li>
 						<li>
-							<a href="#">Manage</a>
+							<a href="#">Edit</a>
 						</li>
 					</ul>
 					<div class="page-toolbar">
@@ -170,58 +171,25 @@
 				</div>
 				<!-- END PAGE HEADER-->
 				<!-- BEGIN EDITTING CATEGORY -->
-				<table id="example" class="table table-striped table-bordered"
-						style="width: 100%">
-						<thead>
-							<tr>
-								<th>STT</th>
-								<th>Id</th>
-								<th>Name</th>
-								<th>Category ID</th>
-								<th>Category Name</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-						<tbody>
-					
-							<c:forEach items="${subCateList}" var="subCate" varStatus="STT">
-								<tr>
-									<td>${STT.index+1}</td>
-									<td>${subCate.id}</td>
-									<td>${subCate.name}</td>
-									<td>${subCate.getCategory().getId()}</td>
-									<td>${subCate.getCategory().getName()}</td>
-									<td><a
-										href="<c:url value='/admin/sub_category/edit?id=${subCate.id}'/>"
-										class="center">Sửa</a> | <a
-										href="<c:url value='/admin/sub_category/delete?id=${subCate.id}'/>"
-										class="center">Xóa</a></td>
-								</tr>
-							</c:forEach>
-					
-					
-						</tbody>
-						<tfoot>
-							<tr>
-								<th>STT</th>
-								<th>Id</th>
-								<th>Name</th>
-								<th>Category ID</th>
-								<th>Category Name</th>
-								<th>Action</th>
-							</tr>
-						</tfoot>
-					</table>
-					<h3>Chưa check có tồn tại id category</h3>
-					<h3>Chưa check để trường trống</h3>
-					<button type="button" class="btn btn-info"><a href="/BanHang/admin/sub_category/add" style="color: dark;">Thêm</a></button>
-					<script>
-						$(document).ready(function() {
-							var table = $('#example').DataTable({
-								fixedHeader : true
-							});
-						});
-					</script>
+				
+				<form role="form" action="${edit}" method="post"
+					enctype="multipart/form-data">
+					<input name="id" value="${subCategory.id}" hidden="">
+						<div class="form-group">
+							<label>ID : ${subCategory.id } </label>
+						</div>
+						<div class="form-group">
+							<label>Name:</label> <input class="form-control"
+								placeholder="please enter subcategory name" name="name" value="${subCategory.name}" />
+						</div>
+						<div class="form-group">
+							<label>Category ID:</label> <input class="form-control"
+								placeholder="please enter category ID of subcategory" name="category_id" value="${subCategory.getCategory().getId()}" />
+						</div>
+						<button type="submit" class="btn btn-primary">Sửa</button>
+						<button type="reset" class="btn btn-danger">Hủy</button>
+				</form>		
+				
 				<!-- END EDITTING CATEGORY -->
 			</div>
 		</div>
