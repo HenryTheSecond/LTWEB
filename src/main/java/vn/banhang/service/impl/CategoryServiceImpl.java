@@ -14,5 +14,26 @@ public class CategoryServiceImpl implements CategoryService {
 		// TODO Auto-generated method stub
 		return dao.getCategories();
 	}
+	@Override
+	public Category get(String name) {
+		return dao.get(name);
+	}
+	@Override
+	public Category getByID(int id) {
+		return dao.getByID(id);
+	}
+	@Override
+	public void insert(Category category) {
+		dao.insert(category);
+	}
+	@Override
+	public void delete(String name) {
+		dao.delete(name);
+	}
+	@Override
+	public void edit(Category category) {
+		dao.edit(category);
+		
+	}
 	
 }
