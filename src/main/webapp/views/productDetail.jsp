@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<c:url value="/templates" var="url"></c:url>
-
+<c:url value="/templates/assets" var="url"></c:url>
 
 <!-- Body BEGIN -->
 <body class="ecommerce">
@@ -177,11 +176,11 @@
               <span class="sep"></span>
               <i class="fa fa-search search-btn"></i>
               <div class="search-box">
-                <form action="#">
+                <form action="${pageContext.request.contextPath}/search">
                   <div class="input-group">
-                    <input type="text" placeholder="Search" class="form-control">
+                    <input type="text" placeholder="Search" class="form-control" name="kw">
                     <span class="input-group-btn">
-                      <button class="btn btn-primary" type="submit">Search</button>
+                      <input class="btn btn-primary" type="submit" value="Search">
                     </span>
                   </div>
                 </form>
@@ -257,8 +256,7 @@
                     </div>
                   </div>
                   <div class="description">
-                    <p>Lorem ipsum dolor ut sit ame dolore  adipiscing elit, sed nonumy nibh sed euismod laoreet dolore magna aliquarm erat volutpat 
-Nostrud duis molestie at dolore.</p>
+                    <p> ${product.description} </p>
                   </div>
                   <div class="product-page-options">
                     <div class="pull-left">
@@ -288,7 +286,7 @@ Nostrud duis molestie at dolore.</p>
                     <input type="range" value="4" step="0.25" id="backing4">
                     <div class="rateit" data-rateit-backingfld="#backing4" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5">
                     </div>
-                    <a href="#">7 reviews</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Write a review</a>
+                    <a href="#">reviews</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Write a review</a>
                   </div>
                   <ul class="social-icons">
                     <li><a class="facebook" data-original-title="facebook" href="#"></a></li>
@@ -303,11 +301,11 @@ Nostrud duis molestie at dolore.</p>
                   <ul id="myTab" class="nav nav-tabs">
                     <li><a href="#Description" data-toggle="tab">Description</a></li>
                     <li><a href="#Information" data-toggle="tab">Information</a></li>
-                    <li class="active"><a href="#Reviews" data-toggle="tab">Reviews (2)</a></li>
+                    <li class="active"><a href="#Reviews" data-toggle="tab">Reviews</a></li>
                   </ul>
                   <div id="myTabContent" class="tab-content">
                     <div class="tab-pane fade" id="Description">
-                      <p>Lorem ipsum dolor ut sit ame dolore  adipiscing elit, sed sit nonumy nibh sed euismod laoreet dolore magna aliquarm erat sit volutpat Nostrud duis molestie at dolore. Lorem ipsum dolor ut sit ame dolore  adipiscing elit, sed sit nonumy nibh sed euismod laoreet dolore magna aliquarm erat sit volutpat Nostrud duis molestie at dolore. Lorem ipsum dolor ut sit ame dolore  adipiscing elit, sed sit nonumy nibh sed euismod laoreet dolore magna aliquarm erat sit volutpat Nostrud duis molestie at dolore. </p>
+                      <p> ${product.description} </p>
                     </div>
                     <div class="tab-pane fade" id="Information">
                       <table class="datasheet">
@@ -338,50 +336,34 @@ Nostrud duis molestie at dolore.</p>
                     </div>
                     <div class="tab-pane fade in active" id="Reviews">
                       <!--<p>There are no reviews for this product.</p>-->
+                      <c:forEach items="${reviews}" var="r">
                       <div class="review-item clearfix">
                         <div class="review-item-submitted">
-                          <strong>Bob</strong>
-                          <em>30/12/2013 - 07:37</em>
-                          <div class="rateit" data-rateit-value="5" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
-                        </div>                                              
-                        <div class="review-item-content">
-                            <p>Sed velit quam, auctor id semper a, hendrerit eget justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel arcu pulvinar dolor tempus feugiat id in orci. Phasellus sed erat leo. Donec luctus, justo eget ultricies tristique, enim mauris bibendum orci, a sodales lectus purus ut lorem.</p>
-                        </div>
-                      </div>
-                      <div class="review-item clearfix">
-                        <div class="review-item-submitted">
-                          <strong>Mary</strong>
-                          <em>13/12/2013 - 17:49</em>
+                          <strong> ${r.user.name} </strong>
+                          <em> ${r.rating}/5</em>
                           <div class="rateit" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
                         </div>                                              
                         <div class="review-item-content">
-                            <p>Sed velit quam, auctor id semper a, hendrerit eget justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel arcu pulvinar dolor tempus feugiat id in orci. Phasellus sed erat leo. Donec luctus, justo eget ultricies tristique, enim mauris bibendum orci, a sodales lectus purus ut lorem.</p>
+                            <p> ${r.comment} </p>
                         </div>
                       </div>
-
+					 </c:forEach>
                       <!-- BEGIN FORM-->
-                      <form action="#" class="reviews-form" role="form">
+                      <form action="${pageContext.request.contextPath}/review" class="reviews-form" role="form">
                         <h2>Write a review</h2>
                         <div class="form-group">
-                          <label for="name">Name <span class="require">*</span></label>
-                          <input type="text" class="form-control" id="name">
-                        </div>
-                        <div class="form-group">
-                          <label for="email">Email</label>
-                          <input type="text" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
                           <label for="review">Review <span class="require">*</span></label>
-                          <textarea class="form-control" rows="8" id="review"></textarea>
+                          <input type="text" name="comment" class="form-control" required>
+                           <input type="hidden" name="pid" value="${product.id}">
                         </div>
                         <div class="form-group">
-                          <label for="email">Rating</label>
-                          <input type="range" value="4" step="0.25" id="backing5">
+                          <label for="rating">Rating</label>
+                          <input type="number" min="1" max="5" name="rating" required>
                           <div class="rateit" data-rateit-backingfld="#backing5" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5">
                           </div>
                         </div>
                         <div class="padding-top-20">                  
-                          <button type="submit" class="btn btn-primary">Send</button>
+                          <input type="submit" class="btn btn-primary" value="send">
                         </div>
                       </form>
                       <!-- END FORM--> 
@@ -401,92 +383,24 @@ Nostrud duis molestie at dolore.</p>
         <div class="row margin-bottom-40">
           <div class="col-md-12 col-sm-12">
             <div class="owl-carousel owl-carousel4">
+            <c:forEach items="${listSixProduct}" var="p">
               <div>
                 <div class="product-item">
                   <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                     <a href="shop-item.html"> <c:url value="/image?fname=${p.picture}" var="imgUrl"></c:url>
+					<img class="img-responsive" src="${imgUrl}"  alt="${p.name}" /></a>
                     <div>
-                      <a href="${url}/frontend/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                      <a href="${imgUrl}">Zoom</a>
+                      <a href="${pageContext.request.contextPath}/detail?pid=${p.id}" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">$29.00</div>
+                  <h3><a href="shop-item.html">${p.name}</a></h3>
+                  <div class="pi-price">$${p.price}</div>
                   <a href="#" class="btn btn-default add2cart">Add to cart</a>
                   <div class="sticker sticker-new"></div>
                 </div>
               </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/k4.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/k4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress4</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                  <div class="sticker sticker-sale"></div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
-              <div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="${url}/frontend/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="${url}/frontend/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress6</a></h3>
-                  <div class="pi-price">$29.00</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
-                </div>
-              </div>
+           </c:forEach>
             </div>
           </div>
         </div>

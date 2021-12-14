@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<c:url value="/templates" var="url"></c:url>
-
+<c:url value="/templates/assets" var="url"></c:url>
 
 
 <!-- Body BEGIN -->
@@ -176,15 +175,15 @@
 
 
             <!-- BEGIN TOP SEARCH -->
-            <li class="menu-search">
+        	<li class="menu-search">
               <span class="sep"></span>
               <i class="fa fa-search search-btn"></i>
               <div class="search-box">
-                <form action="#">
+                <form action="${pageContext.request.contextPath}/search">
                   <div class="input-group">
-                    <input type="text" placeholder="Search" class="form-control">
+                    <input type="text" placeholder="Search" class="form-control" name="kw">
                     <span class="input-group-btn">
-                      <button class="btn btn-primary" type="submit">Search</button>
+                      <input class="btn btn-primary" type="submit" value="Search">
                     </span>
                   </div>
                 </form>
@@ -218,7 +217,7 @@
           <div class="sidebar col-md-3 col-sm-5">
             <ul class="list-group margin-bottom-25 sidebar-menu">
             <c:forEach items="${listCate}" var="c">
-            <li class="list-group-item clearfix dropdown">
+            <li>
               <a href="${pageContext.request.contextPath}/product?cid=${c.id}&scid=0">
                 ${c.name} 
              <i class="fa fa-angle-right"></i> </a> </li>
@@ -226,7 +225,7 @@
                <ul class="dropdown-menu" style="display:block;">
                <c:forEach items="${listSubCate}" var="s">
                <c:if test="${ c.id == s.category.id}">
-                <li class="list-group-item dropdown clearfix"><a href="${pageContext.request.contextPath}/product?cid=0&scid=${s.id}" class="collapsed"><i class="fa fa-angle-right"></i> ${s.name}</a></li>
+                <li><a href="${pageContext.request.contextPath}/product?cid=0&scid=${s.id}" class="collapsed"><i class="fa fa-angle-right"></i> ${s.name}</a></li>
                 </c:if>
                 </c:forEach>
               </ul>

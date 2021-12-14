@@ -180,11 +180,11 @@
               <span class="sep"></span>
               <i class="fa fa-search search-btn"></i>
               <div class="search-box">
-                <form action="#">
+                <form action="${pageContext.request.contextPath}/search">
                   <div class="input-group">
-                    <input type="text" placeholder="Search" class="form-control">
+                    <input type="text" placeholder="Search" class="form-control" name="kw">
                     <span class="input-group-btn">
-                      <button class="btn btn-primary" type="submit">Search</button>
+                      <input class="btn btn-primary" type="submit" value="Search">
                     </span>
                   </div>
                 </form>

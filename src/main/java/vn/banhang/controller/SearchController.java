@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import vn.banhang.Model.Category;
 import vn.banhang.Model.Product;
-import vn.banhang.Model.Review;
 import vn.banhang.Model.SubCategory;
 import vn.banhang.service.CategoryService;
 import vn.banhang.service.ProductService;
@@ -21,24 +20,22 @@ import vn.banhang.service.impl.CategoryServiceImpl;
 import vn.banhang.service.impl.ProductServiceImpl;
 import vn.banhang.service.impl.SubCategoryServiceImpl;
 
-@WebServlet(urlPatterns = {"/detail"})
-public class ProductDetailController extends HttpServlet {
+@WebServlet(urlPatterns = {"/search"})
+public class SearchController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/htm");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
 		
+		String kw = req.getParameter("kw");
 		
-		String pid = req.getParameter("pid");
-		
-
 		CategoryService categoryService = new CategoryServiceImpl();
 		SubCategoryService subCategoryService = new SubCategoryServiceImpl();
 		ProductService productService = new ProductServiceImpl();
 		
-		Product product = productService.get(Integer.valueOf(pid));
-		req.setAttribute("product", product);
+		List<Product> allProduct = productService.searchProduct(kw);
+		req.setAttribute("listAllProduct", allProduct);
 		
 		List<Product> threeProduct = productService.getThreeProduct();
 		req.setAttribute("threeProduct", threeProduct);
@@ -49,13 +46,7 @@ public class ProductDetailController extends HttpServlet {
 		List<Category> allCate = categoryService.getCategories();
 		req.setAttribute("listCate", allCate);
 		
-		List<Product> sixProduct = productService.getSixProduct();
-		req.setAttribute("listSixProduct", sixProduct);
-		
-		List<Review> reviews = productService.getProductReview(Integer.valueOf(pid));
-		req.setAttribute("reviews", reviews);
-		
-		RequestDispatcher rq = req.getRequestDispatcher("/views/productDetail.jsp");
+		RequestDispatcher rq = req.getRequestDispatcher("/views/product.jsp");
 		rq.forward(req, resp);
 	}
 }

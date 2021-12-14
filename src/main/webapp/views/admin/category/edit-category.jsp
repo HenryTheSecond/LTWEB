@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/templates/assets" var="url"></c:url>
+<c:url value="/admin/category/edit" var="edit"></c:url>
 
 <!-- BEGIN BODY -->
 <!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
@@ -154,7 +155,7 @@
 							<i class="fa fa-angle-right"></i>
 						</li>
 						<li>
-							<a href="#">Manage</a>
+							<a href="#">Edit</a>
 						</li>
 					</ul>
 					<div class="page-toolbar">
@@ -170,51 +171,20 @@
 				</div>
 				<!-- END PAGE HEADER-->
 				<!-- BEGIN EDITTING CATEGORY -->
-				<table id="example" class="table table-striped table-bordered"
-						style="width: 100%">
-						<thead>
-							<tr>
-								<th>STT</th>
-								<th>Id</th>
-								<th>Name</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-						<tbody>
-					
-							<c:forEach items="${categoryList}" var="category" varStatus="STT">
-								<tr>
-									<td>${STT.index+1}</td>
-									<td>${category.id}</td>
-									<td>${category.name}</td>
-									<td><a
-										href="<c:url value='/admin/category/edit?id=${category.id}'/>"
-										class="center">Sửa</a> | <a
-										href="<c:url value='/admin/category/delete?id=${category.id}'/>"
-										class="center">Xóa</a></td>
-								</tr>
-							</c:forEach>
-					
-					
-						</tbody>
-						<tfoot>
-							<tr>
-								<th>STT</th>
-								<th>Id</th>
-								<th>Name</th>
-								<th>Action</th>
-							</tr>
-						</tfoot>
-					</table>
-					
-					<button type="button" class="btn btn-info"><a href="/BanHang/admin/category/add" style="color: dark;">Thêm</a></button>
-					<script>
-						$(document).ready(function() {
-							var table = $('#example').DataTable({
-								fixedHeader : true
-							});
-						});
-					</script>
+				
+				<form role="form" action="${edit}" method="post"
+					enctype="multipart/form-data">
+					<input name="id" value="${category.id}" hidden="">
+						<div class="form-group">
+							<label>ID category: ${category.id } </label>
+						</div>
+						<div class="form-group">
+							<label>Name:</label> <input class="form-control"
+								placeholder="please enter name" name="name" value="${category.name}" />
+						</div>
+						<button type="submit" class="btn btn-primary">Sửa</button>
+						<button type="reset" class="btn btn-danger">Hủy</button>
+				</form>		
 				
 				<!-- END EDITTING CATEGORY -->
 			</div>

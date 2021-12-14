@@ -166,6 +166,14 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 	
+	@Override
+	public void addReview(Review review) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			session.getTransaction().begin();
+			session.save(review);
+			session.getTransaction().commit();
+		}
+	}
 	
 	@Override
 	public List<Product> getSixProduct() {
@@ -351,7 +359,48 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 	
+	@Override
+	public List<Product> searchProduct(String kw) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Product> q = builder.createQuery(Product.class);
+			Root<Product> pRoot = q.from(Product.class);
+			Root<Tag> tRoot = q.from(Tag.class);
+			
+			
+			Predicate p1 = builder.like(pRoot.get("name").as(String.class), "%" + kw + "%");
+			Predicate p2 = builder.like(pRoot.get("description").as(String.class), "%" + kw + "%");
+			Predicate p3 = builder.like(tRoot.get("keyword"), "%" + kw + "%");
+			
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(pRoot.get("id"), tRoot.get("product")));
+			predicates.add(builder.or(p1, p2, p3));
+			
+			q.where(predicates.toArray(new Predicate[] {}));
+			q.select(pRoot);
+			List<Product> list = session.createQuery(q).getResultList();
+			return list;
+		}
+	}
 	
+	@Override
+	public List<Review> getProductReview(int id) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){	
+			CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Review> q = builder.createQuery(Review.class);
+			Root<Product> pRoot = q.from(Product.class);
+			Root<Review> rRoot = q.from(Review.class);
+			
+			List<Predicate> predicates = new ArrayList<Predicate>();
+			predicates.add(builder.equal(pRoot.get("id"), rRoot.get("product")));
+			predicates.add(builder.equal(rRoot.get("product").get("id").as(Integer.class), id));
+			
+			q.where(predicates.toArray(new Predicate[] {}));
+			q.select(rRoot);
+			List<Review> list = session.createQuery(q).getResultList();
+			return list;
+		}
+	}
 
 	public static void main(String[] args) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
@@ -363,7 +412,13 @@ public class ProductDAOImpl implements ProductDAO {
 			
 			/*ProductDAOImpl dao = new ProductDAOImpl();
 			
+<<<<<<< HEAD
 			System.out.println(dao.getProductByCate(3));*/
+=======
+			
+			
+			System.out.println(dao.getProductReview(8));
+>>>>>>> 95129be15f47fcdc036a204112d0447a0f832085
 			/*Product p = session.get(Product.class, 1);
 			for(Cart cart: p.getCarts()) {
 				System.out.println(cart.getOrder_date().getTime());
@@ -379,11 +434,16 @@ public class ProductDAOImpl implements ProductDAO {
 				System.out.println(obj[2]);
 			}*/
 			
+<<<<<<< HEAD
 			Pair<Integer, List<Product>> pair = new ProductDAOImpl().getAllShopProduct( session.get(Shop.class, 2) , 1);
 			System.out.println(pair.getKey());
 			for(Product p: pair.getValue())
 				System.out.println(p.getName());
 			
+=======
+//			long count = new ProductDAOImpl().countCanceledOrder(3);
+//			System.out.println(count);
+>>>>>>> 95129be15f47fcdc036a204112d0447a0f832085
 		}
 	}
 

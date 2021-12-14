@@ -5,6 +5,7 @@ import java.util.List;
 
 import javafx.util.Pair;
 import vn.banhang.Model.Product;
+import vn.banhang.Model.Review;
 import vn.banhang.Model.Shop;
 
 public interface ProductService {
@@ -26,5 +27,8 @@ public interface ProductService {
 	public List<Product> getProductBySubCate(int subCateId);
 	public List<Product> getProductByCate(int CateId);
 	public List<Product> getThreeProduct();
+	public List<Product> searchProduct(String kw);
+	public List<Review> getProductReview(int id);
+	public void addReview(Review review);
 
 }

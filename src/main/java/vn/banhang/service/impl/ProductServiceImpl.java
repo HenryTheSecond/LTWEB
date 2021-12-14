@@ -5,6 +5,7 @@ import java.util.List;
 
 import javafx.util.Pair;
 import vn.banhang.Model.Product;
+import vn.banhang.Model.Review;
 import vn.banhang.Model.Shop;
 import vn.banhang.dao.ProductDAO;
 import vn.banhang.dao.impl.ProductDAOImpl;
@@ -32,6 +33,22 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> getProductBySubCate(int subCateId){
 		return dao.getProductBySubCate(subCateId);
+	}
+	
+	@Override
+	public List<Review> getProductReview(int id){
+		return dao.getProductReview(id);
+	}
+	
+	@Override
+	public void addReview(Review review) {
+		dao.addReview(review);
+	}
+	
+	
+	@Override
+	public List<Product> searchProduct(String kw){
+		return dao.searchProduct(kw);
 	}
 	
 	@Override
