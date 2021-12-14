@@ -414,11 +414,11 @@ public class ProductDAOImpl implements ProductDAO {
 			
 <<<<<<< HEAD
 			System.out.println(dao.getProductByCate(3));*/
-=======
+
 			
 			
-			System.out.println(dao.getProductReview(8));
->>>>>>> 95129be15f47fcdc036a204112d0447a0f832085
+			//System.out.println(dao.getProductReview(8));
+
 			/*Product p = session.get(Product.class, 1);
 			for(Cart cart: p.getCarts()) {
 				System.out.println(cart.getOrder_date().getTime());
@@ -434,16 +434,16 @@ public class ProductDAOImpl implements ProductDAO {
 				System.out.println(obj[2]);
 			}*/
 			
-<<<<<<< HEAD
+
 			Pair<Integer, List<Product>> pair = new ProductDAOImpl().getAllShopProduct( session.get(Shop.class, 2) , 1);
 			System.out.println(pair.getKey());
 			for(Product p: pair.getValue())
 				System.out.println(p.getName());
 			
-=======
+
 //			long count = new ProductDAOImpl().countCanceledOrder(3);
 //			System.out.println(count);
->>>>>>> 95129be15f47fcdc036a204112d0447a0f832085
+
 		}
 	}
 
