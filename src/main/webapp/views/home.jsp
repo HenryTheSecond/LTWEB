@@ -78,8 +78,8 @@
         <!-- BEGIN CART -->
         <div class="top-cart-block">
           <div class="top-cart-info">
-            <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
-            <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
+            <a id="cartQuantity" href="javascript:void(0);" class="top-cart-info-count">${cartQuantity } items</a>
+            <a id="cartCharge" href="javascript:void(0);" class="top-cart-info-value">${cartCharge }</a>
           </div>
           <i class="fa fa-shopping-cart"></i>
                         
@@ -144,8 +144,8 @@
                 </li>
               </ul>
               <div class="text-right">
-                <a href="shop-shopping-cart.html" class="btn btn-default">View Cart</a>
-                <a href="shop-checkout.html" class="btn btn-primary">Checkout</a>
+                <a href="${pageContext.request.contextPath }/cart" class="btn btn-default">View Cart</a>
+                <a href="" class="btn btn-primary">Checkout</a>
               </div>
             </div>
           </div>            
@@ -180,11 +180,11 @@
               <span class="sep"></span>
               <i class="fa fa-search search-btn"></i>
               <div class="search-box">
-                <form action="#">
+                <form action="${pageContext.request.contextPath}/search">
                   <div class="input-group">
-                    <input type="text" placeholder="Search" class="form-control">
+                    <input type="text" placeholder="Search" class="form-control" name="kw">
                     <span class="input-group-btn">
-                      <button class="btn btn-primary" type="submit">Search</button>
+                      <input class="btn btn-primary" type="submit" value="Search">
                     </span>
                   </div>
                 </form>
@@ -383,7 +383,7 @@
                   </div>
                   <h3><a href="shop-item.html">${p.name}</a></h3>
                   <div class="pi-price">$${p.price}</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                  <a class="btn btn-default add2cart" onclick="addToCart(${p.id}, ${p.price }, 1)">Add to cart</a>
                 </div>
               </div>
              </c:forEach>
@@ -747,6 +747,36 @@ Nostrud duis molestie at dolore.</p>
         });
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
+    
+    
+    <!-- MY SCRIPT -->
+<!--     <script src="//code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" type="text/javascript"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script>
+	    function addToCart(id, price, amount){
+	    	console.log(id)
+	    	$.ajax({
+				url : "/BanHang/api/add-to-cart?id=" + id + "&price=" + price + "&amount=" + amount,
+				type : "get",
+				data : {
+					
+				},
+				success : function(data) {
+					/*const array = data.split("/")
+					document.getElementById("cartQuantity").innerText = array[0] + " items"
+					document.getElementById("cartCharge").innerText = array[1]*/
+					const array = data.split("/")
+					document.getElementById("cartQuantity").innerText = array[0] + " items"
+					document.getElementById("cartCharge").innerText = array[1]
+				},
+				error : function(xhr) {
+				}
+			});
+	    }
+    </script>
+    
 </body>
 <!-- END BODY -->
 </html>

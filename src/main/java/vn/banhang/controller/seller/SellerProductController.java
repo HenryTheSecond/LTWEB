@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import javafx.util.Pair;
 import vn.banhang.Model.Product;
 import vn.banhang.Model.SubCategory;
 import vn.banhang.Model.User;
@@ -42,25 +43,27 @@ public class SellerProductController extends HttpServlet {
 			
 			ProductService service = new ProductServiceImpl();
 			SubCategoryService subCateService = new SubCategoryServiceImpl();
-			List<Product> listProduct;
+			Pair<Integer, List<Product>> pair;
 			if(kw == null && subCate == null && status == null) {
-				listProduct = service.getAllShopProduct(user.getShop());
-				req.setAttribute("listProduct", listProduct);
+				pair = service.getAllShopProduct(user.getShop(), 1);
+				req.setAttribute("listProduct", pair.getValue());
+				req.setAttribute("pages", (int) Math.ceil(pair.getKey() / 5.0));
 			}
 			else {
 				if(subCate.equals("")) {
-					listProduct = service.searchProductShop(user.getShop(), kw, status);
-					req.setAttribute("listProduct", listProduct);
-					System.out.println(listProduct);
+					pair = service.searchProductShop(user.getShop(), kw, status, 1);
+					req.setAttribute("listProduct", pair.getValue());
+					req.setAttribute("pages", (int) Math.ceil(pair.getKey() / 5.0));
 				}
 				else {
 					int subCateId = Integer.parseInt(subCate);
-					listProduct = service.searchProductShop(user.getShop(), kw, subCateId, status);
-					req.setAttribute("listProduct", listProduct);
-					System.out.println(listProduct);
+					pair = service.searchProductShop(user.getShop(), kw, subCateId, status, 1);
+					req.setAttribute("listProduct", pair.getValue());
+					req.setAttribute("pages", (int) Math.ceil(pair.getKey() / 5.0));
 				}
 			}
 
+			req.setAttribute("pageActive", 1);
 			
 			List<SubCategory> listSubCate = subCateService.getAllSubCategory();
 			req.setAttribute("listSubCate", listSubCate);

@@ -3,7 +3,9 @@ package vn.banhang.service.impl;
 import java.util.Calendar;
 import java.util.List;
 
+import javafx.util.Pair;
 import vn.banhang.Model.Product;
+import vn.banhang.Model.Review;
 import vn.banhang.Model.Shop;
 import vn.banhang.dao.ProductDAO;
 import vn.banhang.dao.impl.ProductDAOImpl;
@@ -34,6 +36,22 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
+	public List<Review> getProductReview(int id){
+		return dao.getProductReview(id);
+	}
+	
+	@Override
+	public void addReview(Review review) {
+		dao.addReview(review);
+	}
+	
+	
+	@Override
+	public List<Product> searchProduct(String kw){
+		return dao.searchProduct(kw);
+	}
+	
+	@Override
 	public List<Product> getProductByCate(int CateId){
 		return dao.getProductByCate(CateId);
 	}
@@ -45,20 +63,20 @@ public class ProductServiceImpl implements ProductService {
 	
 	
 	@Override
-	public List<Product> getAllShopProduct(Shop shop) {
-		return dao.getAllShopProduct(shop);
+	public Pair< Integer, List<Product>> getAllShopProduct(Shop shop, int page) {
+		return dao.getAllShopProduct(shop, page);
 	}
 
 	@Override
-	public List<Product> searchProductShop(Shop shop, String kw, int subCateId, String status) {
+	public Pair< Integer, List<Product>> searchProductShop(Shop shop, String kw, int subCateId, String status, int page) {
 		// TODO Auto-generated method stub
-		return dao.searchProductShop(shop, kw, subCateId, status);
+		return dao.searchProductShop(shop, kw, subCateId, status, page);
 	}
 
 	@Override
-	public List<Product> searchProductShop(Shop shop, String kw, String status) {
+	public Pair< Integer, List<Product>> searchProductShop(Shop shop, String kw, String status, int page) {
 		// TODO Auto-generated method stub
-		return dao.searchProductShop(shop, kw, status);
+		return dao.searchProductShop(shop, kw, status, page);
 	}
 
 	@Override
