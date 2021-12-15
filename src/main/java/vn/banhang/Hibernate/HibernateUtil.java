@@ -40,7 +40,7 @@ public class HibernateUtil {
 		pros.put(Environment.DRIVER, "com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
 
-		pros.put(Environment.URL, "jdbc:sqlserver://BOOMKICK:1433;databaseName=LTWEB");
+		pros.put(Environment.URL, "jdbc:sqlserver://MAYTINH-VMMN6QE:1433;databaseName=LTWEB");
 
 
 

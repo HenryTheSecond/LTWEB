@@ -1,5 +1,5 @@
 package vn.banhang.utils;
 
 public class Constant {
-	public static final String DIR = "D:\\img";
+	public static final String DIR = "C:\\JAVA\\img";
 }

@@ -420,8 +420,8 @@
                 </div>
               
               </div>
-              <button class="btn btn-default" type="submit">Continue shopping <i class="fa fa-shopping-cart"></i></button>
-              <button class="btn btn-primary" type="submit">Checkout <i class="fa fa-check"></i></button>
+              <button class="btn btn-default"  onclick="window.location.href = 'http://localhost:8080/BanHang/home';" >Continue shopping <i class="fa fa-shopping-cart"></i></button>
+              <button class="btn btn-primary" type="submit"  onclick="window.location.href = 'http://localhost:8080/BanHang/checkout';" >Checkout <i class="fa fa-check"></i></button>
             </div>
           </div>
           <!-- END CONTENT -->
@@ -764,6 +764,7 @@ Nostrud duis molestie at dolore.</p>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
     
     
+
     <!-- MY SCRIPT -->
     <script>
     	function updateCart(productId, input){
@@ -774,10 +775,14 @@ Nostrud duis molestie at dolore.</p>
     				id : productId,
     				amount : input.value
     			},
-    			success : function(data) {
-    				console.log(data)
+    			success: function(data){
+					const array = data.split("/")
+					document.getElementById("cartQuantity").innerText = array[0] + " items"
+					document.getElementById("cartCharge").innerText = array[1]
+					document.getElementById("total").innerText = array[1]
     			},
     			error : function(xhr) {
+    				console.log("error")
     			}
     		});
     	}

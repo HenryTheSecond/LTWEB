@@ -772,6 +772,7 @@ Nostrud duis molestie at dolore.</p>
 					document.getElementById("cartCharge").innerText = array[1]
 				},
 				error : function(xhr) {
+					console.log(xhr)
 				}
 			});
 	    }
