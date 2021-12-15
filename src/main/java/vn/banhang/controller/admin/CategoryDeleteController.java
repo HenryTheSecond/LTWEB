@@ -1,6 +1,7 @@
 package vn.banhang.controller.admin;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import vn.banhang.Model.Category;
 import vn.banhang.service.CategoryService;
 import vn.banhang.service.impl.CategoryServiceImpl;
 
@@ -21,13 +23,28 @@ public class CategoryDeleteController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int id = Integer.parseInt(req.getParameter("id"));
-		String cname = cateService.getByID(id).getName();
-		cateService.delete(cname);
-		resp.sendRedirect(req.getContextPath() + "/admin/category/manage");
+		Category cate = cateService.getByID(id);
+		String cname = cate.getName();
+		if(kiemTraCategoryConSubCate(cate)) {
+			List<Category> cateList = cateService.getCategories();
+			req.setAttribute("categoryList", cateList);
+			req.setAttribute("messageCSS", "alert alert-danger");
+			req.setAttribute("message", "Không thể xóa vì vẫn còn SubCate tồn tại trong Category này");
+			req.getRequestDispatcher("/views/admin/category/manage-category.jsp").forward(req, resp);
+		} else {
+			cateService.delete(cname);
+			resp.sendRedirect(req.getContextPath() + "/admin/category/manage");
+		}
+			
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		super.doPost(req, resp);
+	}
+	public boolean kiemTraCategoryConSubCate(Category cate) {
+		if(cate.getSubCategories().isEmpty())
+			return false;
+		return true;
 	}
 }

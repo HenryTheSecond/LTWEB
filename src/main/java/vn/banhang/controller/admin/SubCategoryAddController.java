@@ -36,6 +36,7 @@ public class SubCategoryAddController extends HttpServlet{
 		DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
 		ServletFileUpload servletFileUpload = new ServletFileUpload(diskFileItemFactory);
 		servletFileUpload.setHeaderEncoding("UTF-8");
+		boolean flagCateIDKhongTonTai;
 		try {
 			resp.setContentType("text/html");
 			resp.setCharacterEncoding("UTF-8");
@@ -46,12 +47,21 @@ public class SubCategoryAddController extends HttpServlet{
 					subCate.setName(item.getString("UTF-8"));
 				} else if (item.getFieldName().equals("category_id")) {
 					int cate_id = Integer.parseInt(item.getString());
-					Category cate = cateService.getByID(cate_id);
-					subCate.setCategory(cate);
+					if(cateService.getByID(cate_id) != null) {
+						Category cate = cateService.getByID(cate_id);
+						subCate.setCategory(cate);
+					}
 				}
 			}
-			subCateServcie.insert(subCate);
-			resp.sendRedirect(req.getContextPath() + "/admin/sub_category/manage");
+			if(subCate.getCategory() == null) {
+				req.setAttribute("messageCSS", "alert alert-danger");
+				req.setAttribute("message", "CategoryID không tồn tại!!!");
+				req.getRequestDispatcher("/views/admin/sub_category/add-sub_category.jsp").forward(req, resp);
+			}else {
+				subCateServcie.insert(subCate);
+				resp.sendRedirect(req.getContextPath() + "/admin/sub_category/manage");
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

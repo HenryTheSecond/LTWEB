@@ -213,6 +213,9 @@
 				
 						<button type="submit" class="btn btn-primary">Thêm</button>
 						<button type="reset" class="btn btn-danger">Hủy</button>
+						<div class="${messageCSS }">
+						  <strong><p>${message }</p></strong> 
+						</div>
 				</form>		
 				
 				<!-- END EDITTING CATEGORY -->
