@@ -76,6 +76,10 @@ License: You must have a valid license purchased only from themeforest(the above
 		src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
 	<script type="text/javascript"
 		src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
+	<!-- Export File -->
+	<!--Import jQuery before export.js-->
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		
 </head>
 
@@ -485,7 +489,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 						<img alt="" class="img-circle" src="${url}/admin/layout2/img/avatar3_small.jpg"/>
 						<span class="username username-hide-on-mobile">
-						Nick </span>
+						${userAdmin.name } </span>
 						<i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-default">
@@ -516,7 +520,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<i class="icon-lock"></i> Lock Screen </a>
 							</li>
 							<li>
-								<a href="login.html">
+								<a href="/BanHang/logout">
 								<i class="icon-key"></i> Log Out </a>
 							</li>
 						</ul>
@@ -550,7 +554,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
 				<ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
 					<li class="start active ">
-						<a href="index.html">
+						<a href="/BanHang/admin/dashboard">
 						<i class="icon-home"></i>
 						<span class="title">Dashboard</span>
 						<span class="selected"></span>

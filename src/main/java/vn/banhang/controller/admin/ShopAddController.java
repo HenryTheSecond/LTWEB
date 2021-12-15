@@ -16,20 +16,30 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import vn.banhang.Model.Shop;
+import vn.banhang.Model.User;
 import vn.banhang.service.ShopService;
+import vn.banhang.service.UserService;
 import vn.banhang.service.impl.ShopServiceImpl;
+import vn.banhang.service.impl.UserServiceImpl;
 import vn.banhang.utils.Constant;
+import vn.banhang.utils.Utils;
 
 @WebServlet(urlPatterns = {"/admin/shop/add"})
 public class ShopAddController extends HttpServlet{
 	ShopService shopService = new ShopServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/shop/add-shop.jsp");
-		dispatcher.forward(req, resp);
+		if(Utils.kiemtraAdmin(req, resp)) {
+			req.setAttribute("userAdmin", Utils.getUserAdmin(req, resp));
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/shop/add-shop.jsp");
+			dispatcher.forward(req, resp);
+		}else
+			resp.sendRedirect(req.getContextPath() + "/login?next=admin/shop/add");
+		
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		UserService userService = new UserServiceImpl();
 		Shop shop = new Shop();
 		DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
 		ServletFileUpload servletFileUpload = new ServletFileUpload(diskFileItemFactory);
@@ -56,10 +66,26 @@ public class ShopAddController extends HttpServlet{
 					shop.setAvatar("shop/" + fileName);
 				}
 			}
-			shopService.insert(shop);
-			resp.sendRedirect(req.getContextPath() + "/admin/shop/manage");
+			if(kiemTraShopKhongTonTai(shop.getId())) {
+				req.setAttribute("messageCSS", "alert alert-danger");
+				req.setAttribute("message", "ID user khong ton tai!!!");
+				req.getRequestDispatcher("/views/admin/shop/add-shop.jsp").forward(req, resp);
+			}else {
+				User user = userService.getByID(shop.getId());
+				shop.setUser(user);
+				shopService.insert(shop);
+				resp.sendRedirect(req.getContextPath() + "/admin/shop/add");
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	public boolean kiemTraShopKhongTonTai(int id) {
+		List<Shop> shopList = shopService.getAllShop();
+		for(Shop s : shopList) {
+			if(s.getId() == id)
+				return false;
+		}
+		return true;
 	}
 }

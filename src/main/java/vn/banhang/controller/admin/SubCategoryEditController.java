@@ -20,17 +20,23 @@ import vn.banhang.service.CategoryService;
 import vn.banhang.service.SubCategoryService;
 import vn.banhang.service.impl.CategoryServiceImpl;
 import vn.banhang.service.impl.SubCategoryServiceImpl;
+import vn.banhang.utils.Utils;
 
 @WebServlet(urlPatterns = {"/admin/sub_category/edit"})
 public class SubCategoryEditController extends HttpServlet{
 	SubCategoryService subCateServcie = new SubCategoryServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int id = Integer.parseInt(req.getParameter("id"));
-		SubCategory subCate = subCateServcie.get(id);
-		req.setAttribute("subCategory", subCate);
-		RequestDispatcher Dispatcher = req.getRequestDispatcher("/views/admin/sub_category/edit-sub_category.jsp");
-		Dispatcher.forward(req, resp);
+		if(Utils.kiemtraAdmin(req, resp)) {
+			req.setAttribute("userAdmin", Utils.getUserAdmin(req, resp));
+			int id = Integer.parseInt(req.getParameter("id"));
+			SubCategory subCate = subCateServcie.get(id);
+			req.setAttribute("subCategory", subCate);
+			RequestDispatcher Dispatcher = req.getRequestDispatcher("/views/admin/sub_category/edit-sub_category.jsp");
+			Dispatcher.forward(req, resp);
+		}else
+			resp.sendRedirect(req.getContextPath() + "/login?next=admin/sub_category/edit");
+		
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

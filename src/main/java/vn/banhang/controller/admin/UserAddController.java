@@ -17,9 +17,11 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import vn.banhang.Model.SubCategory;
 import vn.banhang.Model.User;
 import vn.banhang.service.UserService;
 import vn.banhang.service.impl.UserServiceImpl;
+import vn.banhang.utils.Utils;
 
 @WebServlet(urlPatterns = {"/admin/user/add"})
 public class UserAddController extends HttpServlet{
@@ -31,11 +33,15 @@ public class UserAddController extends HttpServlet{
 	private static final long serialVersionUID = -1083913102720236905L;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		if(Utils.kiemtraAdmin(req, resp)) {
+			req.setAttribute("userAdmin", Utils.getUserAdmin(req, resp));
+			Calendar cal = Calendar.getInstance();
+			req.setAttribute("calendar", cal);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/user/add_user.jsp");
+			dispatcher.forward(req, resp);
+		}else
+			resp.sendRedirect(req.getContextPath() + "/login?next=admin/user/add");
 		
-		Calendar cal = Calendar.getInstance();
-		req.setAttribute("calendar", cal);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/user/add_user.jsp");
-		dispatcher.forward(req, resp);
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
