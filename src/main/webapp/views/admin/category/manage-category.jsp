@@ -208,6 +208,9 @@
 					</table>
 					
 					<button type="button" class="btn btn-info"><a href="/BanHang/admin/category/add" style="color: dark;">Thêm</a></button>
+					<div class="${messageCSS }">
+						  <strong><p>${message }</p></strong> 
+						</div>
 					<script>
 						$(document).ready(function() {
 							var table = $('#example').DataTable({

@@ -37,8 +37,13 @@ public class SubCategoryDAOImpl implements SubCategoryDAO{
 	@Override
 	public SubCategory get(int id) {
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
-			SubCategory subCate = session.get(SubCategory.class, id);
-			return subCate;
+			try {
+				SubCategory subCate = session.get(SubCategory.class, id);
+				return subCate;	
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			return null;
 		}
 	}
 

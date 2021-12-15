@@ -42,8 +42,12 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public Category getByID(int id) {
 		try(Session session = factory.openSession()) {
+			try {
 			Category category = session.get(Category.class, id);
-			return category;
+				return category;
+			} catch(Exception e) {
+			}
+			return null;
 		}
 	}
 
@@ -92,12 +96,16 @@ public class CategoryDAOImpl implements CategoryDAO {
 		//System.out.println(dao.getCategories());
 		
 		//System.out.println(dao.get("1").getName());
-		Category c1 = new Category();
+		/*Category c1 = new Category();
 		c1.setName("NewP2");
-		c1.setId(6);
+		c1.setId(6);*/
 		//dao.delete("NewP");
 		//dao.getCategories().forEach(c -> System.out.println(c.getName()));
-		System.out.println(dao.getByID(1).getName());
+		if(dao.getByID(100) == null)
+			System.out.println("null");
+		else
+			System.out.println(dao.getByID(100).getName());
+		
 	}
 
 	

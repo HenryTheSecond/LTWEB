@@ -212,9 +212,10 @@
 							</tr>
 						</tfoot>
 					</table>
-					<h3>Chưa check có tồn tại id category</h3>
-					<h3>Chưa check để trường trống</h3>
 					<button type="button" class="btn btn-info"><a href="/BanHang/admin/sub_category/add" style="color: dark;">Thêm</a></button>
+					<div class="${messageCSS }">
+						  <strong><p>${message }</p></strong> 
+						</div>
 					<script>
 						$(document).ready(function() {
 							var table = $('#example').DataTable({

@@ -74,10 +74,24 @@ public class UserEditController extends HttpServlet{
 					user.setEmail(item.getString("UTF-8"));
 				}
 			}
-			userService.edit(user);
-			resp.sendRedirect(req.getContextPath() + "/admin/user/manage");
+			if(kiemTraUsernameTonTai(user.getName())) {
+				req.setAttribute("messageCSS", "alert alert-danger");
+				req.setAttribute("message", "Username đã tồn tại vui lòng nhập tên tài khoản khác!!!");
+				req.getRequestDispatcher("/views/admin/user/add_user.jsp").forward(req, resp);
+			}else {
+				userService.edit(user);
+				resp.sendRedirect(req.getContextPath() + "/admin/user/manage");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	public boolean kiemTraUsernameTonTai(String name) {
+		List<User> list = userService.getAllUsers();
+		for(User u : list) {
+			if(u.getName().equals(name))
+				return true;
+		}
+		return false;
 	}
 }

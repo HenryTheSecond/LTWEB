@@ -46,8 +46,15 @@ public class CategoryAddController extends HttpServlet{
 					category.setName(item.getString("UTF-8"));
 				}  
 			}
-			cateService.insert(category);
-			resp.sendRedirect(req.getContextPath() + "/admin/category/manage");
+			if(cateService.get(category.getName()) == null) {
+				cateService.insert(category);
+				resp.sendRedirect(req.getContextPath() + "/admin/category/manage");
+			}else {
+				req.setAttribute("messageCSS", "alert alert-danger");
+				req.setAttribute("message", "Tên này đã tồn tại vui lòng nhập lại tên Category khác !!!");
+				req.getRequestDispatcher("/views/admin/category/add-category.jsp").forward(req, resp);
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
