@@ -272,37 +272,12 @@
 											<a href="#overview_1" data-toggle="tab">
 											Top Selling </a>
 										</li>
-										<li>
-											<a href="#overview_2" data-toggle="tab">
-											Most Viewed </a>
-										</li>
+
 										<li>
 											<a href="#overview_3" data-toggle="tab">
 											Customers </a>
 										</li>
-										<li class="dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-											Orders <i class="fa fa-angle-down"></i>
-											</a>
-											<ul class="dropdown-menu" role="menu">
-												<li>
-													<a href="#overview_4" tabindex="-1" data-toggle="tab">
-													Latest 10 Orders </a>
-												</li>
-												<li>
-													<a href="#overview_4" tabindex="-1" data-toggle="tab">
-													Pending Orders </a>
-												</li>
-												<li>
-													<a href="#overview_4" tabindex="-1" data-toggle="tab">
-													Completed Orders </a>
-												</li>
-												<li>
-													<a href="#overview_4" tabindex="-1" data-toggle="tab">
-													Rejected Orders </a>
-												</li>
-											</ul>
-										</li>
+										
 									</ul>
 									<div class="tab-content">
 										<div class="tab-pane active" id="overview_1">
@@ -348,141 +323,7 @@
 												</table>
 											</div>
 										</div>
-										<div class="tab-pane" id="overview_2">
-											<div class="table-responsive">
-												<table class="table table-striped table-hover table-bordered">
-												<thead>
-												<tr>
-													<th>
-														 Product Name
-													</th>
-													<th>
-														 Price
-													</th>
-													<th>
-														 Views
-													</th>
-													<th>
-													</th>
-												</tr>
-												</thead>
-												<tbody>
-												<tr>
-													<td>
-														<a href="#">
-														Metronic - Responsive Admin + Frontend Theme </a>
-													</td>
-													<td>
-														 $20.00
-													</td>
-													<td>
-														 11190
-													</td>
-													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<a href="#">
-														Regatta Luca 3 in 1 Jacket </a>
-													</td>
-													<td>
-														 $25.50
-													</td>
-													<td>
-														 1245
-													</td>
-													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<a href="#">
-														Apple iPhone 4s - 16GB - Black </a>
-													</td>
-													<td>
-														 $625.50
-													</td>
-													<td>
-														 809
-													</td>
-													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<a href="#">
-														Samsung Galaxy S III SGH-I747 - 16GB </a>
-													</td>
-													<td>
-														 $915.50
-													</td>
-													<td>
-														 6709
-													</td>
-													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<a href="#">
-														Motorola Droid 4 XT894 - 16GB - Black </a>
-													</td>
-													<td>
-														 $878.50
-													</td>
-													<td>
-														 784
-													</td>
-													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<a href="#">
-														Samsung Galaxy Note 3 </a>
-													</td>
-													<td>
-														 $925.50
-													</td>
-													<td>
-														 21245
-													</td>
-													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<a href="#">
-														Inoval Digital Pen </a>
-													</td>
-													<td>
-														 $125.50
-													</td>
-													<td>
-														 1245
-													</td>
-													<td>
-														<a href="#" class="btn default btn-xs green-stripe">
-														View </a>
-													</td>
-												</tr>
-												</tbody>
-												</table>
-											</div>
-										</div>
+										
 										<div class="tab-pane" id="overview_3">
 											<div class="table-responsive">
 												<table class="table table-striped table-hover table-bordered">
@@ -790,65 +631,7 @@
 						</div>
 						<!-- End: life time stats -->
 					</div>
-					<div class="col-md-6">
-						<!-- Begin: life time stats -->
-						<div class="portlet light">
-							<div class="portlet-title tabbable-line">
-								<div class="caption">
-									<i class="icon-share font-red-sunglo"></i>
-									<span class="caption-subject font-red-sunglo bold uppercase">Revenue</span>
-									<span class="caption-helper">weekly stats...</span>
-								</div>
-								<ul class="nav nav-tabs">
-									<li>
-										<a href="#portlet_tab2" data-toggle="tab" id="statistics_amounts_tab">
-										Amounts </a>
-									</li>
-									<li class="active">
-										<a href="#portlet_tab1" data-toggle="tab">
-										Orders </a>
-									</li>
-								</ul>
-							</div>
-							<div class="portlet-body">
-								<div class="tab-content">
-									<div class="tab-pane active" id="portlet_tab1">
-										<div id="statistics_1" class="chart">
-										</div>
-									</div>
-									<div class="tab-pane" id="portlet_tab2">
-										<div id="statistics_2" class="chart">
-										</div>
-									</div>
-								</div>
-								<div class="well margin-top-10 no-margin no-border">
-									<div class="row">
-										<div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-											<span class="label label-success">
-											Revenue: </span>
-											<h3>$111K</h3>
-										</div>
-										<div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-											<span class="label label-info">
-											Tax: </span>
-											<h3>$14K</h3>
-										</div>
-										<div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-											<span class="label label-danger">
-											Shipment: </span>
-											<h3>$10K</h3>
-										</div>
-										<div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-											<span class="label label-warning">
-											Orders: </span>
-											<h3>2350</h3>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End: life time stats -->
-					</div>
+					
 				</div>
 				<!-- END PAGE CONTENT-->
 			</div>

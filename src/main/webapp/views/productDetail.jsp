@@ -76,8 +76,8 @@
         <!-- BEGIN CART -->
         <div class="top-cart-block">
           <div class="top-cart-info">
-            <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
-            <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
+            <a id="cartQuantity" href="${pageContext.request.contextPath }/cart" class="top-cart-info-count">${cartQuantity } items</a>
+            <a  id="cartCharge" href="${pageContext.request.contextPath }/cart" class="top-cart-info-value">${cartCharge }</a>
           </div>
           <i class="fa fa-shopping-cart"></i>
                         
@@ -142,7 +142,7 @@
                 </li>
               </ul>
               <div class="text-right">
-                <a href="shop-shopping-cart.html" class="btn btn-default">View Cart</a>
+                <a href="${pageContext.request.contextPath }" class="btn btn-default">View Cart</a>
                 <a href="shop-checkout.html" class="btn btn-primary">Checkout</a>
               </div>
             </div>
@@ -278,9 +278,9 @@
                   </div>
                   <div class="product-page-cart">
                     <div class="product-quantity">
-                        <input id="product-quantity" type="text" value="1" readonly class="form-control input-sm">
+                        <input id="product-quantity" type="text" value="1" class="form-control input-sm">
                     </div>
-                    <button class="btn btn-primary" type="submit">Add to cart</button>
+                    <button class="btn btn-primary" onclick="addToCart(${product.id},${product.price })">Add to cart</button>
                   </div>
                   <div class="review">
                     <input type="range" value="4" step="0.25" id="backing4">
@@ -620,7 +620,7 @@ Nostrud duis molestie at dolore.</p>
                     <div class="product-quantity">
                         <input id="product-quantity2" type="text" value="1" readonly class="form-control input-sm">
                     </div>
-                    <button class="btn btn-primary" type="submit">Add to cart</button>
+                    <button class="btn btn-primary" onclick="addToCart(${p.id}, ${p.price })">Add to cart</button>
                     <a href="shop-item.html" class="btn btn-default">More details</a>
                   </div>
                 </div>
@@ -663,6 +663,33 @@ Nostrud duis molestie at dolore.</p>
         });
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
+    
+    
+    <script>
+    function addToCart(id, price){
+    	amount = document.getElementById("product-quantity").value
+    	$.ajax({
+			url : "/BanHang/api/add-to-cart?id=" + id + "&price=" + price + "&amount=" + amount,
+			type : "get",
+			data : {
+				
+			},
+			success : function(data) {
+				/*const array = data.split("/")
+				document.getElementById("cartQuantity").innerText = array[0] + " items"
+				document.getElementById("cartCharge").innerText = array[1]*/
+				const array = data.split("/")
+				document.getElementById("cartQuantity").innerText = array[0] + " items"
+				document.getElementById("cartCharge").innerText = array[1]
+			},
+			error : function(xhr) {
+				console.log(xhr)
+			}
+		});
+    }
+    </script>
+    
+    
 </body>
 <!-- END BODY -->
 </html>
