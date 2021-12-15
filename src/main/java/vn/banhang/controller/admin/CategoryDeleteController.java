@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import vn.banhang.Model.Category;
 import vn.banhang.service.CategoryService;
 import vn.banhang.service.impl.CategoryServiceImpl;
+import vn.banhang.utils.Utils;
 
 @WebServlet(urlPatterns = {"/admin/category/delete"})
 public class CategoryDeleteController extends HttpServlet{
@@ -22,19 +23,24 @@ public class CategoryDeleteController extends HttpServlet{
 	private static final long serialVersionUID = 4399621604632614040L;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int id = Integer.parseInt(req.getParameter("id"));
-		Category cate = cateService.getByID(id);
-		String cname = cate.getName();
-		if(kiemTraCategoryConSubCate(cate)) {
-			List<Category> cateList = cateService.getCategories();
-			req.setAttribute("categoryList", cateList);
-			req.setAttribute("messageCSS", "alert alert-danger");
-			req.setAttribute("message", "Không thể xóa vì vẫn còn SubCate tồn tại trong Category này");
-			req.getRequestDispatcher("/views/admin/category/manage-category.jsp").forward(req, resp);
-		} else {
-			cateService.delete(cname);
-			resp.sendRedirect(req.getContextPath() + "/admin/category/manage");
-		}
+		if(Utils.kiemtraAdmin(req, resp)) {
+			req.setAttribute("userAdmin", Utils.getUserAdmin(req, resp));
+			int id = Integer.parseInt(req.getParameter("id"));
+			Category cate = cateService.getByID(id);
+			String cname = cate.getName();
+			if(kiemTraCategoryConSubCate(cate)) {
+				List<Category> cateList = cateService.getCategories();
+				req.setAttribute("categoryList", cateList);
+				req.setAttribute("messageCSS", "alert alert-danger");
+				req.setAttribute("message", "Không thể xóa vì vẫn còn SubCate tồn tại trong Category này");
+				req.getRequestDispatcher("/views/admin/category/manage-category.jsp").forward(req, resp);
+			} else {
+				cateService.delete(cname);
+				resp.sendRedirect(req.getContextPath() + "/admin/category/manage");
+			}
+		}else
+			resp.sendRedirect(req.getContextPath() + "/login?next=admin/category/delete");
+		
 			
 	}
 	@Override

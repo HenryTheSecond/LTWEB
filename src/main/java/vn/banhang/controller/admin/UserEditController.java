@@ -20,6 +20,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import vn.banhang.Model.User;
 import vn.banhang.service.UserService;
 import vn.banhang.service.impl.UserServiceImpl;
+import vn.banhang.utils.Utils;
 
 
 @WebServlet(urlPatterns = {"/admin/user/edit"})
@@ -28,14 +29,19 @@ public class UserEditController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("id");
-		User user = userService.getByID(Integer.parseInt(id));
-		req.setAttribute("user", user);
-		req.setAttribute("is_seller", user.getIs_seller());
-		req.setAttribute("is_admin", user.getIs_admin());
+		if(Utils.kiemtraAdmin(req, resp)) {
+			req.setAttribute("userAdmin", Utils.getUserAdmin(req, resp));
+			String id = req.getParameter("id");
+			User user = userService.getByID(Integer.parseInt(id));
+			req.setAttribute("user", user);
+			req.setAttribute("is_seller", user.getIs_seller());
+			req.setAttribute("is_admin", user.getIs_admin());
+			
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/user/edit_user.jsp");
+			dispatcher.forward(req, resp);
+		}else
+			resp.sendRedirect(req.getContextPath() + "/login?next=admin/user/edit");
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/user/edit_user.jsp");
-		dispatcher.forward(req, resp);
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

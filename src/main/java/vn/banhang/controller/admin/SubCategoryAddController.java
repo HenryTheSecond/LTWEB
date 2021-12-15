@@ -20,14 +20,20 @@ import vn.banhang.service.CategoryService;
 import vn.banhang.service.SubCategoryService;
 import vn.banhang.service.impl.CategoryServiceImpl;
 import vn.banhang.service.impl.SubCategoryServiceImpl;
+import vn.banhang.utils.Utils;
 
 @WebServlet(urlPatterns = {"/admin/sub_category/add"})
 public class SubCategoryAddController extends HttpServlet{
 	SubCategoryService subCateServcie = new SubCategoryServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher Dispatcher = req.getRequestDispatcher("/views/admin/sub_category/add-sub_category.jsp");
-		Dispatcher.forward(req, resp);
+		if(Utils.kiemtraAdmin(req, resp)) {
+			req.setAttribute("userAdmin", Utils.getUserAdmin(req, resp));
+			RequestDispatcher Dispatcher = req.getRequestDispatcher("/views/admin/sub_category/add-sub_category.jsp");
+			Dispatcher.forward(req, resp);
+		}else
+			resp.sendRedirect(req.getContextPath() + "/login?next=admin/ssub_category/add");
+		
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

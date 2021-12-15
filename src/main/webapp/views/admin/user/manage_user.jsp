@@ -3,10 +3,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/templates/assets" var="url"></c:url>
 
-<!-- Export File -->
-<!--Import jQuery before export.js-->
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
 
 
 
@@ -240,22 +237,20 @@
 					
 					<button type="button" class="btn btn-info"><a href="/BanHang/admin/user/add" style="color: dark;">Thêm</a></button>
 					
-					<script>
+					<!-- <script>
 						$(document).ready(function() {
 							var table = $('#example').DataTable({
 								fixedHeader : true
 							});
 						});
-					</script>
+					</script> -->
 					<script>
-					$(document).ready(function() {
 					    $('#example').DataTable( {
 					        dom: 'Bfrtip',
 					        buttons: [
 					            'copy', 'csv', 'excel', 'pdf', 'print'
 					        ]
 					    } );
-					} );
 					</script>	
 				
 				<!-- END EDITTING CATEGORY -->

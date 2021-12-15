@@ -22,4 +22,20 @@ public class Utils {
 			return false;
 		return true;
 	}
+	public static boolean kiemtraAdmin(HttpServletRequest req, HttpServletResponse resp) {
+		HttpSession session = req.getSession();
+		User user = (User)session.getAttribute("user");
+		if(user == null || user.getIs_admin()==0) {
+			return false;
+		}
+		return true;
+	}
+	public static User getUserAdmin(HttpServletRequest req, HttpServletResponse resp) {
+		HttpSession session = req.getSession();
+		User user = (User)session.getAttribute("user");
+		if(user == null || user.getIs_admin()==0) {
+			return null;
+		}
+		return user;
+	}
 }

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import vn.banhang.utils.Utils;
+
 
 @WebServlet(urlPatterns = {"/admin/dashboard"})
 public class AdminHomeController extends HttpServlet{
@@ -19,8 +21,12 @@ public class AdminHomeController extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rq = req.getRequestDispatcher("/views/admin/admin_dashboard.jsp");
-		rq.forward(req, resp);
+		if(Utils.kiemtraAdmin(req, resp)) {
+			req.setAttribute("userAdmin", Utils.getUserAdmin(req, resp));
+			RequestDispatcher rq = req.getRequestDispatcher("/views/admin/admin_dashboard.jsp");
+			rq.forward(req, resp);
+		}else
+			resp.sendRedirect(req.getContextPath() + "/login?next=admin/dashboard");
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

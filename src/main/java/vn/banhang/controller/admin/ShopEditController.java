@@ -22,17 +22,23 @@ import vn.banhang.Model.Shop;
 import vn.banhang.service.ShopService;
 import vn.banhang.service.impl.ShopServiceImpl;
 import vn.banhang.utils.Constant;
+import vn.banhang.utils.Utils;
 
 @WebServlet(urlPatterns = {"/admin/shop/edit"})
 public class ShopEditController extends HttpServlet{
 	ShopService shopService = new ShopServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int id = Integer.parseInt(req.getParameter("id"));
-		Shop shop = shopService.getByID(id);
-		req.setAttribute("shop", shop);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/shop/edit-shop.jsp");
-		dispatcher.forward(req, resp);
+		if(Utils.kiemtraAdmin(req, resp)) {
+			req.setAttribute("userAdmin", Utils.getUserAdmin(req, resp));
+			int id = Integer.parseInt(req.getParameter("id"));
+			Shop shop = shopService.getByID(id);
+			req.setAttribute("shop", shop);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/shop/edit-shop.jsp");
+			dispatcher.forward(req, resp);
+		}else
+			resp.sendRedirect(req.getContextPath() + "/login?next=admin/shop/edit");
+		
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

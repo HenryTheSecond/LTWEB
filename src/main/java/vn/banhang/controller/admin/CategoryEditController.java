@@ -21,17 +21,23 @@ import vn.banhang.Model.Category;
 import vn.banhang.Model.User;
 import vn.banhang.service.CategoryService;
 import vn.banhang.service.impl.CategoryServiceImpl;
+import vn.banhang.utils.Utils;
 
 @WebServlet(urlPatterns = {"/admin/category/edit"})
 public class CategoryEditController extends HttpServlet{
 	CategoryService cateService = new CategoryServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int id = Integer.parseInt(req.getParameter("id"));
-		Category category = cateService.getByID(id);
-		req.setAttribute("category", category);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/category/edit-category.jsp");
-		dispatcher.forward(req, resp);
+		if(Utils.kiemtraAdmin(req, resp)) {
+			req.setAttribute("userAdmin", Utils.getUserAdmin(req, resp));
+			int id = Integer.parseInt(req.getParameter("id"));
+			Category category = cateService.getByID(id);
+			req.setAttribute("category", category);
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/category/edit-category.jsp");
+			dispatcher.forward(req, resp);
+		}else
+			resp.sendRedirect(req.getContextPath() + "/login?next=admin/category/edit");
+		
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

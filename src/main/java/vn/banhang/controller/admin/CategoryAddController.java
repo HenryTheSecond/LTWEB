@@ -21,14 +21,20 @@ import vn.banhang.Model.Category;
 import vn.banhang.Model.User;
 import vn.banhang.service.CategoryService;
 import vn.banhang.service.impl.CategoryServiceImpl;
+import vn.banhang.utils.Utils;
 
 @WebServlet(urlPatterns = {"/admin/category/add"})
 public class CategoryAddController extends HttpServlet{
 	CategoryService cateService = new CategoryServiceImpl() ;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher Dispatcher = req.getRequestDispatcher("/views/admin/category/add-category.jsp");
-		Dispatcher.forward(req, resp);
+		if(Utils.kiemtraAdmin(req, resp)) {
+			req.setAttribute("userAdmin", Utils.getUserAdmin(req, resp));
+			RequestDispatcher Dispatcher = req.getRequestDispatcher("/views/admin/category/add-category.jsp");
+			Dispatcher.forward(req, resp);
+		}else
+			resp.sendRedirect(req.getContextPath() + "/login?next=admin/category/add");
+		
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -60,3 +66,4 @@ public class CategoryAddController extends HttpServlet{
 		}
 	}
 }
+

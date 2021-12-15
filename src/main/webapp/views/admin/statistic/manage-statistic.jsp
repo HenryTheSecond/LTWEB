@@ -170,7 +170,7 @@
 				</div>
 				<!-- END PAGE HEADER-->
 				<!-- BEGIN EDITTING CATEGORY -->
-				<p>Khu vực chỉnh sửa</p>
+				<h1>Comming Soon</h1>
 				<!-- END EDITTING CATEGORY -->
 			</div>
 		</div>
