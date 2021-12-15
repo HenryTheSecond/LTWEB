@@ -21,8 +21,9 @@ import vn.banhang.service.impl.CartServiceImpl;
 public class UpdateCartController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("application/json");
-		resp.setCharacterEncoding("utf-8");
+		resp.setContentType("text/html");
+		resp.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		
 		int id = Integer.parseInt(req.getParameter("id"));
 		HttpSession session = req.getSession();
@@ -36,11 +37,15 @@ public class UpdateCartController extends HttpServlet{
 		session.setAttribute("cart", map);
 		
 		int quantity=0;
-		double charge=0;
+		double charge=0.0;
 		for(Cart item: map.values()) {
 			quantity+= item.getAmount();
-			charge+= item.getAmount()+item.getPrice();
+			charge+= item.getAmount()*item.getPrice();
 		}
+		
+		System.out.println(quantity);
+		System.out.println(charge);
+		
 		session.setAttribute("cartQuantity", quantity);
 		session.setAttribute("cartCharge", charge);
 		PrintWriter out = resp.getWriter();
