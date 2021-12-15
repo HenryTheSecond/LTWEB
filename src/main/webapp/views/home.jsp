@@ -422,7 +422,7 @@
                   </div>
                   <h3><a href="shop-item.html">${p.name}</a></h3>
                   <div class="pi-price">$ ${p.price}</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                  <a onclick="addToCart(${p.id}, ${p.price },1)" class="btn btn-default add2cart">Add to cart</a>
                 </div>
               </div>
              </c:forEach>
@@ -450,7 +450,7 @@
                   </div>
                   <h3><a href="shop-item.html">${p.name}</a></h3>
                   <div class="pi-price">$ ${p.price}</div>
-                  <a href="#" class="btn btn-default add2cart">Add to cart</a>
+                  <a onclick="addToCart(${p.id}, ${p.price },1)" class="btn btn-default add2cart">Add to cart</a>
                 </div>
               </div>
             </c:forEach>

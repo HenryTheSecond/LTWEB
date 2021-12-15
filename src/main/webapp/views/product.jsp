@@ -77,8 +77,8 @@
         <!-- BEGIN CART -->
         <div class="top-cart-block">
           <div class="top-cart-info">
-            <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
-            <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
+            <a id="cartQuantity" class="top-cart-info-count">${cartQuantity } items</a>
+            <a id="cartCharge" class="top-cart-info-value">${cartCharge }</a>
           </div>
           <i class="fa fa-shopping-cart"></i>
                         
@@ -143,7 +143,7 @@
                 </li>
               </ul>
               <div class="text-right">
-                <a href="shop-shopping-cart.html" class="btn btn-default">View Cart</a>
+                <a href="${pageContext.request.contextPath }/cart" class="btn btn-default">View Cart</a>
                 <a href="shop-checkout.html" class="btn btn-primary">Checkout</a>
               </div>
             </div>
@@ -297,10 +297,11 @@
               </div>
             </div>
             <!-- BEGIN PRODUCT LIST -->
-            <div class="row product-list">
+            <div class="row product-list" id="productContent">
               <!-- PRODUCT ITEM START -->
               
               <c:forEach items="${listAllProduct}" var="p">
+              <%-- <c:forEach begin="0" end="2" var="i"> --%>
               <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="product-item">
                   <div class="pi-img-wrapper">
@@ -313,7 +314,7 @@
                   </div>
                   <h3><a href="shop-item.html">${p.name}</a></h3>
                   <div class="pi-price">$${p.price}</div>
-                  <a href="" class="btn btn-default add2cart">Add to cart</a>
+                  <a onclick="addToCart(${p.id}, ${p.price }, 1 )" class="btn btn-default add2cart">Add to cart</a>
                 </div>
                   </div>
                </c:forEach>
@@ -326,13 +327,15 @@
               <div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 total</div>
               <div class="col-md-8 col-sm-8">
                 <ul class="pagination pull-right">
-                  <li><a href="#">&laquo;</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><span>2</span></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">&raquo;</a></li>
+                
+                  <li onclick="nextPageClick()"><a>&laquo;</a></li>
+
+				  <c:forEach begin="1" end="${pages }" var="i">
+                  	<li onclick="paging(${i})" ><a id="pageNumber${i }"  ${i==1? "style='background-color:yellow'":"" } >${i }</a></li>
+                  </c:forEach>
+
+                  <li onclick="prePageClick()"><a>&raquo;</a></li>
+                  
                 </ul>
               </div>
             </div>
@@ -601,6 +604,82 @@ Nostrud duis molestie at dolore.</p>
         });
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
+    
+    
+    <script>
+	    function addToCart(id, price, amount){
+	    	console.log(id)
+	    	$.ajax({
+				url : "/BanHang/api/add-to-cart?id=" + id + "&price=" + price + "&amount=" + amount,
+				type : "get",
+				data : {
+					
+				},
+				success : function(data) {
+					/*const array = data.split("/")
+					document.getElementById("cartQuantity").innerText = array[0] + " items"
+					document.getElementById("cartCharge").innerText = array[1]*/
+					const array = data.split("/")
+					document.getElementById("cartQuantity").innerText = array[0] + " items"
+					document.getElementById("cartCharge").innerText = array[1]
+				},
+				error : function(xhr) {
+					console.log(xhr)
+				}
+			});
+	    }
+    </script>
+    
+    <script>
+    	curPage = 1
+    	function paging(page){
+    		oldPage = curPage
+    		document.getElementById("pageNumber" + oldPage).style.backgroundColor = ""
+    		curPage = page
+    		document.getElementById("pageNumber" + page).style.backgroundColor = "yellow"
+    		
+    		start = (page-1)*3
+    		end = start + 2
+    		if(end > ${listAllProduct.size()-1})
+    			end = ${listAllProduct.size()}
+			
+    		
+    		
+    		console.log(start)
+    		console.log(end)
+    		
+    		
+    		/*$.ajax({
+    			url : "/BanHang/api/paging" + window.location.search,
+    			type : "get",
+    			data : {
+    				start = start,
+    			},
+    			success : function(data) {
+    				body.innerHTML = data;
+    			},
+    			error : function(xhr) {
+    			}
+    		});*/
+			
+    		
+    		document.getElementById("productContent").innerHTML = "HELLO"
+    		
+    	}
+    	
+    	function nextPageClick(){
+    		pages = ${pages}
+    		if(curPage<pages)
+    			paging(curPage+1)
+    	}
+    	
+    	function prePageClick(){
+    		if(curPage>1)
+    			paging(curPage-1)
+    	}
+    	
+    </script>
+    
 </body>
 <!-- END BODY -->
 </html>

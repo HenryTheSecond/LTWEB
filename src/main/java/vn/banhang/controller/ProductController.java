@@ -37,15 +37,16 @@ public class ProductController  extends HttpServlet{
 		SubCategoryService subCategoryService = new SubCategoryServiceImpl();
 		ProductService productService = new ProductServiceImpl();
 		
+		List<Product> allProduct = null;
 		if("0".equals(cid) && "0".equals(scid)) {
-			List<Product> allProduct = productService.getAllProduct();
+			allProduct = productService.getAllProduct();
 			req.setAttribute("listAllProduct", allProduct);
 		} else if("0".equals(cid) && !("0".equals(scid))) {
-			List<Product> allProductBySubCate = productService.getProductBySubCate(Integer.valueOf(scid));
-			req.setAttribute("listAllProduct", allProductBySubCate);
+			allProduct = productService.getProductBySubCate(Integer.valueOf(scid));
+			req.setAttribute("listAllProduct", allProduct);
 		} else if(!("0".equals(cid)) && "0".equals(scid)) {
-			List<Product> allProductByCate = productService.getProductByCate(Integer.valueOf(cid));
-			req.setAttribute("listAllProduct", allProductByCate);
+			allProduct = productService.getProductByCate(Integer.valueOf(cid));
+			req.setAttribute("listAllProduct", allProduct);
 		}
 		
 		List<Product> threeProduct = productService.getThreeProduct();
@@ -57,6 +58,17 @@ public class ProductController  extends HttpServlet{
 		List<Category> allCate = categoryService.getCategories();
 		req.setAttribute("listCate", allCate);
 		
+		int pages = (int)Math.ceil( allProduct.size()/3.0 );
+		
+		
+		req.setAttribute("pages", pages);
+		req.setAttribute("start", 0);
+		
+		int end=2;
+
+		
+		req.setAttribute("end", 2);
+
 		RequestDispatcher rq = req.getRequestDispatcher("/views/product.jsp");
 		rq.forward(req, resp);
 	}
