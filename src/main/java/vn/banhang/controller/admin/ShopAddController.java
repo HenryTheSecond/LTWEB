@@ -27,6 +27,7 @@ import vn.banhang.utils.Utils;
 @WebServlet(urlPatterns = {"/admin/shop/add"})
 public class ShopAddController extends HttpServlet{
 	ShopService shopService = new ShopServiceImpl();
+	UserService userService = new UserServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		if(Utils.kiemtraAdmin(req, resp)) {
@@ -39,7 +40,7 @@ public class ShopAddController extends HttpServlet{
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		UserService userService = new UserServiceImpl();
+		
 		Shop shop = new Shop();
 		DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
 		ServletFileUpload servletFileUpload = new ServletFileUpload(diskFileItemFactory);
@@ -66,7 +67,7 @@ public class ShopAddController extends HttpServlet{
 					shop.setAvatar("shop/" + fileName);
 				}
 			}
-			if(kiemTraShopKhongTonTai(shop.getId())) {
+			if(kiemTraUserKhongTonTai(shop.getId())) {
 				req.setAttribute("messageCSS", "alert alert-danger");
 				req.setAttribute("message", "ID user khong ton tai!!!");
 				req.getRequestDispatcher("/views/admin/shop/add-shop.jsp").forward(req, resp);
@@ -74,15 +75,15 @@ public class ShopAddController extends HttpServlet{
 				User user = userService.getByID(shop.getId());
 				shop.setUser(user);
 				shopService.insert(shop);
-				resp.sendRedirect(req.getContextPath() + "/admin/shop/add");
+				resp.sendRedirect(req.getContextPath() + "/admin/shop/manage");
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	public boolean kiemTraShopKhongTonTai(int id) {
-		List<Shop> shopList = shopService.getAllShop();
-		for(Shop s : shopList) {
+	public boolean kiemTraUserKhongTonTai(int id) {
+		List<User> userList = userService.getAllUsers();
+		for(User s : userList) {
 			if(s.getId() == id)
 				return false;
 		}

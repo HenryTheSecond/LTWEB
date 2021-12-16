@@ -54,7 +54,9 @@ public class SubCategoryEditController extends HttpServlet{
 			for (FileItem item : items) {
 				if (item.getFieldName().equals("name")) {
 					subCate.setName(item.getString("UTF-8"));
-				} else if (item.getFieldName().equals("category_id")) {
+				} else if (item.getFieldName().equals("id")) {
+					subCate.setId(Integer.parseInt(item.getString("UTF-8")));
+				}else if (item.getFieldName().equals("category_id")) {
 					int cate_id = Integer.parseInt(item.getString());
 					if(cateService.getByID(cate_id) != null) {
 						Category cate = cateService.getByID(cate_id);

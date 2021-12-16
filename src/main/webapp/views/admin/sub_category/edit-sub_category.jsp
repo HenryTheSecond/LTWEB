@@ -176,8 +176,9 @@
 					enctype="multipart/form-data">
 					<input name="id" value="${subCategory.id}" hidden="">
 						<div class="form-group">
-							<label>ID : ${subCategory.id } </label>
+							<label name="id">ID : ${subCategory.id } </label>
 						</div>
+						
 						<div class="form-group">
 							<label>Name:</label> <input class="form-control"
 								placeholder="please enter subcategory name" name="name" value="${subCategory.name}" />

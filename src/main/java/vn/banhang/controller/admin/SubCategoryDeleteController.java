@@ -25,7 +25,7 @@ public class SubCategoryDeleteController extends HttpServlet{
 			req.setAttribute("userAdmin", Utils.getUserAdmin(req, resp));
 			int id = Integer.parseInt(req.getParameter("id"));
 			SubCategory subCate = subCateService.get(id);
-			if(kiemTraSubCateConProduct(subCate)) {
+			if(kiemTraSubCateCoProduct(subCate)) {
 				List<SubCategory> subCateList = subCateService.getAllSubCategory();
 				req.setAttribute("subCateList", subCateList);
 				req.setAttribute("messageCSS", "alert alert-danger");
@@ -40,8 +40,8 @@ public class SubCategoryDeleteController extends HttpServlet{
 		
 		
 	}
-	public boolean kiemTraSubCateConProduct(SubCategory subcate) {
-		if(subcate.getProducts() == null)
+	public boolean kiemTraSubCateCoProduct(SubCategory subcate) {
+		if(subcate.getProducts().size() == 0)
 			return false;
 		return true;
 	}
