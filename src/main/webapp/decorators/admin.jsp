@@ -55,31 +55,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<link href="${url }/admin/layout2/css/custom.css" rel="stylesheet" type="text/css"/>
 	<!-- END THEME STYLES -->
 	<link rel="shortcut icon" href="favicon.ico"/>
-	<!--Export table button CSS-->
-	<link rel="stylesheet"
-		href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
-	<link rel="stylesheet"
-		href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css">
-	<!--Data Table-->
-	<script type="text/javascript"
-		src=" https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript"
-		src=" https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>	
-	<!--Export table buttons-->
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/pdfmake.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/vfs_fonts.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
-	<!-- Export File -->
-	<!--Import jQuery before export.js-->
-	<script type="text/javascript"
-		src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	
 		
 </head>
 
